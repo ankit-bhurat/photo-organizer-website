@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description?: string;
@@ -20,6 +22,16 @@ const { title, description = 'Your photos. Your device. Your privacy. A blazing-
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>{title}</title>
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = stored || (prefersDark ? 'dark' : 'dark');
+        if (theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
   </head>
   <body class="min-h-screen grid-bg">
     <slot />
