@@ -1,0 +1,1035 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const sidebarLinks = [
+  { label: 'Getting Started', href: '#getting-started' },
+  { label: 'Browsing & Viewing', href: '#browsing-viewing' },
+  { label: 'Organization', href: '#organization' },
+  { label: 'Search & Filtering', href: '#search-filtering' },
+  { label: 'Supported File Formats', href: '#supported-file-formats' },
+  { label: 'Background Tasks', href: '#background-tasks' },
+  { label: 'Auto-Updates', href: '#auto-updates' },
+  { label: 'Licensing', href: '#licensing' },
+  { label: 'Settings', href: '#settings' },
+  { label: 'Keyboard Shortcuts', href: '#keyboard-shortcuts' },
+  { label: 'Privacy & Security', href: '#privacy-security' },
+  { label: 'System Requirements', href: '#system-requirements' },
+  { label: 'Troubleshooting', href: '#troubleshooting' },
+];
+---
+
+<Layout title="Help & Documentation - Photo Organizer Docs">
+  <Navbar />
+
+  <main class="section-spacing">
+    <div class="container-wide">
+
+      <!-- Breadcrumb -->
+      <nav class="mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 text-sm text-surface-500">
+          <li>
+            <a href="/docs" class="hover:text-white transition-colors duration-200">Docs</a>
+          </li>
+          <li aria-hidden="true">
+            <svg class="w-4 h-4 text-surface-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </li>
+          <li class="text-surface-300 font-medium">Help</li>
+        </ol>
+      </nav>
+
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+
+        <!-- Sidebar -->
+        <aside class="lg:w-56 shrink-0">
+          <div class="lg:sticky lg:top-24">
+            <p class="text-xs font-semibold uppercase tracking-widest text-surface-500 mb-4">
+              On this page
+            </p>
+            <nav aria-label="Table of contents">
+              <ol class="space-y-1.5" id="toc-list">
+                {sidebarLinks.map((link, i) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      data-toc-link
+                      class="flex items-start gap-3 py-1.5 text-sm text-surface-400 hover:text-white transition-colors duration-200 group"
+                    >
+                      <span class="mt-px shrink-0 w-5 h-5 rounded-md bg-surface-800/80 border border-surface-700/60
+                                   flex items-center justify-center text-[10px] text-surface-500
+                                   group-hover:border-brand-500/40 group-hover:text-brand-400
+                                   transition-colors duration-200 toc-number">
+                        {i + 1}
+                      </span>
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+
+            <!-- Back link -->
+            <div class="mt-8 pt-6 border-t border-surface-800/50">
+              <a
+                href="/docs"
+                class="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-white transition-colors duration-200"
+              >
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 12H5" />
+                  <path d="M12 19l-7-7 7-7" />
+                </svg>
+                All docs
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <article class="flex-1 min-w-0 max-w-3xl">
+
+          <!-- Page header -->
+          <header class="mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+              Help & Documentation
+            </h1>
+            <p class="mt-3 text-lg text-surface-400 leading-relaxed">
+              Everything you need to know to get the most out of Photo Organizer.
+            </p>
+          </header>
+
+          <!-- ============================================ -->
+          <!-- 1. Getting Started                           -->
+          <!-- ============================================ -->
+          <section id="getting-started" class="help-section">
+            <h2 class="help-h2">Getting Started</h2>
+
+            <h3 class="help-h3" id="adding-your-first-folder">Adding Your First Folder</h3>
+            <div class="docs-prose">
+              <ol class="help-ol">
+                <li>Click <strong class="text-surface-200">+ Add Folder</strong> in the top-right corner of the toolbar</li>
+                <li>Select a folder containing your photos and videos from the system file picker</li>
+                <li>The folder will appear in the <strong class="text-surface-200">Folders</strong> section of the left sidebar</li>
+                <li>Click on the folder to browse its contents in the media grid</li>
+              </ol>
+              <p>
+                Photo Organizer monitors your watched folders in real-time. New photos appear instantly,
+                deleted photos are removed, and folder changes are reflected automatically.
+              </p>
+            </div>
+
+            <h3 class="help-h3" id="understanding-the-interface">Understanding the Interface</h3>
+            <div class="docs-prose">
+              <p>Photo Organizer uses a two-panel layout:</p>
+              <ul class="help-ul">
+                <li><strong class="text-surface-200">Left Sidebar</strong> &mdash; Contains three sections: Albums, Tags, and Folders. Click any item to view its contents.</li>
+                <li><strong class="text-surface-200">Media Grid</strong> &mdash; Displays thumbnails of your photos and videos with virtual scrolling that handles 50,000+ items smoothly.</li>
+                <li><strong class="text-surface-200">Toolbar</strong> &mdash; Top bar with media type filter, sort options, search, and settings.</li>
+                <li><strong class="text-surface-200">Status Bar</strong> &mdash; Bottom bar showing background task progress and app status.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 2. Browsing & Viewing                        -->
+          <!-- ============================================ -->
+          <section id="browsing-viewing" class="help-section">
+            <h2 class="help-h2">Browsing & Viewing</h2>
+
+            <h3 class="help-h3" id="photo-grid">Photo Grid</h3>
+            <div class="docs-prose">
+              <p>
+                Thumbnails load automatically as you scroll. The grid adjusts columns based on your window width.
+              </p>
+              <ul class="help-ul">
+                <li><strong class="text-surface-200">Hover</strong> over a thumbnail to see the filename and action buttons</li>
+                <li><strong class="text-surface-200">Click</strong> a thumbnail to open the full-size preview</li>
+                <li><strong class="text-surface-200">Right-click</strong> a thumbnail to open the context menu for quick tagging and album assignment</li>
+              </ul>
+            </div>
+
+            <h3 class="help-h3" id="preview-modal">Preview Modal</h3>
+            <div class="docs-prose">
+              <p>Click any thumbnail to open the full-resolution preview.</p>
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>How</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Next image</td>
+                      <td>Click <strong class="text-surface-200">&gt;</strong> arrow or press <kbd>Right Arrow</kbd></td>
+                    </tr>
+                    <tr>
+                      <td>Previous image</td>
+                      <td>Click <strong class="text-surface-200">&lt;</strong> arrow or press <kbd>Left Arrow</kbd></td>
+                    </tr>
+                    <tr>
+                      <td>Close preview</td>
+                      <td>Click <strong class="text-surface-200">X</strong>, click the dark overlay, or press <kbd>Escape</kbd></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Videos open with a built-in player with playback controls.</p>
+              <p>The info bar at the bottom shows the filename, file size, and modification date.</p>
+            </div>
+
+            <h3 class="help-h3" id="exif-metadata-panel">EXIF Metadata Panel</h3>
+            <div class="docs-prose">
+              <p>View detailed camera and image information for any photo.</p>
+              <p>
+                <strong class="text-surface-200">How to open:</strong> Click the
+                <strong class="text-surface-200">i</strong> button on a thumbnail hover overlay.
+              </p>
+              <p>The metadata panel slides in from the right and displays:</p>
+              <ul class="help-ul">
+                <li><strong class="text-surface-200">File Info</strong> &mdash; Name, size, modification date, full path</li>
+                <li><strong class="text-surface-200">Dimensions</strong> &mdash; Image width and height in pixels</li>
+                <li><strong class="text-surface-200">Camera</strong> &mdash; Make, model, and lens</li>
+                <li><strong class="text-surface-200">Exposure</strong> &mdash; Aperture (f-stop), shutter speed, ISO, focal length</li>
+                <li><strong class="text-surface-200">Date Taken</strong> &mdash; Original capture date and time</li>
+                <li><strong class="text-surface-200">GPS</strong> &mdash; Location coordinates (if available)</li>
+              </ul>
+              <p>The panel automatically updates when you navigate between images using the preview arrows.</p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 3. Organization                              -->
+          <!-- ============================================ -->
+          <section id="organization" class="help-section">
+            <h2 class="help-h2">Organization</h2>
+
+            <h3 class="help-h3" id="albums">Albums</h3>
+            <div class="docs-prose">
+              <p>Albums are virtual collections. Adding a photo to an album does not move or copy the file.</p>
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>How</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Create album</td>
+                      <td>Click the <strong class="text-surface-200">+</strong> button next to "Albums" in the sidebar</td>
+                    </tr>
+                    <tr>
+                      <td>View album</td>
+                      <td>Click the album name</td>
+                    </tr>
+                    <tr>
+                      <td>Rename album</td>
+                      <td>Hover over the album and click the <strong class="text-surface-200">pencil</strong> icon</td>
+                    </tr>
+                    <tr>
+                      <td>Delete album</td>
+                      <td>Hover over the album and click the <strong class="text-surface-200">x</strong> icon. Your photos are not deleted.</td>
+                    </tr>
+                    <tr>
+                      <td>Add photos to album</td>
+                      <td>Right-click a photo &gt; select an album, or use batch actions</td>
+                    </tr>
+                    <tr>
+                      <td>Remove from album</td>
+                      <td>Right-click a photo &gt; uncheck the album</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="help-h3" id="tags">Tags</h3>
+            <div class="docs-prose">
+              <p>Tags let you label and categorize your photos across folders.</p>
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>How</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Create tag</td>
+                      <td>Click the <strong class="text-surface-200">+</strong> button next to "Tags" in the sidebar</td>
+                    </tr>
+                    <tr>
+                      <td>View tagged photos</td>
+                      <td>Click the tag name</td>
+                    </tr>
+                    <tr>
+                      <td>Star a photo</td>
+                      <td>Hover over a thumbnail and click the <strong class="text-surface-200">star</strong> icon</td>
+                    </tr>
+                    <tr>
+                      <td>Tag via context menu</td>
+                      <td>Right-click a photo &gt; check/uncheck tags</td>
+                    </tr>
+                    <tr>
+                      <td>Delete tag</td>
+                      <td>Hover over the tag and click the <strong class="text-surface-200">x</strong> icon. Photos are untagged but not deleted.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>The built-in <strong class="text-surface-200">Star</strong> tag uses a star icon and cannot be deleted.</p>
+            </div>
+
+            <h3 class="help-h3" id="multi-select-batch-actions">Multi-Select & Batch Actions</h3>
+            <div class="docs-prose">
+              <p>Select multiple photos to tag or organize them in bulk.</p>
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>How</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Select one</td>
+                      <td>Click a thumbnail</td>
+                    </tr>
+                    <tr>
+                      <td>Add to selection</td>
+                      <td><kbd>Cmd+Click</kbd> (Mac) or <kbd>Ctrl+Click</kbd> (Windows/Linux)</td>
+                    </tr>
+                    <tr>
+                      <td>Select range</td>
+                      <td><kbd>Shift+Click</kbd> to select all items between last selected and clicked</td>
+                    </tr>
+                    <tr>
+                      <td>Select all</td>
+                      <td><kbd>Cmd+A</kbd> (Mac) or <kbd>Ctrl+A</kbd> (Windows/Linux)</td>
+                    </tr>
+                    <tr>
+                      <td>Clear selection</td>
+                      <td>Press <kbd>Escape</kbd></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>When multiple items are selected, a floating <strong class="text-surface-200">Batch Action Bar</strong> appears at the bottom:</p>
+              <ul class="help-ul">
+                <li><strong class="text-surface-200">Tag</strong> &mdash; Apply or remove tags from all selected items</li>
+                <li><strong class="text-surface-200">Add to Album</strong> &mdash; Add all selected items to an existing or new album</li>
+                <li><strong class="text-surface-200">Clear</strong> &mdash; Deselect all items</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 4. Search & Filtering                        -->
+          <!-- ============================================ -->
+          <section id="search-filtering" class="help-section">
+            <h2 class="help-h2">Search & Filtering</h2>
+
+            <h3 class="help-h3" id="text-search">Text Search</h3>
+            <div class="docs-prose">
+              <p>Type in the search box in the toolbar to filter by filename. Search is case-insensitive.</p>
+              <p><strong class="text-surface-200">Wildcard patterns supported:</strong></p>
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Pattern</th>
+                      <th>Meaning</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>*</code></td>
+                      <td>Match any characters</td>
+                      <td><code>*.jpg</code> matches all JPEGs</td>
+                    </tr>
+                    <tr>
+                      <td><code>?</code></td>
+                      <td>Match single character</td>
+                      <td><code>photo_?.png</code> matches photo_1.png, photo_A.png</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Press <kbd>Escape</kbd> or click the <strong class="text-surface-200">x</strong> in the search box to clear the search.</p>
+            </div>
+
+            <h3 class="help-h3" id="ai-semantic-search">AI Semantic Search</h3>
+            <div class="docs-prose">
+              <p>Search your photos by describing what's in them using natural language.</p>
+              <p>
+                <strong class="text-surface-200">Examples:</strong>
+                <span class="text-surface-300">"sunset at the beach"</span>,
+                <span class="text-surface-300">"cat on a couch"</span>,
+                <span class="text-surface-300">"birthday party"</span>,
+                <span class="text-surface-300">"red car"</span>
+              </p>
+              <p><strong class="text-surface-200">How to use:</strong></p>
+              <ol class="help-ol">
+                <li>Click the <strong class="text-surface-200">brain icon</strong> in the search bar to switch to semantic mode</li>
+                <li>Type a description (3+ characters)</li>
+                <li>Results appear automatically after a brief pause, or press <kbd>Enter</kbd> for instant results</li>
+              </ol>
+              <p><strong class="text-surface-200">First-time setup required:</strong></p>
+              <ol class="help-ol">
+                <li>Click the <strong class="text-surface-200">index icon</strong> in the toolbar (appears in semantic mode)</li>
+                <li>Click <strong class="text-surface-200">Download Model</strong> to download the AI model (~400MB, one-time)</li>
+                <li>Click <strong class="text-surface-200">Start Indexing</strong> to analyze your photos</li>
+              </ol>
+              <p>
+                Indexing runs in the background and does not slow down your computer. Progress is shown in the
+                status bar. You can use the app normally while indexing runs.
+              </p>
+              <p>
+                All AI processing happens entirely on your device. No photos are uploaded anywhere.
+                Semantic search works completely offline.
+              </p>
+            </div>
+
+            <h3 class="help-h3" id="search-scope">Search Scope</h3>
+            <div class="docs-prose">
+              <p>Use the scope dropdown next to the search box:</p>
+              <ul class="help-ul">
+                <li><strong class="text-surface-200">This Folder</strong> &mdash; Search only the currently selected folder</li>
+                <li><strong class="text-surface-200">All Folders</strong> &mdash; Search across all your watched folders</li>
+              </ul>
+            </div>
+
+            <h3 class="help-h3" id="sort-options">Sort Options</h3>
+            <div class="docs-prose">
+              <p>Click the sort dropdown in the toolbar:</p>
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Option</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Newest First</td>
+                      <td>Sort by date, most recent first</td>
+                    </tr>
+                    <tr>
+                      <td>Oldest First</td>
+                      <td>Sort by date, oldest first</td>
+                    </tr>
+                    <tr>
+                      <td>Name A-Z</td>
+                      <td>Alphabetical by filename</td>
+                    </tr>
+                    <tr>
+                      <td>Name Z-A</td>
+                      <td>Reverse alphabetical</td>
+                    </tr>
+                    <tr>
+                      <td>Largest First</td>
+                      <td>Sort by file size, biggest first</td>
+                    </tr>
+                    <tr>
+                      <td>Smallest First</td>
+                      <td>Sort by file size, smallest first</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="help-h3" id="media-type-filter">Media Type Filter</h3>
+            <div class="docs-prose">
+              <p>Click the filter dropdown in the toolbar:</p>
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Option</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>All</td>
+                      <td>Show photos and videos</td>
+                    </tr>
+                    <tr>
+                      <td>Images</td>
+                      <td>Show only photos</td>
+                    </tr>
+                    <tr>
+                      <td>Videos</td>
+                      <td>Show only videos</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="help-h3" id="advanced-filters">Advanced Filters</h3>
+            <div class="docs-prose">
+              <p>Click the <strong class="text-surface-200">filter icon</strong> next to the search box to expand advanced filters:</p>
+              <ul class="help-ul">
+                <li><strong class="text-surface-200">Size Filter</strong> &mdash; Set minimum and maximum file size (presets: 100KB, 1MB, 5MB, 10MB, 50MB, 100MB)</li>
+                <li><strong class="text-surface-200">Date Filter</strong> &mdash; Set "after" and "before" dates to filter by modification date</li>
+                <li><strong class="text-surface-200">Clear All</strong> &mdash; Reset all advanced filters</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 5. Supported File Formats                    -->
+          <!-- ============================================ -->
+          <section id="supported-file-formats" class="help-section">
+            <h2 class="help-h2">Supported File Formats</h2>
+
+            <h3 class="help-h3" id="images">Images</h3>
+            <div class="docs-prose">
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Format</th>
+                      <th>Extensions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Standard</td>
+                      <td>JPG, JPEG, PNG, GIF, WebP, BMP, AVIF</td>
+                    </tr>
+                    <tr>
+                      <td>Apple</td>
+                      <td>HEIC, HEIF</td>
+                    </tr>
+                    <tr>
+                      <td>RAW</td>
+                      <td>CR2, CR3 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), ORF (Olympus), RAF (Fujifilm), RW2 (Panasonic), PEF (Pentax)</td>
+                    </tr>
+                    <tr>
+                      <td>Other</td>
+                      <td>TIFF, TIF, SVG</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="help-h3" id="videos">Videos</h3>
+            <div class="docs-prose">
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Format</th>
+                      <th>Extensions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Common</td>
+                      <td>MP4, MOV, AVI, MKV, WebM, M4V</td>
+                    </tr>
+                    <tr>
+                      <td>Other</td>
+                      <td>WMV, MTS, M2TS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 6. Background Tasks                          -->
+          <!-- ============================================ -->
+          <section id="background-tasks" class="help-section">
+            <h2 class="help-h2">Background Tasks</h2>
+
+            <h3 class="help-h3" id="thumbnail-generation">Thumbnail Generation</h3>
+            <div class="docs-prose">
+              <p>
+                Photo Organizer automatically generates and caches thumbnails for all your photos and videos.
+                Thumbnails are stored locally and regenerated automatically if the original file changes.
+              </p>
+              <p>Video thumbnails are extracted from a frame at 10% of the video duration.</p>
+              <p>Progress is shown in the status bar when generation is active.</p>
+            </div>
+
+            <h3 class="help-h3" id="ai-indexing">AI Indexing</h3>
+            <div class="docs-prose">
+              <p>
+                After downloading the AI model, Photo Organizer indexes your photos in the background for
+                semantic search. The status bar shows indexing progress including the current file being processed.
+              </p>
+              <ul class="help-ul">
+                <li><strong class="text-surface-200">Foreground indexing</strong> (from the indexing modal) processes images faster</li>
+                <li><strong class="text-surface-200">Background indexing</strong> runs at lower priority to keep the app responsive</li>
+              </ul>
+              <p>
+                When files are deleted from your watched folders, their AI index entries are automatically cleaned up.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 7. Auto-Updates                              -->
+          <!-- ============================================ -->
+          <section id="auto-updates" class="help-section">
+            <h2 class="help-h2">Auto-Updates</h2>
+            <div class="docs-prose">
+              <p>
+                Photo Organizer checks for updates automatically. When an update is available, the status bar
+                on the bottom-right will show:
+              </p>
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Status</th>
+                      <th>What it means</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong class="text-surface-200">vX.X.X available</strong></td>
+                      <td>A new version is ready to download. Click <strong class="text-surface-200">Update</strong> to start.</td>
+                    </tr>
+                    <tr>
+                      <td><strong class="text-surface-200">Updating X%</strong></td>
+                      <td>The update is downloading.</td>
+                    </tr>
+                    <tr>
+                      <td><strong class="text-surface-200">Update ready</strong></td>
+                      <td>Download complete. Click <strong class="text-surface-200">Restart</strong> to apply the update.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                You can dismiss any update notification by clicking the <strong class="text-surface-200">x</strong>
+                button and update later.
+              </p>
+              <p>
+                To manually check for updates, use the <strong class="text-surface-200">Help &gt; Check for Updates</strong> menu.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 8. Licensing                                 -->
+          <!-- ============================================ -->
+          <section id="licensing" class="help-section">
+            <h2 class="help-h2">Licensing</h2>
+
+            <h3 class="help-h3" id="free-trial">Free Trial</h3>
+            <div class="docs-prose">
+              <p>
+                Photo Organizer includes a <strong class="text-surface-200">14-day free trial</strong> with full
+                functionality. No credit card required. The remaining trial days are shown in the status bar.
+              </p>
+            </div>
+
+            <h3 class="help-h3" id="activating-a-license">Activating a License</h3>
+            <div class="docs-prose">
+              <ol class="help-ol">
+                <li>Purchase a license from the Photo Organizer website</li>
+                <li>When prompted (or via <strong class="text-surface-200">Settings &gt; License</strong>), enter your license key</li>
+                <li>Click <strong class="text-surface-200">Activate</strong></li>
+              </ol>
+              <p>
+                Your license is a one-time purchase with no recurring fees. It can be activated on multiple
+                devices (the limit depends on your license type).
+              </p>
+            </div>
+
+            <h3 class="help-h3" id="managing-your-license">Managing Your License</h3>
+            <div class="docs-prose">
+              <p>Open <strong class="text-surface-200">Settings</strong> (gear icon in toolbar) to view:</p>
+              <ul class="help-ul">
+                <li>License status (Active, Trial, Expired)</li>
+                <li>Registered customer name</li>
+                <li>Device activation count (e.g., "2 / 3 devices")</li>
+              </ul>
+              <p>From settings you can:</p>
+              <ul class="help-ul">
+                <li><strong class="text-surface-200">Validate Now</strong> &mdash; Re-verify your license online</li>
+                <li><strong class="text-surface-200">Deactivate This Device</strong> &mdash; Free up a device slot for use elsewhere</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 9. Settings                                  -->
+          <!-- ============================================ -->
+          <section id="settings" class="help-section">
+            <h2 class="help-h2">Settings</h2>
+            <div class="docs-prose">
+              <p>Click the <strong class="text-surface-200">gear icon</strong> in the top-right corner of the toolbar to open Settings.</p>
+            </div>
+
+            <h3 class="help-h3" id="diagnostics-crash-reports">Diagnostics & Crash Reports</h3>
+            <div class="docs-prose">
+              <ul class="help-ul">
+                <li><strong class="text-surface-200">Enable anonymous diagnostics</strong> &mdash; Opt-in to send crash reports and basic usage data</li>
+                <li>Only includes: operating system, CPU architecture, and app version</li>
+                <li>No personal data, photos, or filenames are ever collected</li>
+              </ul>
+            </div>
+
+            <h3 class="help-h3" id="send-feedback">Send Feedback</h3>
+            <div class="docs-prose">
+              <p>When diagnostics are enabled, you can send feedback directly from the app:</p>
+              <ol class="help-ol">
+                <li>Click <strong class="text-surface-200">Send Feedback</strong> in Settings</li>
+                <li>Choose a category: Bug Report, Suggestion, Complaint, or Other</li>
+                <li>Write your message</li>
+                <li>Optionally include your email for follow-up</li>
+                <li>Click <strong class="text-surface-200">Send Feedback</strong></li>
+              </ol>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 10. Keyboard Shortcuts                       -->
+          <!-- ============================================ -->
+          <section id="keyboard-shortcuts" class="help-section">
+            <h2 class="help-h2">Keyboard Shortcuts</h2>
+            <div class="docs-prose">
+              <div class="help-table-wrap">
+                <table class="help-table">
+                  <thead>
+                    <tr>
+                      <th>Shortcut</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><kbd>Cmd/Ctrl + A</kbd></td>
+                      <td>Select all visible items</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>Escape</kbd></td>
+                      <td>Clear selection / Close modal / Clear search</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>Left Arrow</kbd></td>
+                      <td>Previous image (in preview)</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>Right Arrow</kbd></td>
+                      <td>Next image (in preview)</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>i</kbd></td>
+                      <td>Toggle metadata panel</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>Enter</kbd></td>
+                      <td>Trigger semantic search immediately</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>Cmd/Ctrl + Click</kbd></td>
+                      <td>Add/remove item from multi-selection</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>Shift + Click</kbd></td>
+                      <td>Select range of items</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>Right-Click</kbd></td>
+                      <td>Open context menu for tagging and album assignment</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 11. Privacy & Security                       -->
+          <!-- ============================================ -->
+          <section id="privacy-security" class="help-section">
+            <h2 class="help-h2">Privacy & Security</h2>
+            <div class="docs-prose">
+              <ul class="help-ul">
+                <li><strong class="text-surface-200">100% Local</strong> &mdash; All photos stay on your device. Nothing is uploaded.</li>
+                <li><strong class="text-surface-200">Offline AI</strong> &mdash; Semantic search runs entirely on your device using on-device machine learning.</li>
+                <li><strong class="text-surface-200">Encrypted License</strong> &mdash; License data is stored with AES-256-GCM encryption, tied to your device.</li>
+                <li><strong class="text-surface-200">No Tracking</strong> &mdash; No analytics or tracking by default. Crash reporting is opt-in only.</li>
+                <li><strong class="text-surface-200">No Cloud</strong> &mdash; No accounts, no sign-ups, no cloud dependency.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 12. System Requirements                      -->
+          <!-- ============================================ -->
+          <section id="system-requirements" class="help-section">
+            <h2 class="help-h2">System Requirements</h2>
+
+            <h3 class="help-h3" id="minimum-requirements">Minimum</h3>
+            <div class="docs-prose">
+              <ul class="help-ul">
+                <li>macOS 12+, Windows 10+, or Ubuntu 22.04+</li>
+                <li>4 GB RAM</li>
+                <li>500 MB disk space (+ ~400MB for AI model on first download)</li>
+                <li>Any modern CPU (2018+)</li>
+              </ul>
+            </div>
+
+            <h3 class="help-h3" id="recommended-requirements">Recommended</h3>
+            <div class="docs-prose">
+              <ul class="help-ul">
+                <li>Apple Silicon Mac (M1 or newer) for hardware-accelerated AI</li>
+                <li>8 GB RAM</li>
+                <li>SSD storage</li>
+                <li>1 GB free disk space</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 13. Troubleshooting                          -->
+          <!-- ============================================ -->
+          <section id="troubleshooting" class="help-section">
+            <h2 class="help-h2">Troubleshooting</h2>
+
+            <h3 class="help-h3" id="photos-not-appearing">Photos not appearing</h3>
+            <div class="docs-prose">
+              <ul class="help-ul">
+                <li>Ensure the folder is added to watched folders (click <strong class="text-surface-200">+ Add Folder</strong>)</li>
+                <li>Check that the files are in a <a href="#supported-file-formats" class="docs-link">supported format</a></li>
+                <li>Try removing and re-adding the folder</li>
+              </ul>
+            </div>
+
+            <h3 class="help-h3" id="thumbnails-not-loading">Thumbnails not loading</h3>
+            <div class="docs-prose">
+              <ul class="help-ul">
+                <li>Thumbnails are generated in the background. Check the status bar for progress.</li>
+                <li>For HEIC files, ensure the system has HEIC decoding support</li>
+                <li>For video thumbnails, FFmpeg is used internally for frame extraction</li>
+              </ul>
+            </div>
+
+            <h3 class="help-h3" id="semantic-search-no-results">Semantic search returning no results</h3>
+            <div class="docs-prose">
+              <ul class="help-ul">
+                <li>Ensure the AI model has been downloaded (click the index icon in semantic mode)</li>
+                <li>Check that images have been indexed (status bar shows indexed count when idle)</li>
+                <li>Try broader search terms. The similarity threshold is set to include fuzzy matches.</li>
+                <li>Newly added photos need to be indexed before they appear in semantic search results</li>
+              </ul>
+            </div>
+
+            <h3 class="help-h3" id="app-feels-slow">App feels slow with large libraries</h3>
+            <div class="docs-prose">
+              <ul class="help-ul">
+                <li>Photo Organizer uses virtual scrolling and should handle 50,000+ items smoothly</li>
+                <li>If thumbnails load slowly, the background generation may still be running</li>
+                <li>AI indexing runs at reduced priority to avoid impacting responsiveness</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Next steps -->
+          <div class="mt-16 pt-10 border-t border-surface-800/50">
+            <h3 class="text-lg font-semibold text-white mb-4">Related docs</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <a href="/docs/getting-started" class="card-hover p-5 group">
+                <p class="text-sm font-medium text-white group-hover:text-brand-300 transition-colors duration-200">
+                  Getting Started Guide
+                </p>
+                <p class="mt-1 text-sm text-surface-500">
+                  Set up Photo Organizer in two minutes.
+                </p>
+              </a>
+              <a href="/docs/faq" class="card-hover p-5 group">
+                <p class="text-sm font-medium text-white group-hover:text-brand-300 transition-colors duration-200">
+                  FAQ
+                </p>
+                <p class="mt-1 text-sm text-surface-500">
+                  Answers to frequently asked questions.
+                </p>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Section spacing */
+  .help-section {
+    @apply mb-16;
+  }
+
+  .help-section:last-of-type {
+    @apply mb-0;
+  }
+
+  /* Section headings */
+  .help-h2 {
+    @apply text-2xl font-bold text-white mb-6 pb-3 border-b border-surface-800/50;
+  }
+
+  .help-h3 {
+    @apply text-lg font-semibold text-white mt-8 mb-4;
+  }
+
+  .help-h3:first-of-type {
+    @apply mt-0;
+  }
+
+  /* Prose styles */
+  .docs-prose p {
+    @apply text-[15px] leading-[1.75] text-surface-300 mb-4;
+  }
+
+  .docs-prose p:last-child {
+    @apply mb-0;
+  }
+
+  .docs-prose strong {
+    @apply font-semibold;
+  }
+
+  .docs-prose code {
+    @apply px-1.5 py-0.5 rounded-md text-[13px] font-mono
+           bg-surface-800/80 border border-surface-700/50 text-brand-300;
+  }
+
+  .docs-prose kbd {
+    @apply px-2 py-0.5 rounded-md text-xs font-mono font-medium
+           bg-surface-800 border border-surface-700/80 text-surface-200
+           shadow-sm;
+  }
+
+  .docs-link {
+    @apply text-brand-400 underline underline-offset-2 decoration-brand-400/30
+           hover:text-brand-300 hover:decoration-brand-300/50
+           transition-colors duration-200;
+  }
+
+  /* Lists */
+  .help-ul {
+    @apply list-none space-y-2 mb-4 text-[15px] leading-[1.75] text-surface-300;
+  }
+
+  .help-ul li {
+    @apply relative pl-5;
+  }
+
+  .help-ul li::before {
+    content: '';
+    @apply absolute left-0 top-[0.7em] w-1.5 h-1.5 rounded-full bg-surface-600;
+  }
+
+  .help-ol {
+    @apply list-none space-y-2 mb-4 text-[15px] leading-[1.75] text-surface-300;
+    counter-reset: step;
+  }
+
+  .help-ol li {
+    @apply relative pl-7;
+    counter-increment: step;
+  }
+
+  .help-ol li::before {
+    content: counter(step);
+    @apply absolute left-0 top-[0.15em] w-5 h-5 rounded-md
+           bg-surface-800/80 border border-surface-700/50
+           flex items-center justify-center
+           text-xs font-medium text-surface-400;
+  }
+
+  /* Tables */
+  .help-table-wrap {
+    @apply mb-4 overflow-x-auto rounded-xl border border-surface-800;
+  }
+
+  .help-table {
+    @apply w-full text-sm text-left;
+  }
+
+  .help-table thead {
+    @apply bg-surface-900/50;
+  }
+
+  .help-table th {
+    @apply px-4 py-3 text-surface-300 font-semibold text-xs uppercase tracking-wider
+           border-b border-surface-800;
+  }
+
+  .help-table td {
+    @apply px-4 py-3 text-surface-300 border-b border-surface-800/60;
+  }
+
+  .help-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .help-table tbody tr:hover {
+    @apply bg-surface-800/30;
+  }
+
+  /* TOC active state */
+  [data-toc-link].active {
+    @apply text-white;
+  }
+
+  [data-toc-link].active .toc-number {
+    @apply border-brand-500/40 text-brand-400 bg-brand-500/10;
+  }
+</style>
+
+<script>
+  // Intersection Observer for TOC highlighting
+  document.addEventListener('DOMContentLoaded', () => {
+    const tocLinks = document.querySelectorAll('[data-toc-link]');
+    const sections = document.querySelectorAll('.help-section');
+
+    if (!sections.length || !tocLinks.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            tocLinks.forEach((link) => {
+              const href = link.getAttribute('href');
+              if (href === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: '-80px 0px -65% 0px',
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  });
+</script>

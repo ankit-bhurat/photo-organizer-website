@@ -5,6 +5,12 @@ import Footer from '../../components/Footer.astro';
 
 const sections = [
   {
+    title: 'Help & Documentation',
+    href: '/docs/help',
+    description: 'Complete guide to using Photo Organizer',
+    icon: 'book',
+  },
+  {
     title: 'Getting Started',
     href: '/docs/getting-started',
     description: 'Install and set up Photo Organizer in minutes',
@@ -63,6 +69,14 @@ const sections = [
                         flex items-center justify-center text-brand-400
                         group-hover:bg-brand-500/15 group-hover:border-brand-500/30
                         transition-all duration-300">
+              {section.icon === 'book' && (
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                  <line x1="9" y1="7" x2="15" y2="7" />
+                  <line x1="9" y1="11" x2="13" y2="11" />
+                </svg>
+              )}
               {section.icon === 'rocket' && (
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
