@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Features - Photo Organizer">
+  <Navbar />
+
+  <main class="section-spacing">
+    <div class="container-narrow">
+
+      <!-- Header -->
+      <header class="mb-14 max-w-2xl">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+          Features
+        </h1>
+        <p class="mt-3 text-lg text-surface-400 leading-relaxed">
+          Everything Photo Organizer can do for your photo library.
+        </p>
+      </header>
+
+      <!-- Placeholder card -->
+      <div class="card p-10 text-center">
+        <div class="w-12 h-12 mx-auto mb-5 rounded-xl bg-brand-500/10 border border-brand-500/20
+                    flex items-center justify-center text-brand-400">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+        </div>
+        <h2 class="text-xl font-semibold text-white mb-2">Full feature showcase coming soon.</h2>
+        <p class="text-sm text-surface-400 max-w-md mx-auto leading-relaxed mb-6">
+          We are putting together a detailed breakdown of every feature.
+          In the meantime, check out the highlights on the homepage.
+        </p>
+        <a href="/" class="btn-primary text-sm px-6 py-2.5 inline-flex">
+          View Feature Highlights
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -231,6 +231,100 @@
 [data-theme="light"] footer .bg-surface-900 { background-color: #eef0f5; }
 [data-theme="light"] footer .bg-surface-950 { background-color: #f4f5f8; }
 
+/* Footer – text contrast overrides for light mode */
+
+/* "Stay in the loop" heading */
+[data-theme="light"] footer .bg-surface-900 .text-white {
+  color: #1a1b2e;
+}
+
+/* Newsletter description text */
+[data-theme="light"] footer .bg-surface-900 .text-surface-300 {
+  color: #3b3c4f;
+}
+
+/* Section headings (PRODUCT, RESOURCES, COMPANY) */
+[data-theme="light"] footer .bg-surface-950 nav h4.text-surface-300 {
+  color: #535572;
+}
+
+/* Footer link text */
+[data-theme="light"] footer .bg-surface-950 nav a.text-surface-300 {
+  color: #3b3c4f;
+}
+
+[data-theme="light"] footer .bg-surface-950 nav a.text-surface-300:hover {
+  color: #1a1b2e;
+}
+
+/* Brand name "Photo Organizer" in footer */
+[data-theme="light"] footer .text-lg.text-white {
+  color: #1a1b2e;
+}
+
+/* Brand description paragraph */
+[data-theme="light"] footer .bg-surface-950 > div .text-surface-300 {
+  color: #3b3c4f;
+}
+
+/* Social icons */
+[data-theme="light"] footer .text-surface-400 {
+  color: #535572;
+}
+
+[data-theme="light"] footer a.text-surface-400:hover,
+[data-theme="light"] footer .hover\:text-white:hover {
+  color: #1a1b2e;
+}
+
+/* Social icon hover background */
+[data-theme="light"] footer .hover\:bg-surface-800\/60:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Bottom bar border */
+[data-theme="light"] footer .border-surface-800 {
+  border-color: #d5d6e0;
+}
+
+/* Bottom bar text (copyright + "Made with care") */
+[data-theme="light"] footer .border-t .text-surface-400,
+[data-theme="light"] footer .border-t .text-xs.text-surface-400 {
+  color: #535572;
+}
+
+/* Heart icon in bottom bar */
+[data-theme="light"] footer .text-accent-pink\/70 {
+  color: rgba(236, 72, 153, 0.85);
+}
+
+/* Newsletter input field */
+[data-theme="light"] footer input.bg-surface-950\/80,
+[data-theme="light"] footer .bg-surface-950\/80 {
+  background-color: #ffffff;
+  border-color: #c8ccd6;
+  color: #1a1b2e;
+}
+
+[data-theme="light"] footer input::placeholder {
+  color: #9a9cb5;
+}
+
+/* Newsletter input border */
+[data-theme="light"] footer .border-surface-700\/60 {
+  border-color: #c8ccd6;
+}
+
+/* Newsletter band bottom border */
+[data-theme="light"] footer .border-b.border-surface-800 {
+  border-color: #d5d6e0;
+}
+
+/* Gradient border at top of footer */
+[data-theme="light"] footer > .h-px {
+  background: linear-gradient(to right, transparent, rgba(30, 111, 245, 0.2), transparent);
+}
+
 /* Inner dark elements in cards - keep them slightly tinted */
 [data-theme="light"] .bg-surface-950.border-surface-800 {
   background-color: #f4f5f8;
