@@ -316,4 +316,49 @@ const sidebarLinks = [
            hover:text-brand-300 hover:decoration-brand-300/50
            transition-colors duration-200;
   }
+
+  /* ---- Light mode overrides ---- */
+  :global([data-theme="light"]) .docs-prose p {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .docs-prose strong {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose code {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #1e6ff5;
+  }
+
+  :global([data-theme="light"]) .docs-prose kbd {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose em {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .docs-step-number {
+    background-color: rgba(30, 111, 245, 0.08);
+    border-color: rgba(30, 111, 245, 0.2);
+    color: #1e6ff5;
+  }
+
+  :global([data-theme="light"]) .docs-section h2 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-link {
+    color: #1e6ff5;
+    text-decoration-color: rgba(30, 111, 245, 0.3);
+  }
+
+  :global([data-theme="light"]) .docs-link:hover {
+    color: #1557c0;
+    text-decoration-color: rgba(30, 111, 245, 0.5);
+  }
 </style>

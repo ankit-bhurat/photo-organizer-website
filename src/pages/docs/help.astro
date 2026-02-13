@@ -998,6 +998,101 @@ const sidebarLinks = [
   [data-toc-link].active .toc-number {
     @apply border-brand-500/40 text-brand-400 bg-brand-500/10;
   }
+
+  /* ---- Light mode overrides ---- */
+  :global([data-theme="light"]) .help-h2 {
+    color: #1a1b2e;
+    border-bottom-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .help-h3 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose p {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .docs-prose strong {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose code {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #1e6ff5;
+  }
+
+  :global([data-theme="light"]) .docs-prose kbd {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-link {
+    color: #1e6ff5;
+    text-decoration-color: rgba(30, 111, 245, 0.3);
+  }
+
+  :global([data-theme="light"]) .docs-link:hover {
+    color: #1557c0;
+    text-decoration-color: rgba(30, 111, 245, 0.5);
+  }
+
+  :global([data-theme="light"]) .help-ul,
+  :global([data-theme="light"]) .help-ol {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .help-ul li::before {
+    background-color: #9a9cb5;
+  }
+
+  :global([data-theme="light"]) .help-ol li::before {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #535572;
+  }
+
+  :global([data-theme="light"]) .help-table-wrap {
+    border-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .help-table thead {
+    background-color: #f0f2f6;
+  }
+
+  :global([data-theme="light"]) .help-table th {
+    color: #535572;
+    border-bottom-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .help-table td {
+    color: #3b3c4f;
+    border-bottom-color: #e8eaf0;
+  }
+
+  :global([data-theme="light"]) .help-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  :global([data-theme="light"]) [data-toc-link] {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) [data-toc-link]:hover {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) [data-toc-link].active {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) [data-toc-link].active .toc-number {
+    background-color: rgba(30, 111, 245, 0.08);
+    border-color: rgba(30, 111, 245, 0.2);
+    color: #1e6ff5;
+  }
 </style>
 
 <script>
