@@ -197,4 +197,52 @@ const faqs = [
   .faq-body {
     @apply px-6 pb-6 pl-[4.25rem];
   }
+
+  /* ---- Light mode overrides ---- */
+  :global([data-theme="light"]) .faq-item {
+    background-color: #ffffff;
+    border-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .faq-item:hover {
+    background-color: #f8f9fc;
+    border-color: #c0c4d0;
+  }
+
+  :global([data-theme="light"]) .faq-item[open] {
+    background-color: #fafbfd;
+    border-color: #c4c8d4;
+  }
+
+  :global([data-theme="light"]) .faq-summary .text-surface-200 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .faq-summary:hover .text-surface-200 {
+    color: #0f1020;
+  }
+
+  :global([data-theme="light"]) .faq-body .text-surface-400 {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .faq-number {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #535572;
+  }
+
+  :global([data-theme="light"]) .faq-item[open] .faq-number {
+    background-color: rgba(30, 111, 245, 0.08);
+    border-color: rgba(30, 111, 245, 0.2);
+    color: #1e6ff5;
+  }
+
+  :global([data-theme="light"]) .faq-chevron {
+    color: #878aa5;
+  }
+
+  :global([data-theme="light"]) .faq-item:hover .faq-chevron {
+    color: #535572;
+  }
 </style>
