@@ -316,8 +316,52 @@
 
   .feature-card:hover {
     border-color: rgba(59, 147, 255, 0.2);
-    background-color: #2a2b3d;
+    background-color: #1e1f30;
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Brighten all text on hover for readability */
+  .feature-card:hover h3 {
+    color: #ffffff;
+  }
+
+  .feature-card:hover p {
+    color: #b1b3c5;
+  }
+
+  .feature-card:hover .text-surface-400 {
+    color: #b1b3c5;
+  }
+
+  .feature-card:hover .text-surface-500 {
+    color: #9b9eb5;
+  }
+
+  .feature-card:hover .text-surface-600 {
+    color: #878aa5;
+  }
+
+  /* Light theme hover */
+  :global([data-theme="light"]) .feature-card:hover {
+    background-color: #f0f4ff;
+    border-color: rgba(30, 111, 245, 0.2);
+    box-shadow: 0 8px 32px rgba(30, 111, 245, 0.08);
+  }
+
+  :global([data-theme="light"]) .feature-card:hover h3 {
+    color: #0f1225;
+  }
+
+  :global([data-theme="light"]) .feature-card:hover p {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .feature-card:hover .text-surface-400 {
+    color: #44465d;
+  }
+
+  :global([data-theme="light"]) .feature-card:hover .text-surface-500 {
+    color: #535572;
   }
 </style>
