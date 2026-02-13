@@ -1,0 +1,82 @@
+---
+const features = [
+  { name: '100% Local & Private', us: true, google: false, apple: 'partial', lightroom: 'partial' },
+  { name: 'AI Search (Offline)', us: true, google: false, apple: true, lightroom: false },
+  { name: 'One-time Price', us: true, google: false, apple: true, lightroom: false },
+  { name: 'Cross-platform', us: 'Mac/Win/Linux', google: 'Web/Mobile', apple: 'Apple only', lightroom: 'Mac/Win' },
+  { name: 'RAW Support (9+ formats)', us: true, google: false, apple: true, lightroom: true },
+  { name: 'Watch Folders', us: true, google: false, apple: false, lightroom: true },
+  { name: 'Custom Tags & Albums', us: true, google: 'limited', apple: 'limited', lightroom: true },
+  { name: 'Batch Operations', us: true, google: true, apple: true, lightroom: true },
+  { name: 'Installer Size', us: '~30MB', google: 'N/A', apple: 'Built-in', lightroom: '~1GB' },
+];
+
+function renderCell(value: boolean | string) {
+  if (value === true) return '✓';
+  if (value === false) return '—';
+  if (value === 'partial') return '~';
+  if (value === 'limited') return '~';
+  return value;
+}
+
+function cellClass(value: boolean | string) {
+  if (value === true) return 'text-accent-green font-medium';
+  if (value === false) return 'text-surface-600';
+  if (value === 'partial' || value === 'limited') return 'text-surface-400';
+  return 'text-surface-300 text-sm';
+}
+---
+
+<section id="comparison" class="section-spacing">
+  <div class="container-wide">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        How we <span class="gradient-text">stack up</span>
+      </h2>
+      <p class="text-surface-400 text-lg max-w-2xl mx-auto">
+        See how Photo Organizer compares to the alternatives you might be using today.
+      </p>
+    </div>
+
+    <div class="card overflow-hidden overflow-x-auto">
+      <table class="w-full min-w-[640px]">
+        <thead>
+          <tr class="border-b border-surface-800/60">
+            <th class="text-left py-4 px-6 text-surface-400 font-medium text-sm">Feature</th>
+            <th class="py-4 px-4 text-center">
+              <div class="text-brand-400 font-semibold">Photo Organizer</div>
+            </th>
+            <th class="py-4 px-4 text-center">
+              <div class="text-surface-400 font-medium text-sm">Google Photos</div>
+            </th>
+            <th class="py-4 px-4 text-center">
+              <div class="text-surface-400 font-medium text-sm">Apple Photos</div>
+            </th>
+            <th class="py-4 px-4 text-center">
+              <div class="text-surface-400 font-medium text-sm">Lightroom</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {features.map((feature, i) => (
+            <tr class={`border-b border-surface-800/30 ${i % 2 === 0 ? 'bg-surface-900/20' : ''}`}>
+              <td class="py-3.5 px-6 text-surface-300 text-sm font-medium">{feature.name}</td>
+              <td class={`py-3.5 px-4 text-center ${cellClass(feature.us)}`}>
+                {renderCell(feature.us)}
+              </td>
+              <td class={`py-3.5 px-4 text-center ${cellClass(feature.google)}`}>
+                {renderCell(feature.google)}
+              </td>
+              <td class={`py-3.5 px-4 text-center ${cellClass(feature.apple)}`}>
+                {renderCell(feature.apple)}
+              </td>
+              <td class={`py-3.5 px-4 text-center ${cellClass(feature.lightroom)}`}>
+                {renderCell(feature.lightroom)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

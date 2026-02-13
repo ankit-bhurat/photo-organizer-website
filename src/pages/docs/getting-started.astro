@@ -1,0 +1,319 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const sidebarLinks = [
+  { label: 'Download & Install', href: '#download-install' },
+  { label: 'Add Your Photo Folders', href: '#add-folders' },
+  { label: 'Browse Your Library', href: '#browse-library' },
+  { label: 'Search with AI', href: '#search-ai' },
+  { label: 'Organize with Tags & Albums', href: '#organize' },
+];
+---
+
+<Layout title="Getting Started - Photo Organizer Docs">
+  <Navbar />
+
+  <main class="section-spacing">
+    <div class="container-wide">
+
+      <!-- Breadcrumb -->
+      <nav class="mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 text-sm text-surface-500">
+          <li>
+            <a href="/docs" class="hover:text-white transition-colors duration-200">Docs</a>
+          </li>
+          <li aria-hidden="true">
+            <svg class="w-4 h-4 text-surface-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </li>
+          <li class="text-surface-300 font-medium">Getting Started</li>
+        </ol>
+      </nav>
+
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+
+        <!-- Sidebar -->
+        <aside class="lg:w-56 shrink-0">
+          <div class="lg:sticky lg:top-24">
+            <p class="text-xs font-semibold uppercase tracking-widest text-surface-500 mb-4">
+              On this page
+            </p>
+            <nav aria-label="Table of contents">
+              <ol class="space-y-1.5">
+                {sidebarLinks.map((link, i) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="flex items-start gap-3 py-1.5 text-sm text-surface-400 hover:text-white transition-colors duration-200 group"
+                    >
+                      <span class="mt-px shrink-0 w-5 h-5 rounded-md bg-surface-800/80 border border-surface-700/60
+                                   flex items-center justify-center text-xs text-surface-500
+                                   group-hover:border-brand-500/40 group-hover:text-brand-400
+                                   transition-colors duration-200">
+                        {i + 1}
+                      </span>
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+
+            <!-- Back link -->
+            <div class="mt-8 pt-6 border-t border-surface-800/50">
+              <a
+                href="/docs"
+                class="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-white transition-colors duration-200"
+              >
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 12H5" />
+                  <path d="M12 19l-7-7 7-7" />
+                </svg>
+                All docs
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <article class="flex-1 min-w-0 max-w-3xl">
+
+          <!-- Page header -->
+          <header class="mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+              Getting Started
+            </h1>
+            <p class="mt-3 text-lg text-surface-400 leading-relaxed">
+              Go from download to organized photo library in five simple steps. The entire
+              setup takes about two minutes.
+            </p>
+          </header>
+
+          <!-- Step 1 -->
+          <section id="download-install" class="docs-section">
+            <div class="docs-step-header">
+              <span class="docs-step-number">1</span>
+              <h2 class="text-xl font-semibold text-white">Download & Install</h2>
+            </div>
+            <div class="docs-prose">
+              <p>
+                Head over to the <a href="/downloads" class="docs-link">downloads page</a>
+                and grab the installer for your operating system. Photo Organizer is available for
+                macOS, Windows, and Linux.
+              </p>
+              <p>
+                On <strong class="text-surface-200">macOS</strong>, open the <code>.dmg</code> file
+                and drag Photo Organizer into your Applications folder. On
+                <strong class="text-surface-200">Windows</strong>, run the installer and follow the
+                prompts. On <strong class="text-surface-200">Linux</strong>, use the
+                <code>.AppImage</code> or install via the <code>.deb</code> package.
+              </p>
+              <p>
+                Launch the app once installation is complete. You will be greeted by a short
+                onboarding wizard that walks you through the initial configuration.
+              </p>
+            </div>
+          </section>
+
+          <!-- Step 2 -->
+          <section id="add-folders" class="docs-section">
+            <div class="docs-step-header">
+              <span class="docs-step-number">2</span>
+              <h2 class="text-xl font-semibold text-white">Add Your Photo Folders</h2>
+            </div>
+            <div class="docs-prose">
+              <p>
+                Photo Organizer works with <strong class="text-surface-200">watch folders</strong>.
+                A watch folder is any directory on your computer that contains photos. When you add a
+                watch folder, the app automatically indexes every image inside it and keeps the
+                library up to date as files are added, moved, or removed.
+              </p>
+              <p>
+                Open <strong class="text-surface-200">Settings &rarr; Library &rarr; Watch Folders</strong>
+                and click <strong class="text-surface-200">Add Folder</strong>. Select one or more
+                directories from your file system. Common choices include your Pictures folder,
+                an external drive, or a cloud-synced directory.
+              </p>
+              <p>
+                The initial scan runs in the background. You can continue using the app while it
+                processes your photos. A progress indicator in the status bar shows how many files
+                have been indexed.
+              </p>
+            </div>
+          </section>
+
+          <!-- Step 3 -->
+          <section id="browse-library" class="docs-section">
+            <div class="docs-step-header">
+              <span class="docs-step-number">3</span>
+              <h2 class="text-xl font-semibold text-white">Browse Your Library</h2>
+            </div>
+            <div class="docs-prose">
+              <p>
+                The main library view displays your photos in a responsive grid sorted by date.
+                Use the toolbar to switch between grid, list, and detail views, or adjust the
+                thumbnail size.
+              </p>
+              <p>
+                The <strong class="text-surface-200">sidebar</strong> gives you quick access to
+                folders, albums, tags, and smart filters. Click any photo to open the detail
+                view, which shows EXIF metadata, a histogram, and a larger preview.
+              </p>
+              <p>
+                You can filter by date range, camera model, lens, or file type using the
+                filter bar at the top of the grid. Combine filters to narrow down exactly the
+                photos you need.
+              </p>
+            </div>
+          </section>
+
+          <!-- Step 4 -->
+          <section id="search-ai" class="docs-section">
+            <div class="docs-step-header">
+              <span class="docs-step-number">4</span>
+              <h2 class="text-xl font-semibold text-white">Search with AI</h2>
+            </div>
+            <div class="docs-prose">
+              <p>
+                Photo Organizer includes a built-in AI search engine that runs entirely on your
+                device. Instead of relying on filenames or manual tags, you can describe what
+                you are looking for in plain language.
+              </p>
+              <p>
+                Press <kbd>Cmd+K</kbd> (or <kbd>Ctrl+K</kbd> on Windows/Linux) to open the
+                search bar. Type a natural-language query like
+                <em class="text-surface-300">"sunset at the beach"</em> or
+                <em class="text-surface-300">"birthday party with cake"</em> and the AI model
+                will return the most relevant matches ranked by similarity.
+              </p>
+              <p>
+                Semantic search is powered by a lightweight vision model that generates
+                embeddings for each photo during the initial scan. All processing happens
+                locally, so your images never leave your machine. See the
+                <a href="/docs/ai-search" class="docs-link">AI Search guide</a> for
+                a deeper look at how it works.
+              </p>
+            </div>
+          </section>
+
+          <!-- Step 5 -->
+          <section id="organize" class="docs-section">
+            <div class="docs-step-header">
+              <span class="docs-step-number">5</span>
+              <h2 class="text-xl font-semibold text-white">Organize with Tags & Albums</h2>
+            </div>
+            <div class="docs-prose">
+              <p>
+                Beyond AI search, Photo Organizer supports traditional organization methods.
+                You can create <strong class="text-surface-200">tags</strong> and
+                <strong class="text-surface-200">albums</strong> to group photos manually, or let
+                the app suggest tags based on image content.
+              </p>
+              <p>
+                To tag a photo, select it and press <kbd>T</kbd> to open the tag editor. Start
+                typing to search existing tags or create a new one. Tags are stored in the local
+                database and are never written to your image files unless you explicitly choose to
+                sync them to EXIF/XMP metadata.
+              </p>
+              <p>
+                Albums work like virtual folders. A single photo can belong to multiple albums
+                without being duplicated on disk. Create an album from the sidebar and drag
+                photos into it, or use the right-click context menu to add selected photos to an
+                existing album.
+              </p>
+              <p>
+                You can also create <strong class="text-surface-200">smart albums</strong> that
+                automatically populate based on rules you define, such as "all photos from 2024
+                tagged with vacation."
+              </p>
+            </div>
+          </section>
+
+          <!-- Next steps -->
+          <div class="mt-16 pt-10 border-t border-surface-800/50">
+            <h3 class="text-lg font-semibold text-white mb-4">Next steps</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <a href="/docs/features" class="card-hover p-5 group">
+                <p class="text-sm font-medium text-white group-hover:text-brand-300 transition-colors duration-200">
+                  Features Guide
+                </p>
+                <p class="mt-1 text-sm text-surface-500">
+                  Explore every feature in detail.
+                </p>
+              </a>
+              <a href="/docs/ai-search" class="card-hover p-5 group">
+                <p class="text-sm font-medium text-white group-hover:text-brand-300 transition-colors duration-200">
+                  AI Search Deep Dive
+                </p>
+                <p class="mt-1 text-sm text-surface-500">
+                  Learn how semantic search works under the hood.
+                </p>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Step sections */
+  .docs-section {
+    @apply mb-14;
+  }
+
+  .docs-section:last-of-type {
+    @apply mb-0;
+  }
+
+  .docs-step-header {
+    @apply flex items-center gap-3.5 mb-5;
+  }
+
+  .docs-step-number {
+    @apply shrink-0 w-8 h-8 rounded-lg
+           bg-brand-500/10 border border-brand-500/25
+           flex items-center justify-center
+           text-sm font-semibold text-brand-400;
+  }
+
+  /* Prose styles */
+  .docs-prose p {
+    @apply text-[15px] leading-[1.75] text-surface-300 mb-4;
+  }
+
+  .docs-prose p:last-child {
+    @apply mb-0;
+  }
+
+  .docs-prose strong {
+    @apply font-semibold;
+  }
+
+  .docs-prose code {
+    @apply px-1.5 py-0.5 rounded-md text-[13px] font-mono
+           bg-surface-800/80 border border-surface-700/50 text-brand-300;
+  }
+
+  .docs-prose kbd {
+    @apply px-2 py-0.5 rounded-md text-xs font-mono font-medium
+           bg-surface-800 border border-surface-700/80 text-surface-200
+           shadow-sm;
+  }
+
+  .docs-prose em {
+    @apply not-italic;
+  }
+
+  .docs-link {
+    @apply text-brand-400 underline underline-offset-2 decoration-brand-400/30
+           hover:text-brand-300 hover:decoration-brand-300/50
+           transition-colors duration-200;
+  }
+</style>

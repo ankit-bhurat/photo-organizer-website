@@ -1,0 +1,256 @@
+---
+const navLinks = [
+  { label: 'Features', href: '#features' },
+  { label: 'Downloads', href: '#downloads' },
+  { label: 'Docs', href: '/docs' },
+  { label: 'Pricing', href: '#pricing' },
+];
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-300"
+>
+  <div class="border-b border-transparent transition-colors duration-300" id="navbar-border">
+    <div class="container-wide">
+      <div class="flex items-center justify-between h-16">
+
+        {/* ---- Logo ---- */}
+        <a href="/" class="flex items-center gap-2.5 group" aria-label="Photo Organizer home">
+          <div class="relative flex items-center justify-center w-8 h-8">
+            {/* Aperture-inspired icon */}
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="transition-transform duration-300 group-hover:rotate-[30deg]"
+              aria-hidden="true"
+            >
+              <circle cx="14" cy="14" r="12.5" stroke="url(#logo-grad)" stroke-width="1.5" />
+              <circle cx="14" cy="14" r="7" stroke="url(#logo-grad)" stroke-width="1.5" />
+              <line x1="14" y1="1.5" x2="14" y2="7" stroke="url(#logo-grad)" stroke-width="1.2" />
+              <line x1="14" y1="21" x2="14" y2="26.5" stroke="url(#logo-grad)" stroke-width="1.2" />
+              <line x1="1.5" y1="14" x2="7" y2="14" stroke="url(#logo-grad)" stroke-width="1.2" />
+              <line x1="21" y1="14" x2="26.5" y2="14" stroke="url(#logo-grad)" stroke-width="1.2" />
+              <circle cx="14" cy="14" r="3" fill="url(#logo-grad)" opacity="0.35" />
+              <defs>
+                <linearGradient id="logo-grad" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3b93ff" />
+                  <stop offset="1" stop-color="#06b6d4" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="text-[15px] font-semibold text-white tracking-[-0.01em]">
+            Photo Organizer
+          </span>
+        </a>
+
+        {/* ---- Desktop nav links ---- */}
+        <div class="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="px-3.5 py-2 text-[13.5px] font-medium text-surface-400
+                     rounded-lg transition-colors duration-200
+                     hover:text-surface-100 hover:bg-surface-800/40"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        {/* ---- Right side: CTA + mobile toggle ---- */}
+        <div class="flex items-center gap-3">
+          <a href="#waitlist" class="hidden md:inline-flex btn-primary text-sm px-5 py-2.5">
+            Join Waitlist
+          </a>
+
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            class="md:hidden relative w-9 h-9 flex items-center justify-center
+                   rounded-lg text-surface-400 hover:text-white hover:bg-surface-800/50
+                   transition-colors duration-200"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg
+              id="hamburger-icon"
+              class="w-5 h-5 transition-all duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <line x1="4" y1="7" x2="20" y2="7" class="origin-center transition-all duration-200" id="hamburger-top" />
+              <line x1="4" y1="12" x2="20" y2="12" class="origin-center transition-all duration-200" id="hamburger-mid" />
+              <line x1="4" y1="17" x2="20" y2="17" class="origin-center transition-all duration-200" id="hamburger-bot" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* ---- Mobile menu panel ---- */}
+  <div
+    id="mobile-menu"
+    class="md:hidden overflow-hidden"
+    style="display:none;"
+    role="navigation"
+    aria-label="Mobile navigation"
+  >
+    <div class="bg-surface-950/98 backdrop-blur-xl border-b border-surface-800/60">
+      <div class="container-wide py-4 flex flex-col gap-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="mobile-nav-link px-4 py-3 text-[15px] font-medium text-surface-300
+                   rounded-xl transition-colors duration-200
+                   hover:text-white hover:bg-surface-800/50"
+          >
+            {link.label}
+          </a>
+        ))}
+        <div class="pt-3 mt-2 border-t border-surface-800/50">
+          <a href="#waitlist" class="btn-primary text-sm w-full text-center py-3">
+            Join Waitlist
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{/* Spacer to offset fixed navbar */}
+<div class="h-16"></div>
+
+<style>
+  /* Scrolled state applied via JS */
+  #navbar.scrolled {
+    @apply bg-surface-950/80 backdrop-blur-xl;
+  }
+
+  #navbar.scrolled #navbar-border {
+    border-color: rgba(68, 70, 93, 0.35);
+  }
+
+  /* Hamburger -> X transform */
+  #mobile-menu-btn[aria-expanded="true"] #hamburger-top {
+    transform: translateY(5px) rotate(45deg);
+  }
+
+  #mobile-menu-btn[aria-expanded="true"] #hamburger-mid {
+    opacity: 0;
+  }
+
+  #mobile-menu-btn[aria-expanded="true"] #hamburger-bot {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+
+  /* Mobile links entrance stagger */
+  .mobile-nav-link {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  #mobile-menu.open .mobile-nav-link {
+    animation: navSlideIn 0.25s ease-out forwards;
+  }
+
+  #mobile-menu.open .mobile-nav-link:nth-child(1) { animation-delay: 0.03s; }
+  #mobile-menu.open .mobile-nav-link:nth-child(2) { animation-delay: 0.06s; }
+  #mobile-menu.open .mobile-nav-link:nth-child(3) { animation-delay: 0.09s; }
+  #mobile-menu.open .mobile-nav-link:nth-child(4) { animation-delay: 0.12s; }
+
+  @keyframes navSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', setup);
+  // Also run on initial load for non-SPA navigations
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setup);
+  } else {
+    setup();
+  }
+
+  function setup() {
+    const navbar = document.getElementById('navbar');
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!navbar || !menuBtn || !mobileMenu) return;
+
+    // ---- Scroll detection for backdrop ----
+    let ticking = false;
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          if (window.scrollY > 8) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+          ticking = false;
+        });
+      }
+    }
+
+    // Set initial state
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // ---- Mobile menu toggle ----
+    let isOpen = false;
+
+    function toggleMenu() {
+      isOpen = !isOpen;
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+
+      if (isOpen) {
+        mobileMenu.style.display = 'block';
+        // Force reflow so the class change triggers animations
+        void mobileMenu.offsetHeight;
+        mobileMenu.classList.add('open');
+      } else {
+        mobileMenu.classList.remove('open');
+        // Wait for close transition before hiding
+        setTimeout(() => {
+          if (!isOpen) {
+            mobileMenu.style.display = 'none';
+          }
+        }, 200);
+      }
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (isOpen) toggleMenu();
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        toggleMenu();
+        menuBtn.focus();
+      }
+    });
+  }
+</script>

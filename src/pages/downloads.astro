@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import DownloadSection from '../components/DownloadSection';
+---
+
+<Layout title="Download Photo Organizer">
+  <Navbar />
+  <main class="pt-24">
+    <section class="section-spacing">
+      <div class="container-narrow text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Download Photo Organizer</h1>
+        <p class="text-lg text-surface-400 max-w-2xl mx-auto">Choose your platform and get started in under a minute. No account required.</p>
+      </div>
+      <DownloadSection client:load />
+    </section>
+  </main>
+  <Footer />
+</Layout>

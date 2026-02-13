@@ -1,0 +1,238 @@
+---
+// Hero section for Photo Organizer landing page
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background glow -->
+  <div
+    class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 w-[800px] h-[600px] rounded-full opacity-[0.07] blur-[120px] pointer-events-none"
+    style="background: radial-gradient(circle, #3b93ff 0%, #06b6d4 40%, transparent 70%);"
+  ></div>
+  <div
+    class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full opacity-[0.04] blur-[100px] pointer-events-none"
+    style="background: radial-gradient(circle, #a855f7 0%, transparent 70%);"
+  ></div>
+
+  <div class="container-narrow relative z-10 pt-24 pb-16">
+    <!-- Top content -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-500/20 bg-brand-500/5 mb-8 animate-fade-in">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-glow"></span>
+        <span class="text-xs font-medium text-brand-300 tracking-wide uppercase">Coming Soon</span>
+      </div>
+
+      <!-- Headline -->
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight mb-6 animate-slide-up"
+      >
+        Find any photo<br class="hidden sm:block" />
+        in seconds.<br />
+        <span class="gradient-text">Without the cloud.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p
+        class="text-lg md:text-xl text-surface-400 max-w-xl mx-auto mb-10 leading-relaxed animate-slide-up"
+        style="animation-delay: 0.1s;"
+      >
+        A local-first photo organizer with AI-powered semantic search.
+        Everything stays on your machine. Nothing leaves your device.
+      </p>
+
+      <!-- CTAs -->
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up"
+        style="animation-delay: 0.2s;"
+      >
+        <a href="#waitlist" class="btn-primary text-base gap-2 px-8 py-3.5">
+          Join the Waitlist
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="ml-1">
+            <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#how-it-works" class="btn-ghost text-base gap-2 group">
+          See how it works
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="transition-transform duration-200 group-hover:translate-x-0.5">
+            <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Trust signals -->
+      <div
+        class="flex items-center justify-center gap-6 mt-8 text-xs text-surface-500 animate-slide-up"
+        style="animation-delay: 0.3s;"
+      >
+        <span class="flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1L10 5.5L15 6.2L11.5 9.5L12.4 14.5L8 12.2L3.6 14.5L4.5 9.5L1 6.2L6 5.5L8 1Z" fill="currentColor" class="text-brand-500"/>
+          </svg>
+          100% local
+        </span>
+        <span class="w-px h-3 bg-surface-800"></span>
+        <span class="flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="4" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2" class="text-brand-500"/>
+            <path d="M5 4V2.5A3 3 0 0111 2.5V4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" class="text-brand-500"/>
+          </svg>
+          Private by design
+        </span>
+        <span class="w-px h-3 bg-surface-800"></span>
+        <span class="flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M4 8L7 11L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent-cyan"/>
+          </svg>
+          macOS, Windows, Linux
+        </span>
+      </div>
+    </div>
+
+    <!-- Mock App Window -->
+    <div
+      class="relative max-w-4xl mx-auto animate-scale-in"
+      style="animation-delay: 0.35s;"
+    >
+      <!-- Outer glow ring -->
+      <div class="absolute -inset-px rounded-2xl bg-gradient-to-b from-surface-700/50 to-surface-800/20 pointer-events-none"></div>
+
+      <!-- Window frame -->
+      <div class="relative rounded-2xl border border-surface-800/60 bg-surface-950 shadow-2xl shadow-black/40 overflow-hidden">
+        <!-- Title bar -->
+        <div class="flex items-center gap-3 px-4 py-3 border-b border-surface-800/60 bg-surface-900/80">
+          <!-- macOS window controls -->
+          <div class="flex items-center gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+          </div>
+          <!-- Search bar -->
+          <div class="flex-1 flex items-center justify-center">
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-800/80 border border-surface-700/50 max-w-sm w-full">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="text-brand-400 shrink-0">
+                <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M11 11L14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+              <span class="text-xs text-surface-400 truncate">sunset at the beach</span>
+              <span class="ml-auto text-[10px] text-surface-600 font-mono shrink-0 hidden sm:block">AI Search</span>
+            </div>
+          </div>
+          <div class="w-[52px]"></div>
+        </div>
+
+        <!-- App body -->
+        <div class="flex min-h-[320px] sm:min-h-[380px]">
+          <!-- Sidebar -->
+          <div class="w-44 sm:w-48 border-r border-surface-800/60 bg-surface-900/40 p-3 shrink-0 hidden sm:block">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-surface-500 mb-2 px-2">Library</div>
+            <div class="space-y-0.5">
+              <div class="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-brand-500/10 text-brand-400 text-xs font-medium">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M2 4C2 3.44772 2.44772 3 3 3H6L8 5H13C13.5523 5 14 5.44772 14 6V12C14 12.5523 13.5523 13 13 13H3C2.44772 13 2 12.5523 2 12V4Z" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                All Photos
+              </div>
+              <div class="flex items-center gap-2 px-2 py-1.5 rounded-lg text-surface-400 text-xs hover:bg-surface-800/60">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M2 4C2 3.44772 2.44772 3 3 3H6L8 5H13C13.5523 5 14 5.44772 14 6V12C14 12.5523 13.5523 13 13 13H3C2.44772 13 2 12.5523 2 12V4Z" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                Vacations
+              </div>
+              <div class="flex items-center gap-2 px-2 py-1.5 rounded-lg text-surface-400 text-xs hover:bg-surface-800/60">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M2 4C2 3.44772 2.44772 3 3 3H6L8 5H13C13.5523 5 14 5.44772 14 6V12C14 12.5523 13.5523 13 13 13H3C2.44772 13 2 12.5523 2 12V4Z" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                Family
+              </div>
+              <div class="flex items-center gap-2 px-2 py-1.5 rounded-lg text-surface-400 text-xs hover:bg-surface-800/60">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M2 4C2 3.44772 2.44772 3 3 3H6L8 5H13C13.5523 5 14 5.44772 14 6V12C14 12.5523 13.5523 13 13 13H3C2.44772 13 2 12.5523 2 12V4Z" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                Screenshots
+              </div>
+            </div>
+
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-surface-500 mt-5 mb-2 px-2">Tags</div>
+            <div class="flex flex-wrap gap-1 px-2">
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-accent-cyan/10 text-accent-cyan">nature</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-accent-purple/10 text-accent-purple">portrait</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-accent-pink/10 text-accent-pink">sunset</span>
+            </div>
+          </div>
+
+          <!-- Photo grid -->
+          <div class="flex-1 p-3">
+            <!-- Results indicator -->
+            <div class="flex items-center justify-between mb-3 px-1">
+              <span class="text-[10px] text-surface-500">23 results for &ldquo;sunset at the beach&rdquo;</span>
+              <div class="flex items-center gap-1">
+                <div class="w-4 h-4 rounded bg-surface-800/80 flex items-center justify-center">
+                  <svg width="10" height="10" viewBox="0 0 16 16" fill="none" class="text-surface-400">
+                    <rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/>
+                    <rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/>
+                    <rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/>
+                    <rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Thumbnail grid -->
+            <div class="grid grid-cols-3 sm:grid-cols-4 gap-1.5">
+              <!-- Row 1 -->
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-brand-600/40 to-brand-800/30 border border-surface-800/40 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-r from-brand-400/20 to-accent-cyan/10"></div>
+              </div>
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-orange-500/30 to-amber-700/20 border border-surface-800/40 relative overflow-hidden">
+                <div class="absolute top-1/3 left-0 right-0 h-px bg-orange-400/20"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-accent-cyan/25 to-brand-600/20 border border-surface-800/40 relative overflow-hidden">
+                <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-r from-yellow-500/10 to-orange-500/10"></div>
+              </div>
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-accent-pink/20 to-accent-purple/15 border border-surface-800/40 hidden sm:block relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-amber-400/25 to-orange-600/20 border border-surface-800/40 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-brand-500/30 to-accent-cyan/15 border border-surface-800/40 relative overflow-hidden col-span-2 sm:col-span-1">
+                <div class="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-t from-brand-900/30 to-transparent"></div>
+                <div class="absolute top-2 right-2 w-4 h-4 rounded-full border border-white/20"></div>
+              </div>
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-violet-500/25 to-brand-700/20 border border-surface-800/40 hidden sm:block relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-accent-purple/10"></div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-accent-cyan/20 to-emerald-600/15 border border-surface-800/40 relative overflow-hidden">
+                <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-r from-amber-500/10 to-transparent"></div>
+              </div>
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-rose-400/20 to-orange-500/15 border border-surface-800/40 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-brand-400/20 to-brand-700/15 border border-surface-800/40 relative overflow-hidden">
+                <div class="absolute top-1/2 left-0 right-0 h-px bg-brand-300/10"></div>
+                <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-r from-cyan-500/10 to-blue-500/10"></div>
+              </div>
+              <div class="aspect-square rounded-lg bg-gradient-to-br from-amber-300/20 to-rose-500/15 border border-surface-800/40 hidden sm:block relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating label for AI search -->
+      <div class="absolute -top-3 right-6 sm:right-12 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 backdrop-blur-sm">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" class="text-brand-400">
+          <path d="M8 1.5L9.5 6.5L14.5 8L9.5 9.5L8 14.5L6.5 9.5L1.5 8L6.5 6.5L8 1.5Z" fill="currentColor"/>
+        </svg>
+        <span class="text-[10px] font-medium text-brand-300">AI-powered search</span>
+      </div>
+    </div>
+  </div>
+</section>
