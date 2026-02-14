@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 
 const faqs = [
   {
-    question: 'When will Photo Organizer launch?',
+    question: 'When will CullVue launch?',
     answer: "We're currently in beta. Join the waitlist to get early access.",
   },
   {
@@ -54,7 +54,7 @@ const highlights = [
 ];
 ---
 
-<Layout title="Join the Waitlist | Photo Organizer" description="Be the first to try Photo Organizer. AI-powered local photo management with offline semantic search. Join the waitlist for early access.">
+<Layout title="Join the Waitlist | CullVue" description="Be the first to try CullVue. AI-powered local photo management with offline semantic search. Join the waitlist for early access.">
   <Navbar />
 
   <main>
@@ -83,7 +83,7 @@ const highlights = [
         <!-- Headline -->
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center leading-[1.1] tracking-tight mb-6 animate-slide-up">
           Be the first to try<br />
-          <span class="gradient-text">Photo Organizer</span>
+          <span class="gradient-text">CullVue</span>
         </h1>
 
         <!-- Subhead -->
@@ -183,7 +183,7 @@ const highlights = [
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-2" id="waitlist-success-title">You're on the list!</h3>
                 <p class="text-surface-400 text-[15px]" id="waitlist-success-text">
-                  We'll notify you when Photo Organizer launches. Check your inbox for a confirmation.
+                  We'll notify you when CullVue launches. Check your inbox for a confirmation.
                 </p>
               </div>
             </div>
@@ -244,7 +244,7 @@ const highlights = [
             Why photographers are <span class="gradient-text-warm">switching</span>
           </h2>
           <p class="text-surface-400 text-lg max-w-xl mx-auto">
-            Photo Organizer is built around one idea: your photos belong to you.
+            CullVue is built around one idea: your photos belong to you.
           </p>
         </div>
 
@@ -439,7 +439,7 @@ const highlights = [
       form.style.display = 'none';
       successEl.classList.remove('hidden');
       if (successTitle) successTitle.textContent = 'You\'re already on the list!';
-      if (successText) successText.textContent = 'We\'ll notify you when Photo Organizer launches. Stay tuned!';
+      if (successText) successText.textContent = 'We\'ll notify you when CullVue launches. Stay tuned!';
       return;
     }
 

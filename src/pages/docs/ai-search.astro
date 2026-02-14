@@ -15,7 +15,7 @@ const sidebarLinks = [
 ];
 ---
 
-<Layout title="AI Search Deep Dive - Photo Organizer Docs">
+<Layout title="AI Search Deep Dive - CullVue Docs">
   <Navbar />
 
   <main class="section-spacing">
@@ -91,7 +91,7 @@ const sidebarLinks = [
               AI Search Deep Dive
             </h1>
             <p class="mt-3 text-lg text-surface-400 leading-relaxed">
-              A comprehensive look at how Photo Organizer's semantic search works under the hood,
+              A comprehensive look at how CullVue's semantic search works under the hood,
               from the model that powers it to tips for getting the best results.
             </p>
           </header>
@@ -116,7 +116,7 @@ const sidebarLinks = [
             <h3 class="ai-h3">1. Embedding generation</h3>
             <div class="docs-prose">
               <p>
-                When you add a watch folder, Photo Organizer runs each image through a vision model
+                When you add a watch folder, CullVue runs each image through a vision model
                 to produce a compact numerical representation called an <strong class="text-surface-200">embedding</strong>.
                 An embedding is a high-dimensional vector (a list of numbers) that captures the visual
                 content of the photo: the objects, scenes, colors, textures, and composition. Two
@@ -138,7 +138,7 @@ const sidebarLinks = [
             <h3 class="ai-h3">3. Similarity matching</h3>
             <div class="docs-prose">
               <p>
-                Photo Organizer compares your text embedding against every image embedding in your
+                CullVue compares your text embedding against every image embedding in your
                 library using cosine similarity, a mathematical measure of how close two vectors are
                 in direction. The results are ranked by similarity score and the most relevant matches
                 are displayed first. This entire comparison happens in milliseconds, even for libraries
@@ -155,7 +155,7 @@ const sidebarLinks = [
 
             <div class="docs-prose">
               <p>
-                Photo Organizer uses <strong class="text-surface-200">MobileCLIP-S2</strong> as
+                CullVue uses <strong class="text-surface-200">MobileCLIP-S2</strong> as
                 its vision-language model. MobileCLIP is a family of efficient CLIP (Contrastive
                 Language-Image Pre-training) models designed specifically for on-device inference.
               </p>
@@ -175,7 +175,7 @@ const sidebarLinks = [
             <h3 class="ai-h3">Why MobileCLIP-S2?</h3>
             <div class="docs-prose">
               <p>
-                Photo Organizer chose MobileCLIP-S2 for several reasons:
+                CullVue chose MobileCLIP-S2 for several reasons:
               </p>
               <ul class="ai-ul">
                 <li>
@@ -383,7 +383,7 @@ const sidebarLinks = [
               <p>
                 Indexing runs as a background task that does not block the rest of the application.
                 You can browse, tag, create albums, and use filename search while indexing is
-                active. Photo Organizer throttles the indexing process to keep the app responsive.
+                active. CullVue throttles the indexing process to keep the app responsive.
               </p>
               <p>
                 There are two indexing modes:
@@ -414,7 +414,7 @@ const sidebarLinks = [
             <h3 class="ai-h3">Incremental updates</h3>
             <div class="docs-prose">
               <p>
-                Photo Organizer watches your folders in real time. When new photos are added to
+                CullVue watches your folders in real time. When new photos are added to
                 a watched folder, they are automatically queued for indexing. When photos are
                 deleted, their corresponding index entries are cleaned up. You do not need to
                 manually re-index your library after adding or removing files.
@@ -441,7 +441,7 @@ const sidebarLinks = [
 
             <div class="docs-prose">
               <p>
-                Privacy is a core design principle of Photo Organizer's AI search. Every part
+                Privacy is a core design principle of CullVue's AI search. Every part
                 of the pipeline runs entirely on your device.
               </p>
               <ul class="ai-ul">
@@ -495,7 +495,7 @@ const sidebarLinks = [
             <div class="docs-prose">
               <p>
                 Indexing speed depends on your hardware. On an Apple Silicon Mac with the Neural
-                Engine, Photo Organizer can index several hundred images per minute. On machines
+                Engine, CullVue can index several hundred images per minute. On machines
                 without dedicated ML hardware, indexing relies on the CPU and is slower but still
                 practical for most library sizes.
               </p>
@@ -535,7 +535,7 @@ const sidebarLinks = [
             <h3 class="ai-h3">Supported image formats</h3>
             <div class="docs-prose">
               <p>
-                AI search indexes all image formats that Photo Organizer supports, including:
+                AI search indexes all image formats that CullVue supports, including:
               </p>
               <ul class="ai-ul">
                 <li><strong class="text-surface-200">Standard formats</strong> &mdash; JPEG, PNG, WebP, GIF, BMP, AVIF</li>
@@ -600,7 +600,7 @@ const sidebarLinks = [
                   Getting Started Guide
                 </p>
                 <p class="mt-1 text-sm text-surface-500">
-                  Set up Photo Organizer in two minutes.
+                  Set up CullVue in two minutes.
                 </p>
               </a>
               <a href="/docs/help" class="card-hover p-5 group">
@@ -608,7 +608,7 @@ const sidebarLinks = [
                   Help & Documentation
                 </p>
                 <p class="mt-1 text-sm text-surface-500">
-                  Complete guide to using Photo Organizer.
+                  Complete guide to using CullVue.
                 </p>
               </a>
             </div>
