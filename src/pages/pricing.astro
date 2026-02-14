@@ -51,6 +51,34 @@ const faqs = [
 ---
 
 <Layout title="Pricing - CullVue" description="Simple, honest pricing for CullVue. Free for up to 10,000 photos. One-time purchase for unlimited — no subscriptions, no hidden fees.">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CullVue",
+    "applicationCategory": "PhotographyApplication",
+    "operatingSystem": "macOS, Windows, Linux",
+    "offers": [
+      {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free tier - up to 10,000 photos"
+      }
+    ],
+    "description": "Local-first photo management with AI-powered semantic search"
+  })} />
   <Navbar />
 
   <main>

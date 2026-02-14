@@ -40,6 +40,18 @@ const faqs = [
 ---
 
 <Layout title="FAQ - CullVue Docs">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  })} />
   <Navbar />
 
   <main class="section-spacing">

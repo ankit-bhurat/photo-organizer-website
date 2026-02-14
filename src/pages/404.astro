@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Page Not Found - CullVue">
+  <Navbar />
+
+  <main class="section-spacing">
+    <div class="container-narrow">
+      <div class="not-found-content flex flex-col items-center justify-center text-center py-12 md:py-20">
+
+        <!-- Large 404 number -->
+        <p class="text-[8rem] md:text-[10rem] font-bold leading-none tracking-tighter gradient-text select-none">
+          404
+        </p>
+
+        <!-- Heading -->
+        <h1 class="text-2xl md:text-3xl font-semibold text-white mt-4 mb-4">
+          Page not found
+        </h1>
+
+        <!-- Description -->
+        <p class="text-base md:text-lg text-surface-400 max-w-md leading-relaxed mb-10">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+
+        <!-- Action buttons -->
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+          <a href="/" class="btn-primary text-sm px-8 py-3">
+            Go Home
+          </a>
+          <a href="/docs" class="btn-secondary text-sm px-8 py-3">
+            View Docs
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ---- Light mode overrides ---- */
+  :global([data-theme="light"]) .not-found-content .text-white {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .not-found-content .text-surface-400 {
+    color: #535572;
+  }
+</style>

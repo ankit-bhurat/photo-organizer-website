@@ -121,6 +121,8 @@ function PlatformDetail({ platform }: { platform: PlatformInfo }) {
   // Entrance animation
   useEffect(() => {
     if (!panelRef.current) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
     const ctx = gsap.context(() => {
       gsap.fromTo(
         panelRef.current,
@@ -186,6 +188,8 @@ export default function DownloadSection() {
   // GSAP entrance animation for cards
   useEffect(() => {
     if (!cardsRef.current) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
     const cards = cardsRef.current.querySelectorAll('.platform-card');
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -208,6 +212,8 @@ export default function DownloadSection() {
   const handleSelect = useCallback((platformId: Platform) => {
     setSelected(platformId);
     if (!cardsRef.current) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
     const cards = cardsRef.current.querySelectorAll('.platform-card');
     cards.forEach((card) => {
       const id = card.getAttribute('data-platform');
@@ -230,6 +236,8 @@ export default function DownloadSection() {
   const handleDeselect = useCallback(() => {
     setSelected(null);
     if (!cardsRef.current) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
     const cards = cardsRef.current.querySelectorAll('.platform-card');
     gsap.to(cards, { scale: 1, opacity: 1, duration: 0.4, ease: 'power2.out' });
   }, []);
