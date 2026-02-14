@@ -378,6 +378,140 @@ const highlights = [
     caret-color: #ffffff;
     transition: background-color 5000s ease-in-out 0s;
   }
+
+  /* ---- Light mode overrides ---- */
+
+  /* Form outer gradient border → subtle blue/gray */
+  :global([data-theme="light"]) #waitlist-form {
+    background: linear-gradient(to bottom, rgba(30, 111, 245, 0.12), rgba(200, 204, 214, 0.3), rgba(200, 204, 214, 0.15));
+  }
+
+  /* Form inner card → white background */
+  :global([data-theme="light"]) #waitlist-form > div {
+    background-color: #ffffff;
+    backdrop-filter: none;
+  }
+
+  /* Form labels */
+  :global([data-theme="light"]) #waitlist-form label {
+    color: #3b3c4f;
+  }
+
+  /* Form inputs */
+  :global([data-theme="light"]) #waitlist-form input[type="text"],
+  :global([data-theme="light"]) #waitlist-form input[type="email"] {
+    background-color: #f4f5f7;
+    border-color: #c8ccd6;
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) #waitlist-form input::placeholder {
+    color: #9096a8;
+  }
+
+  :global([data-theme="light"]) #waitlist-form input:focus {
+    border-color: rgba(30, 111, 245, 0.5);
+    box-shadow: 0 0 0 2px rgba(30, 111, 245, 0.12);
+  }
+
+  /* Form button focus ring offset */
+  :global([data-theme="light"]) #waitlist-form button[type="submit"] {
+    --tw-ring-offset-color: #ffffff;
+  }
+
+  /* Trust note text */
+  :global([data-theme="light"]) #waitlist-form .text-surface-500 {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) #waitlist-form .text-surface-600 {
+    color: #9096a8;
+  }
+
+  /* Light mode autofill */
+  :global([data-theme="light"]) input:-webkit-autofill,
+  :global([data-theme="light"]) input:-webkit-autofill:hover,
+  :global([data-theme="light"]) input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #f4f5f7 inset;
+    -webkit-text-fill-color: #1a1b2e;
+    caret-color: #1a1b2e;
+  }
+
+  /* Success state card → white */
+  :global([data-theme="light"]) #waitlist-success > div {
+    background: linear-gradient(to bottom, rgba(16, 185, 129, 0.12), rgba(200, 204, 214, 0.3), rgba(200, 204, 214, 0.15));
+  }
+
+  :global([data-theme="light"]) #waitlist-success > div > div {
+    background-color: #ffffff;
+    backdrop-filter: none;
+  }
+
+  :global([data-theme="light"]) #waitlist-success .text-white {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) #waitlist-success .text-surface-400 {
+    color: #535572;
+  }
+
+  /* Eyebrow badge */
+  :global([data-theme="light"]) .animate-fade-in > div {
+    background-color: rgba(30, 111, 245, 0.06);
+    border-color: rgba(30, 111, 245, 0.18);
+  }
+
+  :global([data-theme="light"]) .animate-fade-in .text-brand-300 {
+    color: #1e6ff5;
+  }
+
+  /* Hero heading */
+  :global([data-theme="light"]) h1 .text-white,
+  :global([data-theme="light"]) section h1 {
+    color: #1a1b2e;
+  }
+
+  /* Hero subheading */
+  :global([data-theme="light"]) section > div > .text-surface-400,
+  :global([data-theme="light"]) .section-spacing .text-surface-400 {
+    color: #535572;
+  }
+
+  /* Early access banner text */
+  :global([data-theme="light"]) .text-surface-300 {
+    color: #3b3c4f;
+  }
+
+  /* Highlights cards text */
+  :global([data-theme="light"]) .card-hover .text-white {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .card-hover .text-surface-400 {
+    color: #535572;
+  }
+
+  /* FAQ items text */
+  :global([data-theme="light"]) .faq-item .text-white {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .faq-item .text-surface-400 {
+    color: #535572;
+  }
+
+  :global([data-theme="light"]) .faq-item .text-surface-500 {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) .faq-item button:hover {
+    background-color: rgba(30, 111, 245, 0.04);
+  }
+
+  /* Bottom CTA section text */
+  :global([data-theme="light"]) section:last-of-type h2 {
+    color: #1a1b2e;
+  }
 </style>
 
 <script>
