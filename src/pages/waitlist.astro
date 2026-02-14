@@ -193,31 +193,19 @@ const highlights = [
     </section>
 
     <!-- ============================================ -->
-    <!-- SOCIAL PROOF                                 -->
+    <!-- EARLY ACCESS BANNER                           -->
     <!-- ============================================ -->
     <section class="py-10 md:py-14">
       <div class="container-narrow">
         <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
-          <!-- Waitlist count -->
-          <div class="flex items-center gap-3">
-            <div class="flex -space-x-2">
-              {[...Array(4)].map((_, i) => (
-                <div
-                  class:list={[
-                    'w-8 h-8 rounded-full border-2 border-surface-950 flex items-center justify-center text-[10px] font-bold text-white',
-                    i === 0 && 'bg-brand-600',
-                    i === 1 && 'bg-accent-purple',
-                    i === 2 && 'bg-accent-cyan',
-                    i === 3 && 'bg-accent-pink',
-                  ]}
-                >
-                  {['J', 'M', 'A', 'K'][i]}
-                </div>
-              ))}
-            </div>
-            <p class="text-sm text-surface-300">
-              <span class="font-semibold text-white">500+</span> photographers on the waitlist
-            </p>
+          <!-- Early access note -->
+          <div class="flex items-center gap-2 text-sm text-surface-300">
+            <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" />
+              <path d="M2 17l10 5 10-5" />
+              <path d="M2 12l10 5 10-5" />
+            </svg>
+            Be among the first to try CullVue
           </div>
 
           <!-- Separator -->

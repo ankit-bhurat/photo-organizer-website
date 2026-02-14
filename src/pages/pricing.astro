@@ -2,47 +2,623 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+
+const freeFeatures = [
+  'AI semantic search',
+  'Watch folders with live sync',
+  'Tags, albums & smart albums',
+  'EXIF & metadata viewer',
+  'Multi-select & batch actions',
+  'Cross-platform (Mac, Windows, Linux)',
+  '100% local & private',
+  'Up to 10,000 photos',
+];
+
+const proFeatures = [
+  'Everything in Free',
+  'Unlimited photos',
+  'Priority email support',
+  'Early access to new features',
+  'Use on up to 3 devices',
+];
+
+const faqs = [
+  {
+    question: 'Is it really a one-time purchase?',
+    answer: 'Yes. The Pro license is a single payment, not a subscription. You pay once and own it forever. There are no recurring charges, no annual renewal fees, and no feature gating behind ongoing payments.',
+  },
+  {
+    question: 'What happens to updates after I purchase?',
+    answer: 'Your Pro license includes all updates within the current major version. Bug fixes and minor feature improvements are always free. If we release a major new version (e.g., CullVue 2.0), existing Pro users will receive a substantial loyalty discount.',
+  },
+  {
+    question: 'Can I use my license on multiple devices?',
+    answer: 'Yes. A single Pro license lets you install CullVue on up to three devices you personally own. Since CullVue is local-first, each installation maintains its own library. You can manage your devices from the Settings panel.',
+  },
+  {
+    question: 'What if I have fewer than 10,000 photos?',
+    answer: 'Then CullVue is completely free for you, with no feature restrictions. Every feature, including AI search, smart albums, and batch operations, is fully available on the Free tier. The only limit is the total number of indexed photos.',
+  },
+  {
+    question: 'Is there a free trial of Pro?',
+    answer: 'You do not need a separate trial. The Free tier includes every feature with a 10,000-photo limit, so you can fully evaluate CullVue before deciding whether to upgrade. There is no time limit on the Free tier.',
+  },
+  {
+    question: 'Do I need an internet connection?',
+    answer: 'No. CullVue runs entirely on your device. The AI model, your photo index, tags, and albums are all stored locally. The only optional network request is checking for software updates, which you can disable in Settings.',
+  },
+];
 ---
 
-<Layout title="Pricing - CullVue">
+<Layout title="Pricing - CullVue" description="Simple, honest pricing for CullVue. Free for up to 10,000 photos. One-time purchase for unlimited — no subscriptions, no hidden fees.">
   <Navbar />
 
-  <main class="section-spacing">
-    <div class="container-narrow">
-
-      <!-- Header -->
-      <header class="mb-14 max-w-2xl">
-        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
-          Pricing
-        </h1>
-        <p class="mt-3 text-lg text-surface-400 leading-relaxed">
-          Simple, honest pricing. No subscriptions. No hidden fees.
-        </p>
-      </header>
-
-      <!-- Pricing card -->
-      <div class="card p-10 text-center max-w-lg mx-auto">
-        <div class="w-12 h-12 mx-auto mb-5 rounded-xl bg-accent-green/10 border border-accent-green/20
-                    flex items-center justify-center text-accent-green">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
-            <line x1="7" y1="7" x2="7.01" y2="7" />
-          </svg>
-        </div>
-        <h2 class="text-xl font-semibold text-white mb-3">Free for up to 10,000 photos.</h2>
-        <p class="text-sm text-surface-400 leading-relaxed mb-2">
-          One-time purchase for unlimited photos. No recurring charges, ever.
-        </p>
-        <p class="text-xs text-surface-500 mb-8">
-          Detailed pricing will be announced at launch.
-        </p>
-        <a href="/waitlist" class="btn-primary text-sm px-6 py-2.5 inline-flex">
-          Join Waitlist
-        </a>
+  <main>
+    <!-- ============================================ -->
+    <!-- HERO / HEADER                                -->
+    <!-- ============================================ -->
+    <section class="relative overflow-hidden section-spacing pb-16 md:pb-20">
+      <!-- Background glow -->
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-brand-600/[0.07] blur-[120px]"></div>
+        <div class="absolute top-[10%] right-[15%] w-[300px] h-[300px] rounded-full bg-accent-purple/[0.04] blur-[100px]"></div>
       </div>
 
-    </div>
+      <div class="container-narrow relative z-10 text-center">
+        <!-- Eyebrow -->
+        <div class="flex justify-center mb-6">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-green/20 bg-accent-green/[0.06]">
+            <svg class="w-4 h-4 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <span class="text-sm font-medium text-accent-green">No subscriptions, ever</span>
+          </div>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+          Simple, <span class="gradient-text">honest</span> pricing
+        </h1>
+        <p class="text-lg md:text-xl text-surface-400 max-w-2xl mx-auto">
+          CullVue is free for libraries up to 10,000 photos. Need more? A single
+          one-time purchase unlocks unlimited photos for life.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PRICING CARDS                                -->
+    <!-- ============================================ -->
+    <section class="pb-24 md:pb-32">
+      <div class="container-narrow">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+
+          <!-- FREE TIER -->
+          <div class="pricing-card card p-8 flex flex-col">
+            <!-- Badge -->
+            <div class="flex items-center gap-2 mb-6">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-accent-green/10 border border-accent-green/20 text-accent-green">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Free forever
+              </span>
+            </div>
+
+            <!-- Plan name & price -->
+            <h2 class="text-2xl font-bold text-white mb-1">Free</h2>
+            <div class="flex items-baseline gap-1 mb-2">
+              <span class="text-4xl font-bold text-white">$0</span>
+            </div>
+            <p class="text-sm text-surface-400 mb-8">
+              Full features for up to 10,000 photos. No credit card required.
+            </p>
+
+            <!-- CTA -->
+            <a href="/downloads" class="btn-secondary w-full text-center text-sm py-3 mb-8">
+              Download Free
+            </a>
+
+            <!-- Feature list -->
+            <p class="text-xs font-semibold uppercase tracking-widest text-surface-500 mb-4">What's included</p>
+            <ul class="space-y-3 flex-1">
+              {freeFeatures.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-accent-green shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span class="text-sm text-surface-300">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- PRO TIER -->
+          <div class="pricing-card pricing-card--pro relative p-8 flex flex-col rounded-2xl">
+            <!-- Gradient border wrapper -->
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-brand-500/30 via-brand-500/10 to-accent-purple/10 -z-10" aria-hidden="true"></div>
+            <div class="absolute inset-[1px] rounded-[15px] bg-surface-900 -z-10" aria-hidden="true"></div>
+
+            <!-- Subtle glow behind card -->
+            <div class="absolute -inset-4 rounded-3xl bg-brand-500/[0.04] blur-xl -z-20 pointer-events-none" aria-hidden="true"></div>
+
+            <!-- Badge -->
+            <div class="flex items-center gap-2 mb-6">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 border border-brand-500/20 text-brand-400">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                Recommended
+              </span>
+            </div>
+
+            <!-- Plan name & price -->
+            <h2 class="text-2xl font-bold text-white mb-1">Pro</h2>
+            <div class="flex items-baseline gap-2 mb-2">
+              <span class="text-4xl font-bold text-white">$XX</span>
+              <span class="text-sm text-surface-500">one-time</span>
+            </div>
+            <p class="text-sm text-surface-400 mb-2">
+              Unlimited photos. Pay once, own it forever.
+            </p>
+            <p class="text-xs text-brand-400 mb-8 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="16" x2="12" y2="12" />
+                <line x1="12" y1="8" x2="12.01" y2="8" />
+              </svg>
+              Price will be announced at launch
+            </p>
+
+            <!-- CTA -->
+            <a href="/waitlist" class="btn-primary w-full text-center text-sm py-3 mb-8">
+              Join Waitlist for Early Pricing
+            </a>
+
+            <!-- Feature list -->
+            <p class="text-xs font-semibold uppercase tracking-widest text-surface-500 mb-4">Everything in Free, plus</p>
+            <ul class="space-y-3 flex-1">
+              {proFeatures.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-brand-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span class="text-sm text-surface-300">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- One-time purchase callout -->
+        <div class="mt-12 max-w-4xl mx-auto">
+          <div class="pricing-callout flex flex-col sm:flex-row items-start sm:items-center gap-4 p-6 rounded-2xl bg-surface-900 border border-surface-800">
+            <div class="w-11 h-11 rounded-xl bg-accent-green/10 border border-accent-green/20 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-white mb-1">No subscriptions. No recurring fees. No data collection.</p>
+              <p class="text-sm text-surface-400 leading-relaxed">
+                CullVue is a one-time purchase. Your license never expires, and every feature
+                works completely offline. We do not monetize your data because we never see it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FEATURE COMPARISON TABLE                     -->
+    <!-- ============================================ -->
+    <section class="section-spacing pt-8 md:pt-12">
+      <div class="container-narrow">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            Compare <span class="gradient-text-warm">plans</span>
+          </h2>
+          <p class="text-surface-400 text-lg max-w-xl mx-auto">
+            Both tiers include the full CullVue experience. The only difference is library size.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <div class="compare-table-wrap card overflow-hidden">
+            <table class="compare-table w-full text-sm text-left">
+              <thead>
+                <tr>
+                  <th class="compare-th">Feature</th>
+                  <th class="compare-th text-center">Free</th>
+                  <th class="compare-th text-center">Pro</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="compare-row">
+                  <td class="compare-td">AI semantic search</td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                </tr>
+                <tr class="compare-row">
+                  <td class="compare-td">Tags, albums & smart albums</td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                </tr>
+                <tr class="compare-row">
+                  <td class="compare-td">EXIF & metadata viewer</td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                </tr>
+                <tr class="compare-row">
+                  <td class="compare-td">Batch operations</td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                </tr>
+                <tr class="compare-row">
+                  <td class="compare-td">RAW file support (20+ formats)</td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                </tr>
+                <tr class="compare-row">
+                  <td class="compare-td">Cross-platform (Mac, Win, Linux)</td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                </tr>
+                <tr class="compare-row">
+                  <td class="compare-td">100% offline & private</td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                </tr>
+                <tr class="compare-row">
+                  <td class="compare-td">Photo library size</td>
+                  <td class="compare-td text-center text-surface-400">10,000</td>
+                  <td class="compare-td text-center font-semibold text-white">Unlimited</td>
+                </tr>
+                <tr class="compare-row">
+                  <td class="compare-td">Multi-device license (up to 3)</td>
+                  <td class="compare-td text-center"><span class="compare-dash" aria-label="Not included">&mdash;</span></td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                </tr>
+                <tr class="compare-row">
+                  <td class="compare-td">Priority email support</td>
+                  <td class="compare-td text-center"><span class="compare-dash" aria-label="Not included">&mdash;</span></td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                </tr>
+                <tr class="compare-row">
+                  <td class="compare-td">Early access to new features</td>
+                  <td class="compare-td text-center"><span class="compare-dash" aria-label="Not included">&mdash;</span></td>
+                  <td class="compare-td text-center"><span class="compare-check" aria-label="Included">&#10003;</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FAQ SECTION                                  -->
+    <!-- ============================================ -->
+    <section class="section-spacing pt-8 md:pt-12">
+      <div class="container-narrow max-w-3xl">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            Pricing questions, <span class="gradient-text">answered</span>
+          </h2>
+          <p class="text-surface-400 text-lg">
+            Everything you need to know before buying.
+          </p>
+        </div>
+
+        <div class="space-y-3" id="pricing-faq-list">
+          {faqs.map((faq, index) => (
+            <details class="pricing-faq-item group" open={index === 0}>
+              <summary class="pricing-faq-summary">
+                <div class="flex items-center gap-3 flex-1 min-w-0">
+                  <span class="pricing-faq-number">{index + 1}</span>
+                  <span class="text-[15px] font-medium text-surface-200 group-hover:text-white transition-colors duration-200">
+                    {faq.question}
+                  </span>
+                </div>
+                <svg
+                  class="pricing-faq-chevron shrink-0 w-5 h-5 text-surface-600 group-hover:text-surface-400 transition-all duration-200"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </summary>
+              <div class="pricing-faq-body">
+                <p class="text-[15px] leading-[1.75] text-surface-400">
+                  {faq.answer}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BOTTOM CTA                                   -->
+    <!-- ============================================ -->
+    <section class="section-spacing">
+      <div class="container-narrow text-center">
+        <div class="relative">
+          <!-- Glow behind the block -->
+          <div class="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none" aria-hidden="true">
+            <div class="w-[500px] h-[300px] rounded-full bg-brand-600/[0.06] blur-[100px]"></div>
+          </div>
+
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-400 mb-4">
+            Ready to get organized?
+          </p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">
+            Start for <span class="gradient-text">free</span> today
+          </h2>
+          <p class="text-surface-400 text-lg max-w-lg mx-auto mb-10">
+            Download CullVue and organize up to 10,000 photos with full AI search.
+            No credit card, no sign-up, no strings attached.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/downloads" class="btn-primary text-base px-8 py-3.5">
+              Download Free
+            </a>
+            <a href="/waitlist" class="btn-secondary text-base px-8 py-3.5">
+              Join Waitlist
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer />
 </Layout>
+
+<style>
+  /* ---- Pricing cards ---- */
+  .pricing-card {
+    position: relative;
+  }
+
+  .pricing-card--pro {
+    border: none;
+  }
+
+  /* ---- Comparison table ---- */
+  .compare-table-wrap {
+    overflow-x: auto;
+  }
+
+  .compare-th {
+    @apply px-6 py-4 text-xs font-semibold uppercase tracking-wider text-surface-400
+           border-b border-surface-800;
+  }
+
+  .compare-row {
+    @apply border-b border-surface-800/60;
+  }
+
+  .compare-row:last-child {
+    @apply border-b-0;
+  }
+
+  .compare-row:hover {
+    @apply bg-surface-800/20;
+  }
+
+  .compare-td {
+    @apply px-6 py-4 text-surface-300;
+  }
+
+  .compare-check {
+    @apply text-accent-green font-bold text-base;
+  }
+
+  .compare-dash {
+    @apply text-surface-600;
+  }
+
+  /* ---- FAQ items ---- */
+  .pricing-faq-item {
+    @apply rounded-2xl border border-surface-800/60 bg-surface-900/50
+           backdrop-blur-sm overflow-hidden
+           transition-colors duration-200;
+  }
+
+  .pricing-faq-item:hover {
+    @apply border-surface-700/80 bg-surface-900/70;
+  }
+
+  .pricing-faq-item[open] {
+    @apply border-surface-700/60 bg-surface-900/60;
+  }
+
+  .pricing-faq-summary {
+    @apply flex items-center justify-between gap-4
+           px-6 py-5 cursor-pointer select-none
+           list-none;
+  }
+
+  .pricing-faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .pricing-faq-summary::marker {
+    display: none;
+    content: '';
+  }
+
+  .pricing-faq-number {
+    @apply shrink-0 w-7 h-7 rounded-lg
+           bg-surface-800/80 border border-surface-700/60
+           flex items-center justify-center
+           text-xs font-medium text-surface-500;
+  }
+
+  .pricing-faq-item[open] .pricing-faq-number {
+    @apply bg-brand-500/10 border-brand-500/25 text-brand-400;
+  }
+
+  .pricing-faq-chevron {
+    transition: transform 0.2s ease;
+  }
+
+  .pricing-faq-item[open] .pricing-faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .pricing-faq-body {
+    @apply px-6 pb-6 pl-[4.25rem];
+  }
+
+  /* ---- Light mode overrides ---- */
+
+  /* Pricing cards */
+  :global([data-theme="light"]) .pricing-card {
+    background-color: #ffffff;
+    border-color: #c8ccd6;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  :global([data-theme="light"]) .pricing-card--pro {
+    border: none;
+  }
+
+  :global([data-theme="light"]) .pricing-card--pro > .absolute.bg-gradient-to-b {
+    background: linear-gradient(to bottom, rgba(30, 111, 245, 0.25), rgba(30, 111, 245, 0.08), rgba(168, 85, 247, 0.08));
+  }
+
+  :global([data-theme="light"]) .pricing-card--pro > .absolute.bg-surface-900 {
+    background-color: #ffffff;
+  }
+
+  :global([data-theme="light"]) .pricing-card--pro > .absolute.-inset-4 {
+    background-color: rgba(30, 111, 245, 0.04);
+  }
+
+  :global([data-theme="light"]) .pricing-card .text-white {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .pricing-card .text-surface-300 {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .pricing-card .text-surface-400 {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) .pricing-card .text-surface-500 {
+    color: #878aa5;
+  }
+
+  /* Pricing callout */
+  :global([data-theme="light"]) .pricing-callout {
+    background-color: #ffffff;
+    border-color: #e2e4ea;
+  }
+
+  :global([data-theme="light"]) .pricing-callout .text-white {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .pricing-callout .text-surface-400 {
+    color: #3b3c4f;
+  }
+
+  /* Comparison table */
+  :global([data-theme="light"]) .compare-table-wrap {
+    background-color: #ffffff;
+    border-color: #c8ccd6;
+  }
+
+  :global([data-theme="light"]) .compare-th {
+    color: #535572;
+    border-bottom-color: #d5d8e2;
+    background-color: #f4f5f8;
+  }
+
+  :global([data-theme="light"]) .compare-row {
+    border-bottom-color: #e8eaf0;
+  }
+
+  :global([data-theme="light"]) .compare-row:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  :global([data-theme="light"]) .compare-td {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .compare-td .text-white {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .compare-td .text-surface-400 {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) .compare-check {
+    color: #059669;
+  }
+
+  :global([data-theme="light"]) .compare-dash {
+    color: #c0c4d0;
+  }
+
+  /* FAQ items */
+  :global([data-theme="light"]) .pricing-faq-item {
+    background-color: #ffffff;
+    border-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .pricing-faq-item:hover {
+    background-color: #f8f9fc;
+    border-color: #c0c4d0;
+  }
+
+  :global([data-theme="light"]) .pricing-faq-item[open] {
+    background-color: #fafbfd;
+    border-color: #c4c8d4;
+  }
+
+  :global([data-theme="light"]) .pricing-faq-summary .text-surface-200 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .pricing-faq-summary:hover .text-surface-200 {
+    color: #0f1020;
+  }
+
+  :global([data-theme="light"]) .pricing-faq-body .text-surface-400 {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .pricing-faq-number {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #535572;
+  }
+
+  :global([data-theme="light"]) .pricing-faq-item[open] .pricing-faq-number {
+    background-color: rgba(30, 111, 245, 0.08);
+    border-color: rgba(30, 111, 245, 0.2);
+    color: #1e6ff5;
+  }
+
+  :global([data-theme="light"]) .pricing-faq-chevron {
+    color: #878aa5;
+  }
+
+  :global([data-theme="light"]) .pricing-faq-item:hover .pricing-faq-chevron {
+    color: #535572;
+  }
+</style>

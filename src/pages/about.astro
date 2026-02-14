@@ -2,62 +2,233 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+
+const values = [
+  {
+    icon: 'shield',
+    title: 'Privacy by Default',
+    description: 'Your photos never leave your device. No cloud uploads, no third-party access, no tracking. CullVue processes everything locally, including AI search. Your library is yours alone.',
+    gradient: 'from-accent-green to-accent-cyan',
+  },
+  {
+    icon: 'zap',
+    title: 'Speed Without Compromise',
+    description: 'CullVue handles libraries of 50,000+ photos with smooth virtual scrolling and instant filtering. Thumbnails are cached locally, and semantic search results appear in milliseconds.',
+    gradient: 'from-brand-400 to-accent-cyan',
+  },
+  {
+    icon: 'layers',
+    title: 'Simplicity Over Complexity',
+    description: 'Photo management software should get out of your way. CullVue gives you albums, tags, search, and metadata viewing without burying features in nested menus or requiring a manual to get started.',
+    gradient: 'from-accent-purple to-brand-400',
+  },
+  {
+    icon: 'tag',
+    title: 'Fair, Honest Pricing',
+    description: 'One-time purchase. No subscriptions, no recurring fees, no feature gating. Pay once, use it forever. Updates are free for the lifetime of your major version. A 14-day free trial lets you try everything first.',
+    gradient: 'from-accent-pink to-accent-purple',
+  },
+];
 ---
 
-<Layout title="About - CullVue">
+<Layout title="About - CullVue" description="CullVue is a local-first photo manager with AI-powered search. Learn about our mission, values, and why we built it.">
   <Navbar />
 
-  <main class="section-spacing">
-    <div class="container-narrow">
+  <main>
+    <!-- ============================================ -->
+    <!-- HERO SECTION                                 -->
+    <!-- ============================================ -->
+    <section class="relative overflow-hidden section-spacing pb-16 md:pb-20">
+      <!-- Background glow -->
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-brand-600/[0.07] blur-[120px]"></div>
+      </div>
 
-      <!-- Header -->
-      <header class="mb-14 max-w-2xl">
-        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
-          About
-        </h1>
-        <p class="mt-3 text-lg text-surface-400 leading-relaxed">
-          Why we are building CullVue, and who it is for.
-        </p>
-      </header>
+      <div class="container-narrow relative z-10">
+        <header class="text-center max-w-3xl mx-auto">
+          <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-6">
+            Your photos belong on <span class="gradient-text">your device</span>
+          </h1>
+          <p class="text-lg md:text-xl text-surface-400 leading-relaxed max-w-2xl mx-auto">
+            CullVue is a local-first desktop app for managing your photo library with
+            AI-powered semantic search. Everything runs on your machine. Nothing gets uploaded.
+          </p>
+        </header>
+      </div>
+    </section>
 
-      <!-- Content -->
-      <div class="card p-8 sm:p-10">
-        <div class="prose-content space-y-5">
-          <p class="text-[15px] leading-[1.75] text-surface-300">
-            CullVue is built for photographers who care about privacy and ownership.
-            We believe your photos belong on your device, not on someone else's server. Every
-            feature, from AI-powered search to album management, runs entirely on your local
-            machine. No cloud accounts, no subscriptions, no data leaving your computer.
-          </p>
-          <p class="text-[15px] leading-[1.75] text-surface-300">
-            The project started from a simple frustration: existing photo management tools either
-            require you to upload everything to the cloud, lock you into a subscription, or both.
-            We wanted something different. Something that respects your data and works offline,
-            without compromises.
-          </p>
-          <p class="text-[15px] leading-[1.75] text-surface-300">
-            CullVue is a small, independent project. We are focused on building the best
-            local-first photo management experience and shipping it on macOS, Windows, and Linux.
-          </p>
+    <!-- ============================================ -->
+    <!-- THE STORY                                    -->
+    <!-- ============================================ -->
+    <section class="pb-24 md:pb-32">
+      <div class="container-narrow">
+        <div class="max-w-3xl mx-auto">
+          <div class="card p-8 sm:p-10 md:p-12">
+            <h2 class="text-2xl font-bold mb-6 pb-4 border-b border-surface-800/50 about-heading">
+              Why we built CullVue
+            </h2>
+            <div class="space-y-5 about-prose">
+              <p class="text-[15px] leading-[1.8] text-surface-300">
+                Most photo management tools today follow the same playbook: upload everything
+                to someone else's servers, pay a monthly fee, and hope your data stays private.
+                That model works well for the companies selling it. It does not work as well
+                for the people whose photos are at stake.
+              </p>
+              <p class="text-[15px] leading-[1.8] text-surface-300">
+                CullVue started from a straightforward question: what if you could have smart,
+                AI-powered photo search without giving up control of your files? Modern machine
+                learning models are small enough to run on a laptop. There is no technical
+                reason your photo manager needs a cloud backend. So we built one that does not.
+              </p>
+              <p class="text-[15px] leading-[1.8] text-surface-300">
+                The app indexes your existing folders, generates thumbnails, and builds a
+                semantic search index, all on your local hardware. You can describe a photo
+                in plain language and find it in seconds. You can organize with albums
+                and tags, browse EXIF metadata, filter by date or file size, and manage
+                libraries of tens of thousands of images without lag. And none of it requires
+                an internet connection or an account.
+              </p>
+              <p class="text-[15px] leading-[1.8] text-surface-300">
+                CullVue is an independent, small-team project. We are not backed by a
+                large company, and we do not have investors pushing us to monetize your
+                data. The business model is simple: we sell software that people find useful.
+                If it works for you, you buy a license. If it does not, you move on
+                with no strings attached.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Back to home -->
-      <div class="mt-12 text-center">
-        <a
-          href="/"
-          class="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-white transition-colors duration-200"
-        >
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5" />
-            <path d="M12 19l-7-7 7-7" />
-          </svg>
-          Back to Home
-        </a>
+    <!-- ============================================ -->
+    <!-- CORE VALUES                                  -->
+    <!-- ============================================ -->
+    <section class="section-spacing pt-0">
+      <div class="container-narrow">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            What we <span class="gradient-text-warm">believe in</span>
+          </h2>
+          <p class="text-surface-400 text-lg max-w-xl mx-auto">
+            These are not marketing slogans. They are the principles behind every decision we make.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {values.map((item) => (
+            <div class="card-hover group p-6 sm:p-7">
+              <!-- Icon -->
+              <div class={`w-11 h-11 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-5 shadow-lg opacity-90 group-hover:opacity-100 transition-opacity duration-300`}>
+                {item.icon === 'shield' && (
+                  <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                )}
+                {item.icon === 'zap' && (
+                  <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                  </svg>
+                )}
+                {item.icon === 'layers' && (
+                  <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                  </svg>
+                )}
+                {item.icon === 'tag' && (
+                  <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
+                    <line x1="7" y1="7" x2="7.01" y2="7" />
+                  </svg>
+                )}
+              </div>
+
+              <h3 class="text-lg font-semibold text-white mb-3">{item.title}</h3>
+              <p class="text-sm text-surface-400 leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
+    </section>
 
-    </div>
+    <!-- ============================================ -->
+    <!-- INDIE SOFTWARE ETHOS                         -->
+    <!-- ============================================ -->
+    <section class="section-spacing pt-0">
+      <div class="container-narrow">
+        <div class="max-w-3xl mx-auto">
+          <div class="card p-8 sm:p-10 md:p-12">
+            <h2 class="text-2xl font-bold mb-6 pb-4 border-b border-surface-800/50 about-heading">
+              Independent software, built to last
+            </h2>
+            <div class="space-y-5 about-prose">
+              <p class="text-[15px] leading-[1.8] text-surface-300">
+                CullVue is indie software in the truest sense. There is no venture capital,
+                no growth-at-all-costs roadmap, and no plans to pivot into a platform. We build
+                a desktop application that does one thing well: help you manage your photos
+                locally and privately.
+              </p>
+              <p class="text-[15px] leading-[1.8] text-surface-300">
+                Being independent means we can make decisions that prioritize the people using
+                the app over quarterly metrics. We chose a one-time purchase model because
+                subscriptions do not make sense for a tool that runs entirely on your
+                machine. We chose local-first architecture because it is the right
+                call for privacy, not because it is the trend.
+              </p>
+              <p class="text-[15px] leading-[1.8] text-surface-300">
+                CullVue ships on macOS (Apple Silicon and Intel), Windows, and Linux. We
+                believe cross-platform support matters because photographers should not be
+                locked into an ecosystem to manage their own files. The same app, the same
+                experience, on every desktop operating system.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BOTTOM CTA                                   -->
+    <!-- ============================================ -->
+    <section class="section-spacing pt-0 pb-24 md:pb-32">
+      <div class="container-narrow">
+        <div class="card p-8 sm:p-10 text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-brand-500/10 border border-brand-500/20
+                      flex items-center justify-center text-brand-400">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-white">Ready to try CullVue?</h3>
+          <p class="mt-2 text-sm text-surface-400 max-w-md mx-auto leading-relaxed">
+            Download the app and try it free for 14 days. No account required, no credit card, no strings.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
+            <a href="/downloads" class="btn-primary text-sm px-6 py-2.5">
+              Download CullVue
+            </a>
+            <a href="/contact" class="btn-secondary text-sm px-6 py-2.5">
+              Get in Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer />
 </Layout>
+
+<style>
+  /* ---- Light mode overrides ---- */
+  :global([data-theme="light"]) .about-heading {
+    color: #1a1b2e;
+    border-bottom-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .about-prose p {
+    color: #3b3c4f;
+  }
+</style>

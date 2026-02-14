@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Contact - CullVue">
+<Layout title="Contact - CullVue" description="Get in touch with the CullVue team. Reach out for support, bug reports, feature requests, or general questions.">
   <Navbar />
 
   <main class="section-spacing">
@@ -13,61 +13,246 @@ import Footer from '../components/Footer.astro';
       <!-- Header -->
       <header class="mb-14 max-w-2xl">
         <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
-          Contact
+          Get in Touch
         </h1>
         <p class="mt-3 text-lg text-surface-400 leading-relaxed">
           Have a question, found a bug, or just want to say hello? We would love to hear from you.
+          We typically respond within 24&ndash;48 hours.
         </p>
       </header>
 
-      <!-- Contact options -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
 
-        <!-- Email card -->
-        <div class="card p-8">
-          <div class="w-11 h-11 rounded-xl bg-brand-500/10 border border-brand-500/20
-                      flex items-center justify-center text-brand-400 mb-5">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
+        <!-- ============================================ -->
+        <!-- CONTACT FORM (spans 3 columns)               -->
+        <!-- ============================================ -->
+        <div class="lg:col-span-3">
+          <div class="card p-8 sm:p-10">
+            <h2 class="text-xl font-semibold text-white mb-6 contact-heading">Send us a message</h2>
+
+            <form id="contact-form" novalidate>
+              <div class="space-y-5">
+                <!-- Name field -->
+                <div>
+                  <label for="contact-name" class="block text-sm font-medium text-surface-300 mb-2 contact-label">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    required
+                    autocomplete="name"
+                    placeholder="Your name"
+                    class="contact-input w-full h-12 px-4 rounded-xl
+                           bg-surface-900/80 border border-surface-700/60
+                           text-[15px] text-white placeholder:text-surface-600
+                           focus:outline-none focus:border-brand-500/60 focus:ring-2 focus:ring-brand-500/20
+                           transition-all duration-200"
+                  />
+                </div>
+
+                <!-- Email field -->
+                <div>
+                  <label for="contact-email" class="block text-sm font-medium text-surface-300 mb-2 contact-label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    required
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    class="contact-input w-full h-12 px-4 rounded-xl
+                           bg-surface-900/80 border border-surface-700/60
+                           text-[15px] text-white placeholder:text-surface-600
+                           focus:outline-none focus:border-brand-500/60 focus:ring-2 focus:ring-brand-500/20
+                           transition-all duration-200"
+                  />
+                </div>
+
+                <!-- Subject field -->
+                <div>
+                  <label for="contact-subject" class="block text-sm font-medium text-surface-300 mb-2 contact-label">
+                    Subject
+                  </label>
+                  <select
+                    id="contact-subject"
+                    name="subject"
+                    class="contact-input contact-select w-full h-12 px-4 rounded-xl
+                           bg-surface-900/80 border border-surface-700/60
+                           text-[15px] text-white
+                           focus:outline-none focus:border-brand-500/60 focus:ring-2 focus:ring-brand-500/20
+                           transition-all duration-200 appearance-none cursor-pointer"
+                  >
+                    <option value="general">General question</option>
+                    <option value="support">Technical support</option>
+                    <option value="bug">Bug report</option>
+                    <option value="feature">Feature request</option>
+                    <option value="licensing">Licensing & billing</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <!-- Message field -->
+                <div>
+                  <label for="contact-message" class="block text-sm font-medium text-surface-300 mb-2 contact-label">
+                    Message
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    required
+                    rows="5"
+                    placeholder="Tell us what's on your mind..."
+                    class="contact-input w-full px-4 py-3 rounded-xl
+                           bg-surface-900/80 border border-surface-700/60
+                           text-[15px] text-white placeholder:text-surface-600
+                           focus:outline-none focus:border-brand-500/60 focus:ring-2 focus:ring-brand-500/20
+                           transition-all duration-200 resize-y min-h-[120px]"
+                  ></textarea>
+                </div>
+
+                <!-- Submit -->
+                <button
+                  type="submit"
+                  class="w-full sm:w-auto h-12 mt-1 px-8 rounded-xl
+                         bg-brand-600 text-[15px] font-semibold text-white
+                         hover:bg-brand-500 active:bg-brand-700
+                         transition-all duration-200
+                         shadow-lg shadow-brand-600/25 hover:shadow-brand-500/35
+                         focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:ring-offset-2 focus:ring-offset-surface-950
+                         flex items-center justify-center gap-2"
+                >
+                  Send Message
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
+                </button>
+
+                <!-- Validation error message -->
+                <p id="contact-error" class="hidden text-xs text-red-400 mt-2"></p>
+              </div>
+            </form>
+
+            <!-- Success state (hidden by default) -->
+            <div id="contact-success" class="hidden">
+              <div class="text-center py-6">
+                <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-accent-green/10 border border-accent-green/20 flex items-center justify-center">
+                  <svg class="w-7 h-7 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-2">Message sent!</h3>
+                <p class="text-surface-400 text-[15px] max-w-sm mx-auto">
+                  Thanks for reaching out. We will get back to you within 24&ndash;48 hours.
+                </p>
+                <button
+                  type="button"
+                  id="contact-reset"
+                  class="mt-6 text-sm font-medium text-brand-400 hover:text-brand-300 underline underline-offset-2 decoration-brand-400/30 hover:decoration-brand-300/50 transition-colors duration-200"
+                >
+                  Send another message
+                </button>
+              </div>
+            </div>
           </div>
-          <h2 class="text-lg font-semibold text-white mb-2">Email</h2>
-          <p class="text-sm text-surface-400 leading-relaxed mb-4">
-            For general questions, feedback, or support requests.
-          </p>
-          <a
-            href="mailto:support@cullvue.com"
-            class="text-sm font-medium text-brand-400 hover:text-brand-300 underline underline-offset-2 decoration-brand-400/30 hover:decoration-brand-300/50 transition-colors duration-200"
-          >
-            support@cullvue.com
-          </a>
         </div>
 
-        <!-- GitHub card -->
-        <div class="card p-8">
-          <div class="w-11 h-11 rounded-xl bg-surface-800/80 border border-surface-700/60
-                      flex items-center justify-center text-surface-300 mb-5">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-            </svg>
+        <!-- ============================================ -->
+        <!-- SIDEBAR: OTHER WAYS TO REACH US (2 columns)  -->
+        <!-- ============================================ -->
+        <div class="lg:col-span-2 space-y-5">
+
+          <!-- Email card -->
+          <div class="card p-6">
+            <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20
+                        flex items-center justify-center text-brand-400 mb-4">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <h3 class="text-base font-semibold text-white mb-1.5 contact-heading">Email Us Directly</h3>
+            <p class="text-sm text-surface-400 leading-relaxed mb-3">
+              For support, feedback, or anything else.
+            </p>
+            <a
+              href="mailto:support@cullvue.com"
+              class="text-sm font-medium text-brand-400 hover:text-brand-300 underline underline-offset-2 decoration-brand-400/30 hover:decoration-brand-300/50 transition-colors duration-200"
+            >
+              support@cullvue.com
+            </a>
           </div>
-          <h2 class="text-lg font-semibold text-white mb-2">GitHub Issues</h2>
-          <p class="text-sm text-surface-400 leading-relaxed mb-4">
-            For bug reports, feature requests, and technical discussions.
-          </p>
-          <a
-            href="https://github.com/cullvue/cullvue/issues"
-            class="text-sm font-medium text-brand-400 hover:text-brand-300 underline underline-offset-2 decoration-brand-400/30 hover:decoration-brand-300/50 transition-colors duration-200"
-          >
-            Open an Issue
-          </a>
+
+          <!-- GitHub card -->
+          <div class="card p-6">
+            <div class="w-10 h-10 rounded-xl bg-surface-800/80 border border-surface-700/60
+                        flex items-center justify-center text-surface-300 mb-4">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+            </div>
+            <h3 class="text-base font-semibold text-white mb-1.5 contact-heading">Bug Reports & Features</h3>
+            <p class="text-sm text-surface-400 leading-relaxed mb-3">
+              Found a bug or have a feature idea? Open a GitHub issue for the fastest resolution.
+            </p>
+            <a
+              href="https://github.com/cullvue/cullvue/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-medium text-brand-400 hover:text-brand-300 underline underline-offset-2 decoration-brand-400/30 hover:decoration-brand-300/50 transition-colors duration-200"
+            >
+              Open an Issue
+            </a>
+          </div>
+
+          <!-- FAQ card -->
+          <div class="card p-6">
+            <div class="w-10 h-10 rounded-xl bg-accent-purple/10 border border-accent-purple/20
+                        flex items-center justify-center text-accent-purple mb-4">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+            </div>
+            <h3 class="text-base font-semibold text-white mb-1.5 contact-heading">Check the FAQ</h3>
+            <p class="text-sm text-surface-400 leading-relaxed mb-3">
+              Many common questions are already answered in our FAQ and help documentation.
+            </p>
+            <a
+              href="/docs/faq"
+              class="text-sm font-medium text-brand-400 hover:text-brand-300 underline underline-offset-2 decoration-brand-400/30 hover:decoration-brand-300/50 transition-colors duration-200"
+            >
+              View FAQ
+            </a>
+          </div>
+
+          <!-- Response time note -->
+          <div class="rounded-xl border border-surface-800/60 bg-surface-900/50 p-5 contact-note">
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-surface-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <div>
+                <p class="text-sm font-medium text-surface-300 mb-1">Response times</p>
+                <p class="text-sm text-surface-400 leading-relaxed">
+                  We typically respond within 24&ndash;48 hours. License holders
+                  with priority support receive a guaranteed response within one business day.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
 
       <!-- Back to home -->
-      <div class="mt-12 text-center">
+      <div class="mt-16 text-center">
         <a
           href="/"
           class="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-white transition-colors duration-200"
@@ -85,3 +270,194 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 </Layout>
+
+<style>
+  /* Select dropdown arrow */
+  .contact-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239a9cb5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  /* Form input autofill styling to match dark theme */
+  .contact-input:-webkit-autofill,
+  .contact-input:-webkit-autofill:hover,
+  .contact-input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px rgba(14, 14, 20, 0.9) inset;
+    -webkit-text-fill-color: #ffffff;
+    caret-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* ---- Light mode overrides ---- */
+  :global([data-theme="light"]) .contact-heading {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .contact-label {
+    color: #44465d;
+  }
+
+  :global([data-theme="light"]) .contact-input {
+    background-color: #f4f5f8;
+    border-color: #d5d8e2;
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .contact-input::placeholder {
+    color: #9a9cb5;
+  }
+
+  :global([data-theme="light"]) .contact-input:focus {
+    border-color: rgba(30, 111, 245, 0.5);
+    box-shadow: 0 0 0 3px rgba(30, 111, 245, 0.1);
+  }
+
+  :global([data-theme="light"]) .contact-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23535572' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  }
+
+  :global([data-theme="light"]) .contact-select option {
+    background-color: #ffffff;
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .contact-input:-webkit-autofill,
+  :global([data-theme="light"]) .contact-input:-webkit-autofill:hover,
+  :global([data-theme="light"]) .contact-input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #f4f5f8 inset;
+    -webkit-text-fill-color: #1a1b2e;
+    caret-color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .contact-note {
+    background-color: #fafbfd;
+    border-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .contact-note .text-surface-300 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .contact-note .text-surface-400 {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .contact-note .text-surface-500 {
+    color: #535572;
+  }
+</style>
+
+<script>
+  function setupContactPage() {
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const successEl = document.getElementById('contact-success');
+    const errorEl = document.getElementById('contact-error');
+    const resetBtn = document.getElementById('contact-reset');
+
+    if (!form || !successEl || !errorEl) return;
+
+    function isValidEmail(email: string): boolean {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function showError(message: string) {
+      if (!errorEl) return;
+      errorEl.textContent = message;
+      errorEl.classList.remove('hidden');
+    }
+
+    function hideError() {
+      if (!errorEl) return;
+      errorEl.textContent = '';
+      errorEl.classList.add('hidden');
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      hideError();
+
+      const nameInput = form.querySelector('#contact-name') as HTMLInputElement | null;
+      const emailInput = form.querySelector('#contact-email') as HTMLInputElement | null;
+      const messageInput = form.querySelector('#contact-message') as HTMLTextAreaElement | null;
+      const subjectInput = form.querySelector('#contact-subject') as HTMLSelectElement | null;
+
+      if (!nameInput || !emailInput || !messageInput) return;
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
+      const subject = subjectInput?.value || 'general';
+
+      // Validate name
+      if (!name) {
+        showError('Please enter your name.');
+        nameInput.focus();
+        return;
+      }
+
+      // Validate email
+      if (!email) {
+        showError('Please enter your email address.');
+        emailInput.focus();
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        showError('Please enter a valid email address.');
+        emailInput.focus();
+        return;
+      }
+
+      // Validate message
+      if (!message) {
+        showError('Please enter a message.');
+        messageInput.focus();
+        return;
+      }
+
+      if (message.length < 10) {
+        showError('Please write a bit more so we can help you effectively.');
+        messageInput.focus();
+        return;
+      }
+
+      // TODO: Replace with real API endpoint (Formspree, custom backend, etc.)
+      // Example:
+      // fetch('https://your-api.com/contact', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ name, email, subject, message }),
+      // });
+
+      // Store in localStorage for reference
+      const submissions = JSON.parse(localStorage.getItem('contact-submissions') || '[]');
+      submissions.push({ name, email, subject, message, date: new Date().toISOString() });
+      localStorage.setItem('contact-submissions', JSON.stringify(submissions));
+
+      // Show success state
+      form.style.display = 'none';
+      successEl.classList.remove('hidden');
+    });
+
+    // Reset form to send another message
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        form.reset();
+        form.style.display = 'block';
+        successEl.classList.add('hidden');
+        hideError();
+      });
+    }
+  }
+
+  // Support Astro view transitions
+  document.addEventListener('astro:page-load', setupContactPage);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupContactPage);
+  } else {
+    setupContactPage();
+  }
+</script>

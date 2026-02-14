@@ -2,90 +2,558 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+
+const sidebarLinks = [
+  { label: 'Overview', href: '#overview' },
+  { label: 'Information We Collect', href: '#information-we-collect' },
+  { label: 'How Your Photos Are Handled', href: '#photos' },
+  { label: 'AI Search & Machine Learning', href: '#ai-search' },
+  { label: 'Website Data', href: '#website-data' },
+  { label: 'Third-Party Services', href: '#third-party' },
+  { label: 'Data Retention', href: '#data-retention' },
+  { label: 'Children\'s Privacy', href: '#childrens-privacy' },
+  { label: 'Changes to This Policy', href: '#changes' },
+  { label: 'Contact', href: '#contact' },
+];
 ---
 
-<Layout title="Privacy Policy - CullVue">
+<Layout title="Privacy Policy - CullVue" description="CullVue is built with privacy at its core. Your photos never leave your device. Learn about our privacy practices.">
   <Navbar />
 
   <main class="section-spacing">
-    <div class="container-narrow">
+    <div class="container-wide">
 
-      <!-- Header -->
-      <header class="mb-14 max-w-2xl">
-        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
-          Privacy Policy
-        </h1>
-        <p class="mt-3 text-lg text-surface-400 leading-relaxed">
-          The short version: we do not collect your data. Period.
-        </p>
-      </header>
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
 
-      <!-- Privacy content -->
-      <div class="card p-8 sm:p-10">
-        <div class="space-y-8">
-
-          <section>
-            <h2 class="text-lg font-semibold text-white mb-3">No Data Collection</h2>
-            <p class="text-[15px] leading-[1.75] text-surface-300">
-              CullVue is a local-first application. We do not collect, store, or transmit
-              any personal data, usage analytics, or telemetry. The app does not require an account,
-              and there are no tracking pixels, cookies, or third-party analytics embedded in the
-              software.
+        <!-- Sidebar -->
+        <aside class="lg:w-56 shrink-0">
+          <div class="lg:sticky lg:top-24">
+            <p class="text-xs font-semibold uppercase tracking-widest text-surface-500 mb-4">
+              On this page
             </p>
-          </section>
+            <nav aria-label="Table of contents">
+              <ol class="space-y-1.5" id="toc-list">
+                {sidebarLinks.map((link, i) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      data-toc-link
+                      class="flex items-start gap-3 py-1.5 text-sm text-surface-400 hover:text-white transition-colors duration-200 group"
+                    >
+                      <span class="mt-px shrink-0 w-5 h-5 rounded-md bg-surface-800/80 border border-surface-700/60
+                                   flex items-center justify-center text-[10px] text-surface-500
+                                   group-hover:border-brand-500/40 group-hover:text-brand-400
+                                   transition-colors duration-200 toc-number">
+                        {i + 1}
+                      </span>
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
 
-          <section>
-            <h2 class="text-lg font-semibold text-white mb-3">No Cloud Uploads</h2>
-            <p class="text-[15px] leading-[1.75] text-surface-300">
-              Your photos never leave your device. All processing, including AI-powered semantic
-              search and image indexing, happens entirely on your local machine. There are no
-              cloud servers involved in any part of the workflow.
+            <!-- Back link -->
+            <div class="mt-8 pt-6 border-t border-surface-800/50">
+              <a
+                href="/"
+                class="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-white transition-colors duration-200"
+              >
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 12H5" />
+                  <path d="M12 19l-7-7 7-7" />
+                </svg>
+                Back to Home
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <article class="flex-1 min-w-0 max-w-3xl">
+
+          <!-- Page header -->
+          <header class="mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+              Privacy Policy
+            </h1>
+            <p class="mt-3 text-lg text-surface-400 leading-relaxed">
+              CullVue is designed with privacy at its core. Your photos never leave your device.
             </p>
-          </section>
-
-          <section>
-            <h2 class="text-lg font-semibold text-white mb-3">Everything Stays Local</h2>
-            <p class="text-[15px] leading-[1.75] text-surface-300">
-              Your photo library, tags, albums, search index, and AI embeddings are stored in a
-              local database on your computer. If you uninstall the application, all associated
-              data is removed with it. We have no access to any of your information at any time.
-            </p>
-          </section>
-
-          <section>
-            <h2 class="text-lg font-semibold text-white mb-3">Optional Update Checks</h2>
-            <p class="text-[15px] leading-[1.75] text-surface-300">
-              The only network request CullVue makes is an optional check for software
-              updates. This can be disabled in Settings. The update check does not transmit any
-              personal information.
-            </p>
-          </section>
-
-          <div class="pt-4 border-t border-surface-800/50">
-            <p class="text-xs text-surface-500">
+            <p class="mt-4 text-sm text-surface-500">
               Last updated: February 2026
             </p>
-          </div>
+          </header>
 
-        </div>
+          <!-- ============================================ -->
+          <!-- 1. Overview                                  -->
+          <!-- ============================================ -->
+          <section id="overview" class="privacy-section">
+            <h2 class="privacy-h2">Overview</h2>
+            <div class="docs-prose">
+              <p>
+                CullVue is a local-first desktop application for managing, browsing, and searching
+                your photos and videos. We built it on a simple principle: your data belongs to you
+                and should stay on your device.
+              </p>
+              <div class="privacy-highlight">
+                <h3 class="text-base font-semibold text-white mb-3">The short version</h3>
+                <ul class="privacy-ul">
+                  <li>Your photos <strong class="text-surface-200">never</strong> leave your device</li>
+                  <li>AI-powered search runs <strong class="text-surface-200">entirely locally</strong> on your machine</li>
+                  <li>No cloud storage, no cloud processing, no cloud accounts required</li>
+                  <li>We collect <strong class="text-surface-200">no analytics</strong> and <strong class="text-surface-200">no usage data</strong> by default</li>
+                  <li>The only network requests are optional update checks and license validation</li>
+                </ul>
+              </div>
+              <p>
+                This policy explains what minimal information CullVue and its website may collect,
+                how it is used, and your rights regarding that information.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 2. Information We Collect                    -->
+          <!-- ============================================ -->
+          <section id="information-we-collect" class="privacy-section">
+            <h2 class="privacy-h2">Information We Collect</h2>
+            <div class="docs-prose">
+              <p>
+                CullVue is designed to function with virtually no data collection. Here is the
+                complete list of information we may receive:
+              </p>
+
+              <h3 class="privacy-h3">License information</h3>
+              <p>
+                If you purchase a license, we store your license key and associate it with a
+                customer name and email address for order fulfillment. License validation requests
+                include your license key and a device identifier used to manage activation limits.
+                No photos, filenames, or usage data are included in these requests.
+              </p>
+
+              <h3 class="privacy-h3">Optional crash reports</h3>
+              <p>
+                CullVue includes an opt-in diagnostics feature that you can enable in Settings.
+                If enabled, crash reports may include your operating system version, CPU architecture,
+                and app version. No personal data, photos, filenames, or browsing behavior is ever
+                included. This feature is <strong class="text-surface-200">disabled by default</strong>
+                and requires your explicit consent to activate.
+              </p>
+
+              <h3 class="privacy-h3">Optional feedback</h3>
+              <p>
+                When diagnostics are enabled, you can choose to send feedback from within the app.
+                This only includes what you type (your message, category, and optionally your email
+                for follow-up). No other data is attached.
+              </p>
+
+              <h3 class="privacy-h3">Update checks</h3>
+              <p>
+                CullVue periodically checks for software updates. These requests include only the
+                current app version and your operating system to determine if an update is available.
+                No personal information is transmitted. Update checks can be dismissed, and updates
+                are never installed without your action.
+              </p>
+
+              <h3 class="privacy-h3">What we do NOT collect</h3>
+              <ul class="privacy-ul">
+                <li>Your photos, videos, or any media files</li>
+                <li>File names, folder paths, or directory structures</li>
+                <li>EXIF metadata (camera info, GPS coordinates, timestamps)</li>
+                <li>Tags, albums, or organizational data you create</li>
+                <li>Search queries or AI search results</li>
+                <li>Usage analytics, feature tracking, or behavioral data</li>
+                <li>Browsing history or personal information</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 3. How Your Photos Are Handled               -->
+          <!-- ============================================ -->
+          <section id="photos" class="privacy-section">
+            <h2 class="privacy-h2">How Your Photos Are Handled</h2>
+            <div class="docs-prose">
+              <p>
+                CullVue reads your photos directly from folders on your local file system. The app
+                never copies, uploads, or transmits your photos anywhere. All processing happens
+                on your device:
+              </p>
+              <ul class="privacy-ul">
+                <li><strong class="text-surface-200">Thumbnail generation</strong> happens locally and cached thumbnails are stored on your device</li>
+                <li><strong class="text-surface-200">EXIF metadata reading</strong> is performed locally and never leaves your machine</li>
+                <li><strong class="text-surface-200">AI embeddings</strong> are generated on-device and stored in a local database</li>
+                <li><strong class="text-surface-200">Albums, tags, and organizational data</strong> are stored in a local SQLite database on your computer</li>
+              </ul>
+              <p>
+                CullVue monitors your watched folders in real-time to keep your library up to date,
+                but this monitoring is entirely local. No file data, metadata, or folder information
+                is ever sent over the network.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 4. AI Search & Machine Learning              -->
+          <!-- ============================================ -->
+          <section id="ai-search" class="privacy-section">
+            <h2 class="privacy-h2">AI Search & Machine Learning</h2>
+            <div class="docs-prose">
+              <p>
+                CullVue's semantic search feature is powered by the MobileCLIP-S2 model, a
+                lightweight vision-language model that runs entirely on your device. Here is
+                how it works:
+              </p>
+              <ul class="privacy-ul">
+                <li>The AI model is downloaded once (approximately 400MB) and stored locally on your machine</li>
+                <li>When you index your photos, the model generates a numerical embedding (a vector of numbers) for each image. This process runs on your CPU or GPU locally.</li>
+                <li>These embeddings are stored in a local database alongside your other library data</li>
+                <li>When you search, your text query is converted to an embedding locally and compared against your photo embeddings locally</li>
+                <li>No images, embeddings, or search queries are ever sent to any server</li>
+              </ul>
+              <p>
+                Semantic search works completely offline. Once the model is downloaded, you never
+                need an internet connection to use it. There is no cloud-based AI processing,
+                no API calls to external services, and no data shared with any third party.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 5. Website Data                              -->
+          <!-- ============================================ -->
+          <section id="website-data" class="privacy-section">
+            <h2 class="privacy-h2">Website Data</h2>
+            <div class="docs-prose">
+              <p>
+                The CullVue marketing website (this site) is a static website hosted on GitHub Pages.
+                Here is what the website does and does not do:
+              </p>
+
+              <h3 class="privacy-h3">What the website stores</h3>
+              <ul class="privacy-ul">
+                <li><strong class="text-surface-200">Theme preference</strong> &mdash; Your light/dark mode choice is saved to <code>localStorage</code> in your browser so the site remembers your preference. This data never leaves your browser.</li>
+                <li><strong class="text-surface-200">Form states</strong> &mdash; If you start filling out a form (such as the waitlist), your progress may be saved temporarily to <code>localStorage</code> for convenience. This data stays in your browser.</li>
+              </ul>
+
+              <h3 class="privacy-h3">What the website does NOT do</h3>
+              <ul class="privacy-ul">
+                <li>No cookies are set</li>
+                <li>No analytics or tracking scripts are loaded</li>
+                <li>No advertising networks or pixels are present</li>
+                <li>No fingerprinting or cross-site tracking occurs</li>
+              </ul>
+
+              <p>
+                As a static site hosted on GitHub Pages, standard web server logs (IP address,
+                user agent, requested URL) may be collected by GitHub as part of their hosting
+                infrastructure. These logs are governed by
+                <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" class="privacy-link" target="_blank" rel="noopener noreferrer">GitHub's Privacy Statement</a>.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 6. Third-Party Services                      -->
+          <!-- ============================================ -->
+          <section id="third-party" class="privacy-section">
+            <h2 class="privacy-h2">Third-Party Services</h2>
+            <div class="docs-prose">
+              <p>
+                CullVue uses a minimal set of third-party services:
+              </p>
+              <ul class="privacy-ul">
+                <li><strong class="text-surface-200">License validation</strong> &mdash; License keys are validated through a licensing service. Only your license key and a device identifier are transmitted. No photos or personal usage data are included.</li>
+                <li><strong class="text-surface-200">Update server</strong> &mdash; The app checks for available updates by contacting an update server with your current version and OS information.</li>
+                <li><strong class="text-surface-200">GitHub Pages</strong> &mdash; This website is hosted on GitHub Pages. Standard server-level logging may occur as described in GitHub's privacy policy.</li>
+                <li><strong class="text-surface-200">Google Fonts</strong> &mdash; This website loads typefaces (Inter and JetBrains Mono) from Google Fonts. Google may log requests as described in their privacy policy.</li>
+              </ul>
+              <p>
+                CullVue does <strong class="text-surface-200">not</strong> use any advertising
+                networks, analytics services, data brokers, social media trackers, or any other
+                third-party service that collects or monetizes your data.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 7. Data Retention                            -->
+          <!-- ============================================ -->
+          <section id="data-retention" class="privacy-section">
+            <h2 class="privacy-h2">Data Retention</h2>
+            <div class="docs-prose">
+              <p>
+                Since CullVue is a local-first application, your data retention is entirely under
+                your control:
+              </p>
+              <ul class="privacy-ul">
+                <li>Your photo library, thumbnails, AI embeddings, tags, albums, and all organizational data are stored locally on your device</li>
+                <li>Uninstalling the application removes the app and its local database. On macOS you can also remove the application support folder to delete all cached data.</li>
+                <li>You can remove individual watched folders at any time, which clears their associated data from the local database</li>
+                <li>No copies of your data exist on our servers because your data is never transmitted to us</li>
+              </ul>
+              <p>
+                If you have purchased a license, your license key and associated customer
+                information (name, email) are retained by our licensing service for the purpose
+                of order fulfillment and license management. You can contact us to request
+                deletion of this information.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 8. Children's Privacy                        -->
+          <!-- ============================================ -->
+          <section id="childrens-privacy" class="privacy-section">
+            <h2 class="privacy-h2">Children's Privacy</h2>
+            <div class="docs-prose">
+              <p>
+                CullVue is not directed at children under the age of 13. We do not knowingly
+                collect personal information from children under 13. Since CullVue does not
+                require account creation and collects virtually no personal information, the
+                risk of inadvertent collection is minimal.
+              </p>
+              <p>
+                If you believe that a child under 13 has provided us with personal information
+                (for example, through a license purchase), please contact us at
+                <a href="mailto:support@cullvue.com" class="privacy-link">support@cullvue.com</a>
+                and we will take steps to delete that information.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 9. Changes to This Policy                    -->
+          <!-- ============================================ -->
+          <section id="changes" class="privacy-section">
+            <h2 class="privacy-h2">Changes to This Policy</h2>
+            <div class="docs-prose">
+              <p>
+                We may update this privacy policy from time to time to reflect changes in our
+                practices or for legal and regulatory reasons. When we make changes:
+              </p>
+              <ul class="privacy-ul">
+                <li>The "Last updated" date at the top of this page will be revised</li>
+                <li>Significant changes will be announced through the app's update notes</li>
+                <li>The current version of this policy will always be available on this page</li>
+              </ul>
+              <p>
+                We encourage you to review this policy periodically. Your continued use of
+                CullVue after changes are posted constitutes your acceptance of the updated policy.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 10. Contact                                  -->
+          <!-- ============================================ -->
+          <section id="contact" class="privacy-section">
+            <h2 class="privacy-h2">Contact</h2>
+            <div class="docs-prose">
+              <p>
+                If you have any questions about this privacy policy or CullVue's privacy practices,
+                you can reach us at:
+              </p>
+              <p>
+                <a href="mailto:support@cullvue.com" class="privacy-link">support@cullvue.com</a>
+              </p>
+              <p>
+                We are committed to resolving any concerns about your privacy and will respond
+                to inquiries as promptly as possible.
+              </p>
+            </div>
+          </section>
+
+        </article>
       </div>
-
-      <!-- Back to home -->
-      <div class="mt-12 text-center">
-        <a
-          href="/"
-          class="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-white transition-colors duration-200"
-        >
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5" />
-            <path d="M12 19l-7-7 7-7" />
-          </svg>
-          Back to Home
-        </a>
-      </div>
-
     </div>
   </main>
 
   <Footer />
 </Layout>
+
+<style>
+  /* Section spacing */
+  .privacy-section {
+    @apply mb-16;
+  }
+
+  .privacy-section:last-of-type {
+    @apply mb-0;
+  }
+
+  /* Section headings */
+  .privacy-h2 {
+    @apply text-2xl font-bold text-white mb-6 pb-3 border-b border-surface-800/50;
+  }
+
+  .privacy-h3 {
+    @apply text-lg font-semibold text-white mt-8 mb-4;
+  }
+
+  .privacy-h3:first-of-type {
+    @apply mt-0;
+  }
+
+  /* Prose styles */
+  .docs-prose p {
+    @apply text-[15px] leading-[1.75] text-surface-300 mb-4;
+  }
+
+  .docs-prose p:last-child {
+    @apply mb-0;
+  }
+
+  .docs-prose strong {
+    @apply font-semibold;
+  }
+
+  .docs-prose code {
+    @apply px-1.5 py-0.5 rounded-md text-[13px] font-mono
+           bg-surface-800/80 border border-surface-700/50 text-brand-300;
+  }
+
+  .privacy-link {
+    @apply text-brand-400 underline underline-offset-2 decoration-brand-400/30
+           hover:text-brand-300 hover:decoration-brand-300/50
+           transition-colors duration-200;
+  }
+
+  /* Lists */
+  .privacy-ul {
+    @apply list-none space-y-2 mb-4 text-[15px] leading-[1.75] text-surface-300;
+  }
+
+  .privacy-ul li {
+    @apply relative pl-5;
+  }
+
+  .privacy-ul li::before {
+    content: '';
+    @apply absolute left-0 top-[0.7em] w-1.5 h-1.5 rounded-full bg-surface-600;
+  }
+
+  /* Highlight box */
+  .privacy-highlight {
+    @apply p-6 rounded-xl mb-6
+           bg-surface-900 border border-surface-800;
+  }
+
+  .privacy-highlight .privacy-ul {
+    @apply mb-0;
+  }
+
+  /* TOC active state */
+  [data-toc-link].active {
+    @apply text-white;
+  }
+
+  [data-toc-link].active .toc-number {
+    @apply border-brand-500/40 text-brand-400 bg-brand-500/10;
+  }
+
+  /* ---- Light mode overrides ---- */
+  :global([data-theme="light"]) .privacy-h2 {
+    color: #1a1b2e;
+    border-bottom-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .privacy-h3 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose p {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .docs-prose strong {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose code {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #1e6ff5;
+  }
+
+  :global([data-theme="light"]) .privacy-link {
+    color: #1e6ff5;
+    text-decoration-color: rgba(30, 111, 245, 0.3);
+  }
+
+  :global([data-theme="light"]) .privacy-link:hover {
+    color: #1557c0;
+    text-decoration-color: rgba(30, 111, 245, 0.5);
+  }
+
+  :global([data-theme="light"]) .privacy-ul {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .privacy-ul li::before {
+    background-color: #9a9cb5;
+  }
+
+  :global([data-theme="light"]) .privacy-highlight {
+    background-color: #ffffff;
+    border-color: #c8ccd6;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  :global([data-theme="light"]) .privacy-highlight h3 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) [data-toc-link] {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) [data-toc-link]:hover {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) [data-toc-link].active {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) [data-toc-link].active .toc-number {
+    background-color: rgba(30, 111, 245, 0.08);
+    border-color: rgba(30, 111, 245, 0.2);
+    color: #1e6ff5;
+  }
+</style>
+
+<script>
+  // Intersection Observer for TOC highlighting
+  document.addEventListener('DOMContentLoaded', () => {
+    const tocLinks = document.querySelectorAll('[data-toc-link]');
+    const sections = document.querySelectorAll('.privacy-section');
+
+    if (!sections.length || !tocLinks.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            tocLinks.forEach((link) => {
+              const href = link.getAttribute('href');
+              if (href === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: '-80px 0px -65% 0px',
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  });
+</script>
