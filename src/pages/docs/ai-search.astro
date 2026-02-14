@@ -1,0 +1,859 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const sidebarLinks = [
+  { label: 'How Semantic Search Works', href: '#how-semantic-search-works' },
+  { label: 'The MobileCLIP-S2 Model', href: '#mobileclip-s2-model' },
+  { label: 'Setting Up AI Search', href: '#setting-up-ai-search' },
+  { label: 'Search Tips & Examples', href: '#search-tips-examples' },
+  { label: 'How Indexing Works', href: '#how-indexing-works' },
+  { label: 'Privacy & Local Processing', href: '#privacy-local-processing' },
+  { label: 'Performance', href: '#performance' },
+  { label: 'Supported Content & Limitations', href: '#supported-content-limitations' },
+];
+---
+
+<Layout title="AI Search Deep Dive - Photo Organizer Docs">
+  <Navbar />
+
+  <main class="section-spacing">
+    <div class="container-wide">
+
+      <!-- Breadcrumb -->
+      <nav class="mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 text-sm text-surface-500">
+          <li>
+            <a href="/docs" class="hover:text-white transition-colors duration-200">Docs</a>
+          </li>
+          <li aria-hidden="true">
+            <svg class="w-4 h-4 text-surface-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </li>
+          <li class="text-surface-300 font-medium">AI Search</li>
+        </ol>
+      </nav>
+
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+
+        <!-- Sidebar -->
+        <aside class="lg:w-56 shrink-0">
+          <div class="lg:sticky lg:top-24">
+            <p class="text-xs font-semibold uppercase tracking-widest text-surface-500 mb-4">
+              On this page
+            </p>
+            <nav aria-label="Table of contents">
+              <ol class="space-y-1.5" id="toc-list">
+                {sidebarLinks.map((link, i) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      data-toc-link
+                      class="flex items-start gap-3 py-1.5 text-sm text-surface-400 hover:text-white transition-colors duration-200 group"
+                    >
+                      <span class="mt-px shrink-0 w-5 h-5 rounded-md bg-surface-800/80 border border-surface-700/60
+                                   flex items-center justify-center text-[10px] text-surface-500
+                                   group-hover:border-brand-500/40 group-hover:text-brand-400
+                                   transition-colors duration-200 toc-number">
+                        {i + 1}
+                      </span>
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+
+            <!-- Back link -->
+            <div class="mt-8 pt-6 border-t border-surface-800/50">
+              <a
+                href="/docs"
+                class="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-white transition-colors duration-200"
+              >
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 12H5" />
+                  <path d="M12 19l-7-7 7-7" />
+                </svg>
+                All docs
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <article class="flex-1 min-w-0 max-w-3xl">
+
+          <!-- Page header -->
+          <header class="mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+              AI Search Deep Dive
+            </h1>
+            <p class="mt-3 text-lg text-surface-400 leading-relaxed">
+              A comprehensive look at how Photo Organizer's semantic search works under the hood,
+              from the model that powers it to tips for getting the best results.
+            </p>
+          </header>
+
+          <!-- ============================================ -->
+          <!-- 1. How Semantic Search Works                 -->
+          <!-- ============================================ -->
+          <section id="how-semantic-search-works" class="ai-section">
+            <h2 class="ai-h2">How Semantic Search Works</h2>
+
+            <div class="docs-prose">
+              <p>
+                Traditional photo search relies on filenames, dates, or tags you have manually applied.
+                Semantic search is fundamentally different. It understands what is <em class="text-surface-200">in</em>
+                your photos and lets you find them by describing their visual content in plain language.
+              </p>
+              <p>
+                The process works in three stages:
+              </p>
+            </div>
+
+            <h3 class="ai-h3">1. Embedding generation</h3>
+            <div class="docs-prose">
+              <p>
+                When you add a watch folder, Photo Organizer runs each image through a vision model
+                to produce a compact numerical representation called an <strong class="text-surface-200">embedding</strong>.
+                An embedding is a high-dimensional vector (a list of numbers) that captures the visual
+                content of the photo: the objects, scenes, colors, textures, and composition. Two
+                photos of a sunset at a beach will have embeddings that are numerically close to each
+                other, even if the photos were taken on different cameras at different beaches.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">2. Query encoding</h3>
+            <div class="docs-prose">
+              <p>
+                When you type a search query such as
+                <em class="text-surface-300">"sunset at the beach"</em>, the same model converts
+                your text into the same embedding space. The text embedding lands near the region
+                of image embeddings that visually match your description.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">3. Similarity matching</h3>
+            <div class="docs-prose">
+              <p>
+                Photo Organizer compares your text embedding against every image embedding in your
+                library using cosine similarity, a mathematical measure of how close two vectors are
+                in direction. The results are ranked by similarity score and the most relevant matches
+                are displayed first. This entire comparison happens in milliseconds, even for libraries
+                with tens of thousands of photos.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 2. The MobileCLIP-S2 Model                   -->
+          <!-- ============================================ -->
+          <section id="mobileclip-s2-model" class="ai-section">
+            <h2 class="ai-h2">The MobileCLIP-S2 Model</h2>
+
+            <div class="docs-prose">
+              <p>
+                Photo Organizer uses <strong class="text-surface-200">MobileCLIP-S2</strong> as
+                its vision-language model. MobileCLIP is a family of efficient CLIP (Contrastive
+                Language-Image Pre-training) models designed specifically for on-device inference.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">What is CLIP?</h3>
+            <div class="docs-prose">
+              <p>
+                CLIP is a type of model that learns to associate images and text in a shared
+                embedding space. It was trained on a large dataset of image-text pairs so that it
+                understands the relationship between visual content and natural language descriptions.
+                This is what makes it possible to search for photos by typing a sentence rather than
+                relying on keywords or filenames.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Why MobileCLIP-S2?</h3>
+            <div class="docs-prose">
+              <p>
+                Photo Organizer chose MobileCLIP-S2 for several reasons:
+              </p>
+              <ul class="ai-ul">
+                <li>
+                  <strong class="text-surface-200">Optimized for on-device use</strong> &mdash;
+                  MobileCLIP-S2 is specifically designed for efficient local inference. It runs
+                  well on consumer hardware without requiring a powerful GPU.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Apple Neural Engine support</strong> &mdash;
+                  On Apple Silicon Macs (M1 and newer), the model takes advantage of the dedicated
+                  Neural Engine for hardware-accelerated processing, significantly speeding up
+                  both indexing and search.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Strong accuracy for its size</strong> &mdash;
+                  Despite being much smaller than server-class vision models, MobileCLIP-S2
+                  provides highly relevant search results for everyday photo queries.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Compact model size</strong> &mdash;
+                  The model download is approximately 400 MB, a one-time download that is stored
+                  locally and never needs to be re-downloaded unless you explicitly remove it.
+                </li>
+              </ul>
+            </div>
+
+            <h3 class="ai-h3">Runs entirely locally</h3>
+            <div class="docs-prose">
+              <p>
+                The model runs entirely on your CPU or GPU. No internet connection is required
+                for either indexing or searching. The model weights are stored on disk and loaded
+                into memory when you activate semantic search mode.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 3. Setting Up AI Search                      -->
+          <!-- ============================================ -->
+          <section id="setting-up-ai-search" class="ai-section">
+            <h2 class="ai-h2">Setting Up AI Search</h2>
+
+            <div class="docs-prose">
+              <p>
+                Before you can use semantic search, you need to download the AI model and index
+                your photo library. This is a one-time setup process.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Step 1: Switch to semantic mode</h3>
+            <div class="docs-prose">
+              <p>
+                Click the <strong class="text-surface-200">brain icon</strong> in the search bar
+                in the toolbar. This switches from filename search to semantic search mode.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Step 2: Download the model</h3>
+            <div class="docs-prose">
+              <p>
+                When you enter semantic mode for the first time, you will see an
+                <strong class="text-surface-200">index icon</strong> in the toolbar. Click it and
+                then click <strong class="text-surface-200">Download Model</strong>. The AI model
+                is approximately 400 MB and only needs to be downloaded once. The download progress
+                is displayed in the dialog.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Step 3: Index your photos</h3>
+            <div class="docs-prose">
+              <p>
+                After the model is downloaded, click
+                <strong class="text-surface-200">Start Indexing</strong> in the same dialog. Photo
+                Organizer will begin generating embeddings for every image in your watched folders.
+                You can continue using the app normally while indexing runs in the background.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Step 4: Search</h3>
+            <div class="docs-prose">
+              <p>
+                Once indexing is complete (or even while it is still in progress for already-indexed
+                photos), type a natural-language description in the search bar and press
+                <kbd>Enter</kbd>. Results appear automatically, ranked by relevance. You can also
+                just pause typing for a moment and results will appear after a brief debounce.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 4. Search Tips & Examples                    -->
+          <!-- ============================================ -->
+          <section id="search-tips-examples" class="ai-section">
+            <h2 class="ai-h2">Search Tips & Examples</h2>
+
+            <div class="docs-prose">
+              <p>
+                Semantic search understands natural language, so you do not need to use special
+                syntax or keywords. That said, some query styles produce better results than others.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Effective queries</h3>
+            <div class="docs-prose">
+              <div class="ai-table-wrap">
+                <table class="ai-table">
+                  <thead>
+                    <tr>
+                      <th>Query</th>
+                      <th>What it finds</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><em class="text-surface-200">"sunset at the beach"</em></td>
+                      <td>Photos of sunsets with ocean, sand, or coastline visible</td>
+                    </tr>
+                    <tr>
+                      <td><em class="text-surface-200">"cat on a couch"</em></td>
+                      <td>Indoor photos of cats resting on sofas or cushions</td>
+                    </tr>
+                    <tr>
+                      <td><em class="text-surface-200">"birthday party with cake"</em></td>
+                      <td>Celebration scenes with cakes, candles, or party decorations</td>
+                    </tr>
+                    <tr>
+                      <td><em class="text-surface-200">"red car"</em></td>
+                      <td>Photos featuring red-colored automobiles</td>
+                    </tr>
+                    <tr>
+                      <td><em class="text-surface-200">"snowy mountain landscape"</em></td>
+                      <td>Wide shots of snow-covered peaks and alpine scenery</td>
+                    </tr>
+                    <tr>
+                      <td><em class="text-surface-200">"people hiking in a forest"</em></td>
+                      <td>Outdoor trail photos with people walking among trees</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="ai-h3">Tips for better results</h3>
+            <div class="docs-prose">
+              <ul class="ai-ul">
+                <li>
+                  <strong class="text-surface-200">Be descriptive, not abstract</strong> &mdash;
+                  Describe what is visually present in the image. Queries like
+                  <em class="text-surface-300">"golden hour portrait"</em> work better than
+                  <em class="text-surface-300">"beautiful photo"</em> because the model matches
+                  on visual content, not subjective judgments.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Include context clues</strong> &mdash;
+                  Adding details like location, setting, or objects helps narrow results.
+                  <em class="text-surface-300">"dog playing in the park"</em> is more specific
+                  than just <em class="text-surface-300">"dog"</em>.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Try different phrasings</strong> &mdash;
+                  If your first query does not return what you expect, rephrase it.
+                  <em class="text-surface-300">"autumn leaves"</em> and
+                  <em class="text-surface-300">"fall foliage"</em> may surface slightly
+                  different results.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Start broad, then narrow</strong> &mdash;
+                  If you are not sure how your photos were composed, start with a general query
+                  and refine from there.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Use the scope filter</strong> &mdash;
+                  Use the scope dropdown next to the search bar to limit results to a specific
+                  folder or search across all watched folders.
+                </li>
+              </ul>
+            </div>
+
+            <h3 class="ai-h3">What semantic search does not do</h3>
+            <div class="docs-prose">
+              <p>
+                Semantic search is based on visual similarity, not optical character recognition or
+                face recognition. It will not reliably find photos containing specific text (like a
+                sign with a particular word) or identify specific individuals by name. It understands
+                visual concepts and scenes, not identities or written words.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 5. How Indexing Works                        -->
+          <!-- ============================================ -->
+          <section id="how-indexing-works" class="ai-section">
+            <h2 class="ai-h2">How Indexing Works</h2>
+
+            <div class="docs-prose">
+              <p>
+                Indexing is the process of generating an embedding for each photo in your library.
+                This is what makes semantic search possible.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Background processing</h3>
+            <div class="docs-prose">
+              <p>
+                Indexing runs as a background task that does not block the rest of the application.
+                You can browse, tag, create albums, and use filename search while indexing is
+                active. Photo Organizer throttles the indexing process to keep the app responsive.
+              </p>
+              <p>
+                There are two indexing modes:
+              </p>
+              <ul class="ai-ul">
+                <li>
+                  <strong class="text-surface-200">Foreground indexing</strong> &mdash;
+                  Triggered from the indexing modal dialog. This runs at full speed and processes
+                  images faster, which is ideal during initial setup.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Background indexing</strong> &mdash;
+                  Runs at lower priority when the modal is closed. This ensures the app stays
+                  snappy while gradually working through your library.
+                </li>
+              </ul>
+            </div>
+
+            <h3 class="ai-h3">Progress tracking</h3>
+            <div class="docs-prose">
+              <p>
+                The status bar at the bottom of the window shows indexing progress, including the
+                number of images processed and the current file being analyzed. When indexing is
+                idle, the status bar displays the total number of indexed images in your library.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Incremental updates</h3>
+            <div class="docs-prose">
+              <p>
+                Photo Organizer watches your folders in real time. When new photos are added to
+                a watched folder, they are automatically queued for indexing. When photos are
+                deleted, their corresponding index entries are cleaned up. You do not need to
+                manually re-index your library after adding or removing files.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Index storage</h3>
+            <div class="docs-prose">
+              <p>
+                All embeddings are stored in a local database on your device. The index size
+                depends on the number of photos in your library, but it is very compact. For a
+                typical library of 10,000 photos, expect the index to use approximately
+                <strong class="text-surface-200">30 MB</strong> of disk space. The embeddings
+                are small numerical vectors, not copies of your images.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 6. Privacy & Local Processing                -->
+          <!-- ============================================ -->
+          <section id="privacy-local-processing" class="ai-section">
+            <h2 class="ai-h2">Privacy & Local Processing</h2>
+
+            <div class="docs-prose">
+              <p>
+                Privacy is a core design principle of Photo Organizer's AI search. Every part
+                of the pipeline runs entirely on your device.
+              </p>
+              <ul class="ai-ul">
+                <li>
+                  <strong class="text-surface-200">No cloud processing</strong> &mdash;
+                  Your photos are never uploaded to a server. The AI model runs locally on your
+                  CPU or GPU.
+                </li>
+                <li>
+                  <strong class="text-surface-200">No internet required</strong> &mdash;
+                  After the one-time model download, semantic search works completely offline.
+                  You can disconnect from the internet entirely and search will continue to work.
+                </li>
+                <li>
+                  <strong class="text-surface-200">No data leaves your device</strong> &mdash;
+                  Your images, embeddings, search queries, and results are all processed and
+                  stored locally. Nothing is transmitted to external servers.
+                </li>
+                <li>
+                  <strong class="text-surface-200">No third-party access</strong> &mdash;
+                  There are no third-party analytics, tracking pixels, or data-sharing agreements
+                  involved in the AI search feature. The only network request the app makes is
+                  an optional check for software updates, which can be disabled in Settings.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Embeddings are not images</strong> &mdash;
+                  The embeddings stored in the local database are compact numerical vectors. They
+                  cannot be reversed to reconstruct the original image. They contain no EXIF data,
+                  no GPS coordinates, and no personally identifiable information.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 7. Performance                               -->
+          <!-- ============================================ -->
+          <section id="performance" class="ai-section">
+            <h2 class="ai-h2">Performance</h2>
+
+            <h3 class="ai-h3">Search speed</h3>
+            <div class="docs-prose">
+              <p>
+                Once your library is indexed, searches complete in milliseconds. The similarity
+                comparison is a lightweight mathematical operation that scales well even to large
+                libraries. A library of 10,000 photos typically returns results in under 50 ms.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Indexing speed</h3>
+            <div class="docs-prose">
+              <p>
+                Indexing speed depends on your hardware. On an Apple Silicon Mac with the Neural
+                Engine, Photo Organizer can index several hundred images per minute. On machines
+                without dedicated ML hardware, indexing relies on the CPU and is slower but still
+                practical for most library sizes.
+              </p>
+              <p>
+                A dedicated GPU is not required but will significantly speed up the initial
+                embedding generation on Windows and Linux.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Index size</h3>
+            <div class="docs-prose">
+              <p>
+                The embedding index is very space-efficient. Each image embedding is a small
+                numerical vector, so 10,000 photos produce an index of roughly
+                <strong class="text-surface-200">30 MB</strong>. Even libraries with 50,000+
+                photos will have an index well under 200 MB.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Memory usage</h3>
+            <div class="docs-prose">
+              <p>
+                The AI model is loaded into memory only when semantic search mode is active. When
+                you switch back to filename search, the model is unloaded to free up RAM. Photo
+                Organizer requires at least 4 GB of system RAM, though 8 GB is recommended for
+                the best experience when using AI search alongside large photo libraries.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 8. Supported Content & Limitations           -->
+          <!-- ============================================ -->
+          <section id="supported-content-limitations" class="ai-section">
+            <h2 class="ai-h2">Supported Content & Limitations</h2>
+
+            <h3 class="ai-h3">Supported image formats</h3>
+            <div class="docs-prose">
+              <p>
+                AI search indexes all image formats that Photo Organizer supports, including:
+              </p>
+              <ul class="ai-ul">
+                <li><strong class="text-surface-200">Standard formats</strong> &mdash; JPEG, PNG, WebP, GIF, BMP, AVIF</li>
+                <li><strong class="text-surface-200">Apple formats</strong> &mdash; HEIC, HEIF</li>
+                <li><strong class="text-surface-200">RAW formats</strong> &mdash; CR2, CR3 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), ORF (Olympus), RAF (Fujifilm), RW2 (Panasonic), PEF (Pentax)</li>
+                <li><strong class="text-surface-200">Other</strong> &mdash; TIFF, TIF, SVG</li>
+              </ul>
+            </div>
+
+            <h3 class="ai-h3">Videos</h3>
+            <div class="docs-prose">
+              <p>
+                Video files are recognized and displayed in the library, but they are
+                <strong class="text-surface-200">not indexed for AI search</strong> at this time.
+                Video files will not appear in semantic search results. Text-based filename search
+                still works for videos.
+              </p>
+            </div>
+
+            <h3 class="ai-h3">Known limitations</h3>
+            <div class="docs-prose">
+              <ul class="ai-ul">
+                <li>
+                  <strong class="text-surface-200">No text recognition (OCR)</strong> &mdash;
+                  The model does not read text within images. Searching for a specific word on a
+                  sign or document will not produce reliable results.
+                </li>
+                <li>
+                  <strong class="text-surface-200">No face recognition</strong> &mdash;
+                  Semantic search cannot identify specific people by name. It understands
+                  general concepts like "person" or "group of people" but not individual
+                  identities.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Abstract concepts</strong> &mdash;
+                  Subjective or emotional queries like "happy photo" or "my best shot" may not
+                  produce meaningful results. The model works best with concrete visual
+                  descriptions.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Very small or occluded objects</strong> &mdash;
+                  If the subject of your query is very small within the frame or heavily obscured,
+                  the model may not detect it reliably. Prominent visual elements produce the
+                  strongest matches.
+                </li>
+                <li>
+                  <strong class="text-surface-200">Query length</strong> &mdash;
+                  Queries must be at least 3 characters long. Very short queries may produce
+                  broad or unexpected results. Longer, more descriptive queries tend to be
+                  more precise.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Next steps -->
+          <div class="mt-16 pt-10 border-t border-surface-800/50">
+            <h3 class="text-lg font-semibold text-white mb-4">Related docs</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <a href="/docs/getting-started" class="card-hover p-5 group">
+                <p class="text-sm font-medium text-white group-hover:text-brand-300 transition-colors duration-200">
+                  Getting Started Guide
+                </p>
+                <p class="mt-1 text-sm text-surface-500">
+                  Set up Photo Organizer in two minutes.
+                </p>
+              </a>
+              <a href="/docs/help" class="card-hover p-5 group">
+                <p class="text-sm font-medium text-white group-hover:text-brand-300 transition-colors duration-200">
+                  Help & Documentation
+                </p>
+                <p class="mt-1 text-sm text-surface-500">
+                  Complete guide to using Photo Organizer.
+                </p>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Section spacing */
+  .ai-section {
+    @apply mb-16;
+  }
+
+  .ai-section:last-of-type {
+    @apply mb-0;
+  }
+
+  /* Section headings */
+  .ai-h2 {
+    @apply text-2xl font-bold text-white mb-6 pb-3 border-b border-surface-800/50;
+  }
+
+  .ai-h3 {
+    @apply text-lg font-semibold text-white mt-8 mb-4;
+  }
+
+  .ai-h3:first-of-type {
+    @apply mt-0;
+  }
+
+  /* Prose styles */
+  .docs-prose p {
+    @apply text-[15px] leading-[1.75] text-surface-300 mb-4;
+  }
+
+  .docs-prose p:last-child {
+    @apply mb-0;
+  }
+
+  .docs-prose strong {
+    @apply font-semibold;
+  }
+
+  .docs-prose code {
+    @apply px-1.5 py-0.5 rounded-md text-[13px] font-mono
+           bg-surface-800/80 border border-surface-700/50 text-brand-300;
+  }
+
+  .docs-prose kbd {
+    @apply px-2 py-0.5 rounded-md text-xs font-mono font-medium
+           bg-surface-800 border border-surface-700/80 text-surface-200
+           shadow-sm;
+  }
+
+  .docs-prose em {
+    @apply not-italic;
+  }
+
+  .docs-link {
+    @apply text-brand-400 underline underline-offset-2 decoration-brand-400/30
+           hover:text-brand-300 hover:decoration-brand-300/50
+           transition-colors duration-200;
+  }
+
+  /* Lists */
+  .ai-ul {
+    @apply list-none space-y-2 mb-4 text-[15px] leading-[1.75] text-surface-300;
+  }
+
+  .ai-ul li {
+    @apply relative pl-5;
+  }
+
+  .ai-ul li::before {
+    content: '';
+    @apply absolute left-0 top-[0.7em] w-1.5 h-1.5 rounded-full bg-surface-600;
+  }
+
+  /* Tables */
+  .ai-table-wrap {
+    @apply mb-4 overflow-x-auto rounded-xl border border-surface-800;
+  }
+
+  .ai-table {
+    @apply w-full text-sm text-left;
+  }
+
+  .ai-table thead {
+    @apply bg-surface-900/50;
+  }
+
+  .ai-table th {
+    @apply px-4 py-3 text-surface-300 font-semibold text-xs uppercase tracking-wider
+           border-b border-surface-800;
+  }
+
+  .ai-table td {
+    @apply px-4 py-3 text-surface-300 border-b border-surface-800/60;
+  }
+
+  .ai-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .ai-table tbody tr:hover {
+    @apply bg-surface-800/30;
+  }
+
+  /* TOC active state */
+  [data-toc-link].active {
+    @apply text-white;
+  }
+
+  [data-toc-link].active .toc-number {
+    @apply border-brand-500/40 text-brand-400 bg-brand-500/10;
+  }
+
+  /* ---- Light mode overrides ---- */
+  :global([data-theme="light"]) .ai-h2 {
+    color: #1a1b2e;
+    border-bottom-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .ai-h3 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose p {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .docs-prose strong {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose code {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #1e6ff5;
+  }
+
+  :global([data-theme="light"]) .docs-prose kbd {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose em {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .docs-link {
+    color: #1e6ff5;
+    text-decoration-color: rgba(30, 111, 245, 0.3);
+  }
+
+  :global([data-theme="light"]) .docs-link:hover {
+    color: #1557c0;
+    text-decoration-color: rgba(30, 111, 245, 0.5);
+  }
+
+  :global([data-theme="light"]) .ai-ul {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .ai-ul li::before {
+    background-color: #9a9cb5;
+  }
+
+  :global([data-theme="light"]) .ai-table-wrap {
+    border-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .ai-table thead {
+    background-color: #f0f2f6;
+  }
+
+  :global([data-theme="light"]) .ai-table th {
+    color: #535572;
+    border-bottom-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .ai-table td {
+    color: #3b3c4f;
+    border-bottom-color: #e8eaf0;
+  }
+
+  :global([data-theme="light"]) .ai-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  :global([data-theme="light"]) [data-toc-link] {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) [data-toc-link]:hover {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) [data-toc-link].active {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) [data-toc-link].active .toc-number {
+    background-color: rgba(30, 111, 245, 0.08);
+    border-color: rgba(30, 111, 245, 0.2);
+    color: #1e6ff5;
+  }
+</style>
+
+<script>
+  // Intersection Observer for TOC highlighting
+  document.addEventListener('DOMContentLoaded', () => {
+    const tocLinks = document.querySelectorAll('[data-toc-link]');
+    const sections = document.querySelectorAll('.ai-section');
+
+    if (!sections.length || !tocLinks.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            tocLinks.forEach((link) => {
+              const href = link.getAttribute('href');
+              if (href === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: '-80px 0px -65% 0px',
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  });
+</script>

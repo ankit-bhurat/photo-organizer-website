@@ -95,10 +95,9 @@ const highlights = [
         <!-- ---- SIGNUP FORM ---- -->
         <div class="max-w-xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
           <form
-            action="#"
-            method="POST"
             class="relative p-1 rounded-2xl bg-gradient-to-b from-brand-500/20 via-surface-800/30 to-surface-800/20"
             id="waitlist-form"
+            novalidate
           >
             <div class="bg-surface-950/90 backdrop-blur-xl rounded-[14px] p-6 sm:p-8">
               <div class="space-y-4">
@@ -158,6 +157,9 @@ const highlights = [
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </button>
+
+                <!-- Validation error message -->
+                <p id="waitlist-error" class="hidden text-xs text-red-400 text-center mt-3"></p>
               </div>
 
               <!-- Trust note -->
@@ -165,7 +167,7 @@ const highlights = [
                 <svg class="w-3.5 h-3.5 text-surface-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
-                No spam, ever. We'll only email you when we launch.
+                We'll notify you when we launch. No spam, ever.
               </p>
             </div>
           </form>
@@ -179,9 +181,9 @@ const highlights = [
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-white mb-2">You're on the list!</h3>
-                <p class="text-surface-400 text-[15px]">
-                  We'll let you know as soon as Photo Organizer is ready. Check your inbox for a confirmation.
+                <h3 class="text-xl font-semibold text-white mb-2" id="waitlist-success-title">You're on the list!</h3>
+                <p class="text-surface-400 text-[15px]" id="waitlist-success-text">
+                  We'll notify you when Photo Organizer launches. Check your inbox for a confirmation.
                 </p>
               </div>
             </div>
@@ -422,21 +424,89 @@ const highlights = [
       });
     });
 
-    // ---- Form submission (placeholder behavior) ----
+    // ---- Waitlist form submission ----
     const form = document.getElementById('waitlist-form') as HTMLFormElement | null;
     const successEl = document.getElementById('waitlist-success');
+    const errorEl = document.getElementById('waitlist-error');
+    const successTitle = document.getElementById('waitlist-success-title');
+    const successText = document.getElementById('waitlist-success-text');
 
-    if (form && successEl) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    if (!form || !successEl || !errorEl) return;
 
-        // In production, you'd POST to your backend here.
-        // For now, show the success state.
-        form.style.display = 'none';
-        successEl.classList.remove('hidden');
-        successEl.classList.add('animate-scale-in');
-      });
+    // Check if user already signed up (returning visitor)
+    const alreadySignedUp = localStorage.getItem('waitlist-signed-up');
+    if (alreadySignedUp) {
+      form.style.display = 'none';
+      successEl.classList.remove('hidden');
+      if (successTitle) successTitle.textContent = 'You\'re already on the list!';
+      if (successText) successText.textContent = 'We\'ll notify you when Photo Organizer launches. Stay tuned!';
+      return;
     }
+
+    function isValidEmail(email: string): boolean {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function showError(message: string) {
+      if (!errorEl) return;
+      errorEl.textContent = message;
+      errorEl.classList.remove('hidden');
+    }
+
+    function hideError() {
+      if (!errorEl) return;
+      errorEl.textContent = '';
+      errorEl.classList.add('hidden');
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      hideError();
+
+      const nameInput = form.querySelector('#name') as HTMLInputElement | null;
+      const emailInput = form.querySelector('#email') as HTMLInputElement | null;
+
+      if (!nameInput || !emailInput) return;
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+
+      // Validate name
+      if (!name) {
+        showError('Please enter your first name.');
+        nameInput.focus();
+        return;
+      }
+
+      // Validate email
+      if (!email) {
+        showError('Please enter your email address.');
+        emailInput.focus();
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        showError('Please enter a valid email address.');
+        emailInput.focus();
+        return;
+      }
+
+      // TODO: Replace with real API endpoint (Formspree, Mailchimp, etc.)
+      // Example:
+      // fetch('https://your-api.com/waitlist', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ name, email }),
+      // });
+
+      // Store signup in localStorage so returning visitors see the "already signed up" state
+      localStorage.setItem('waitlist-signed-up', JSON.stringify({ name, email, date: new Date().toISOString() }));
+
+      // Show success state
+      form.style.display = 'none';
+      successEl.classList.remove('hidden');
+      successEl.classList.add('animate-scale-in');
+    });
   }
 
   // Support Astro view transitions

@@ -1,0 +1,1179 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const sidebarLinks = [
+  { label: 'AI Semantic Search', href: '#ai-semantic-search' },
+  { label: 'Smart Organization', href: '#smart-organization' },
+  { label: 'EXIF & Metadata Viewer', href: '#exif-metadata' },
+  { label: 'Privacy & Local-First', href: '#privacy-local-first' },
+  { label: 'Cross-Platform Support', href: '#cross-platform' },
+  { label: 'Performance', href: '#performance' },
+];
+---
+
+<Layout title="Features Guide - Photo Organizer Docs">
+  <Navbar />
+
+  <main class="section-spacing">
+    <div class="container-wide">
+
+      <!-- Breadcrumb -->
+      <nav class="mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 text-sm text-surface-500">
+          <li>
+            <a href="/docs" class="hover:text-white transition-colors duration-200">Docs</a>
+          </li>
+          <li aria-hidden="true">
+            <svg class="w-4 h-4 text-surface-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </li>
+          <li class="text-surface-300 font-medium">Features Guide</li>
+        </ol>
+      </nav>
+
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+
+        <!-- Sidebar -->
+        <aside class="lg:w-56 shrink-0">
+          <div class="lg:sticky lg:top-24">
+            <p class="text-xs font-semibold uppercase tracking-widest text-surface-500 mb-4">
+              On this page
+            </p>
+            <nav aria-label="Table of contents">
+              <ol class="space-y-1.5" id="toc-list">
+                {sidebarLinks.map((link, i) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      data-toc-link
+                      class="flex items-start gap-3 py-1.5 text-sm text-surface-400 hover:text-white transition-colors duration-200 group"
+                    >
+                      <span class="mt-px shrink-0 w-5 h-5 rounded-md bg-surface-800/80 border border-surface-700/60
+                                   flex items-center justify-center text-[10px] text-surface-500
+                                   group-hover:border-brand-500/40 group-hover:text-brand-400
+                                   transition-colors duration-200 toc-number">
+                        {i + 1}
+                      </span>
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+
+            <!-- Back link -->
+            <div class="mt-8 pt-6 border-t border-surface-800/50">
+              <a
+                href="/docs"
+                class="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-white transition-colors duration-200"
+              >
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 12H5" />
+                  <path d="M12 19l-7-7 7-7" />
+                </svg>
+                All docs
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <article class="flex-1 min-w-0 max-w-3xl">
+
+          <!-- Page header -->
+          <header class="mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+              Features Guide
+            </h1>
+            <p class="mt-3 text-lg text-surface-400 leading-relaxed">
+              A comprehensive look at every major feature in Photo Organizer, from
+              AI-powered search to metadata viewing and cross-platform support.
+            </p>
+          </header>
+
+          <!-- ============================================ -->
+          <!-- 1. AI Semantic Search                        -->
+          <!-- ============================================ -->
+          <section id="ai-semantic-search" class="feat-section">
+            <div class="feat-section-header">
+              <div class="feat-icon feat-icon--brand">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M8 11h6" />
+                  <path d="M11 8v6" />
+                </svg>
+              </div>
+              <h2 class="feat-h2">AI Semantic Search</h2>
+            </div>
+
+            <div class="docs-prose">
+              <p>
+                Photo Organizer's flagship feature lets you find photos by describing their content
+                in plain language. Instead of relying on filenames or manually applied tags, you can
+                type queries like <em class="text-surface-300">"sunset at the beach"</em>,
+                <em class="text-surface-300">"cat on a couch"</em>, or
+                <em class="text-surface-300">"birthday party with cake"</em> and get back the most
+                relevant results from your entire library.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">How It Works</h3>
+            <div class="docs-prose">
+              <p>
+                Semantic search is powered by <strong class="text-surface-200">MobileCLIP-S2</strong>,
+                a lightweight vision-language model that runs entirely on your device. During the initial
+                indexing phase, the model generates a compact numerical representation (called an
+                <strong class="text-surface-200">embedding</strong>) for each photo. These embeddings
+                capture the visual content of the image, including objects, scenes, colors, and composition.
+              </p>
+              <p>
+                When you type a search query, Photo Organizer converts your text into the same embedding
+                space and finds the photos whose embeddings are most similar. Results are ranked by
+                relevance and appear in the grid view.
+              </p>
+            </div>
+
+            <!-- Highlight box -->
+            <div class="feat-callout feat-callout--brand">
+              <div class="feat-callout-icon">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <p>
+                All AI processing happens on your device. No photos are uploaded anywhere. Semantic
+                search works completely offline after the one-time model download.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">Getting Started with AI Search</h3>
+            <div class="docs-prose">
+              <ol class="feat-ol">
+                <li>Click the <strong class="text-surface-200">brain icon</strong> in the search bar to switch to semantic mode</li>
+                <li>Click the <strong class="text-surface-200">index icon</strong> that appears in the toolbar</li>
+                <li>Click <strong class="text-surface-200">Download Model</strong> to download the AI model (~400MB, one-time download)</li>
+                <li>Click <strong class="text-surface-200">Start Indexing</strong> to analyze your photos</li>
+                <li>Once indexing completes, type a description (3+ characters) and results appear automatically</li>
+              </ol>
+              <p>
+                Indexing runs in the background at lower priority so the app stays responsive. Progress
+                is shown in the status bar, including the current file being processed. You can use the
+                app normally while indexing runs.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">Search Tips</h3>
+            <div class="docs-prose">
+              <ul class="feat-ul">
+                <li>Use <strong class="text-surface-200">descriptive phrases</strong> rather than single keywords for better results</li>
+                <li>Combine scene descriptions with objects: <em class="text-surface-300">"dog playing in snow"</em> works better than just <em class="text-surface-300">"dog"</em></li>
+                <li>Press <kbd>Enter</kbd> for instant results, or wait briefly for auto-search to trigger</li>
+                <li>Use the <strong class="text-surface-200">scope dropdown</strong> to search within the current folder or across all watched folders</li>
+              </ul>
+            </div>
+
+            <h3 class="feat-h3">Hardware Acceleration</h3>
+            <div class="docs-prose">
+              <p>
+                On Apple Silicon Macs (M1 or newer), Photo Organizer uses the
+                <strong class="text-surface-200">Apple Neural Engine</strong> for hardware-accelerated
+                inference, making both indexing and search significantly faster. On other platforms,
+                the model runs on CPU. A dedicated GPU is not required but will speed up the initial
+                embedding generation if available.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 2. Smart Organization                        -->
+          <!-- ============================================ -->
+          <section id="smart-organization" class="feat-section">
+            <div class="feat-section-header">
+              <div class="feat-icon feat-icon--purple">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                  <rect x="7" y="7" width="10" height="10" rx="1" />
+                </svg>
+              </div>
+              <h2 class="feat-h2">Smart Organization</h2>
+            </div>
+
+            <div class="docs-prose">
+              <p>
+                Photo Organizer gives you multiple ways to keep your library structured without
+                ever moving files on disk. Combine watch folders, tags, albums, and smart albums to
+                build the organization system that works for you.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">Watch Folders</h3>
+            <div class="docs-prose">
+              <p>
+                Watch folders are the foundation of your library. When you add a folder, Photo
+                Organizer automatically indexes every image and video inside it and monitors the
+                directory in real-time. New photos appear instantly, deleted photos are removed,
+                and folder renames are reflected automatically.
+              </p>
+              <p>
+                Add folders by clicking <strong class="text-surface-200">+ Add Folder</strong> in the
+                toolbar. You can add as many folders as you like, including external drives and
+                cloud-synced directories like Dropbox or iCloud Drive.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">Tags</h3>
+            <div class="docs-prose">
+              <p>
+                Tags let you label and categorize photos across folders. You can create custom tags
+                with names of your choosing and apply them to any photo via the right-click context
+                menu or the batch action bar.
+              </p>
+              <div class="feat-table-wrap">
+                <table class="feat-table">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>How</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Create a tag</td>
+                      <td>Click the <strong class="text-surface-200">+</strong> next to "Tags" in the sidebar</td>
+                    </tr>
+                    <tr>
+                      <td>Tag a photo</td>
+                      <td>Right-click a photo and check/uncheck tags</td>
+                    </tr>
+                    <tr>
+                      <td>View tagged photos</td>
+                      <td>Click the tag name in the sidebar</td>
+                    </tr>
+                    <tr>
+                      <td>Star a photo</td>
+                      <td>Hover over a thumbnail and click the star icon</td>
+                    </tr>
+                    <tr>
+                      <td>Delete a tag</td>
+                      <td>Hover over the tag in the sidebar and click the <strong class="text-surface-200">x</strong> icon</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Tags are stored in the local database and are never written to your image files unless
+                you explicitly choose to sync them to EXIF/XMP metadata. The built-in
+                <strong class="text-surface-200">Star</strong> tag uses a star icon and cannot be deleted.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">Albums</h3>
+            <div class="docs-prose">
+              <p>
+                Albums are virtual collections. Adding a photo to an album does not move or copy the
+                file on disk. A single photo can belong to multiple albums simultaneously.
+              </p>
+              <div class="feat-table-wrap">
+                <table class="feat-table">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>How</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Create an album</td>
+                      <td>Click the <strong class="text-surface-200">+</strong> next to "Albums" in the sidebar</td>
+                    </tr>
+                    <tr>
+                      <td>Add photos</td>
+                      <td>Right-click a photo and select an album, or use batch actions</td>
+                    </tr>
+                    <tr>
+                      <td>Rename an album</td>
+                      <td>Hover over the album in the sidebar and click the pencil icon</td>
+                    </tr>
+                    <tr>
+                      <td>Remove a photo</td>
+                      <td>Right-click the photo inside the album and uncheck it</td>
+                    </tr>
+                    <tr>
+                      <td>Delete an album</td>
+                      <td>Hover over the album and click <strong class="text-surface-200">x</strong>. Your photos are not deleted.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="feat-h3">Smart Albums</h3>
+            <div class="docs-prose">
+              <p>
+                Smart albums automatically populate based on rules you define. For example, you could
+                create a smart album for "all photos from 2024 tagged with vacation." As new photos
+                matching the criteria are added to your library, they appear in the smart album
+                automatically without any manual effort.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">Multi-Select & Batch Actions</h3>
+            <div class="docs-prose">
+              <p>
+                Select multiple photos at once to tag or organize them in bulk. When multiple items
+                are selected, a floating <strong class="text-surface-200">Batch Action Bar</strong> appears
+                at the bottom of the screen.
+              </p>
+              <div class="feat-table-wrap">
+                <table class="feat-table">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>Shortcut</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Add to selection</td>
+                      <td><kbd>Cmd+Click</kbd> (Mac) / <kbd>Ctrl+Click</kbd> (Windows/Linux)</td>
+                    </tr>
+                    <tr>
+                      <td>Select a range</td>
+                      <td><kbd>Shift+Click</kbd></td>
+                    </tr>
+                    <tr>
+                      <td>Select all</td>
+                      <td><kbd>Cmd+A</kbd> / <kbd>Ctrl+A</kbd></td>
+                    </tr>
+                    <tr>
+                      <td>Clear selection</td>
+                      <td><kbd>Escape</kbd></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                The batch action bar lets you apply tags, add to an album, or clear the selection
+                across all selected items at once.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 3. EXIF & Metadata Viewer                    -->
+          <!-- ============================================ -->
+          <section id="exif-metadata" class="feat-section">
+            <div class="feat-section-header">
+              <div class="feat-icon feat-icon--cyan">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="16" x2="12" y2="12" />
+                  <line x1="12" y1="8" x2="12.01" y2="8" />
+                </svg>
+              </div>
+              <h2 class="feat-h2">EXIF & Metadata Viewer</h2>
+            </div>
+
+            <div class="docs-prose">
+              <p>
+                View detailed camera and image information for any photo in your library. The
+                metadata panel slides in from the right side of the screen and updates automatically
+                as you navigate between images using the preview arrows.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">How to Open</h3>
+            <div class="docs-prose">
+              <p>
+                Click the <strong class="text-surface-200">i</strong> button on a thumbnail's hover
+                overlay, or press the <kbd>i</kbd> key while viewing a photo in the preview modal.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">Available Metadata</h3>
+            <div class="docs-prose">
+              <p>The metadata panel displays the following information when available:</p>
+              <div class="feat-table-wrap">
+                <table class="feat-table">
+                  <thead>
+                    <tr>
+                      <th>Field</th>
+                      <th>Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>File Info</td>
+                      <td>Name, size, modification date, full file path</td>
+                    </tr>
+                    <tr>
+                      <td>Dimensions</td>
+                      <td>Image width and height in pixels</td>
+                    </tr>
+                    <tr>
+                      <td>Camera</td>
+                      <td>Make, model, and lens</td>
+                    </tr>
+                    <tr>
+                      <td>Exposure</td>
+                      <td>Aperture (f-stop), shutter speed, ISO, focal length</td>
+                    </tr>
+                    <tr>
+                      <td>Date Taken</td>
+                      <td>Original capture date and time from EXIF data</td>
+                    </tr>
+                    <tr>
+                      <td>GPS</td>
+                      <td>Location coordinates (latitude and longitude, if embedded)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="feat-h3">Supported Formats</h3>
+            <div class="docs-prose">
+              <p>
+                EXIF metadata is extracted from all major image formats. RAW files from Canon (CR2,
+                CR3), Nikon (NEF), Sony (ARW), Fujifilm (RAF), Olympus (ORF), Panasonic (RW2),
+                Pentax (PEF), and Adobe DNG are all fully supported alongside standard formats like
+                JPEG, PNG, TIFF, HEIC/HEIF, WebP, and AVIF.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 4. Privacy & Local-First                     -->
+          <!-- ============================================ -->
+          <section id="privacy-local-first" class="feat-section">
+            <div class="feat-section-header">
+              <div class="feat-icon feat-icon--green">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <h2 class="feat-h2">Privacy & Local-First Architecture</h2>
+            </div>
+
+            <div class="docs-prose">
+              <p>
+                Photo Organizer is built from the ground up as a local-first application. Your photos,
+                metadata, tags, albums, and AI embeddings are all stored on your device. The app does
+                not require an internet connection to function, and no data is ever transmitted to
+                external servers.
+              </p>
+            </div>
+
+            <!-- Privacy highlights -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6">
+              <div class="feat-highlight-card">
+                <div class="feat-highlight-icon feat-highlight-icon--green">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-surface-200">100% Local Processing</p>
+                  <p class="text-xs text-surface-400 mt-0.5">All photos stay on your device</p>
+                </div>
+              </div>
+              <div class="feat-highlight-card">
+                <div class="feat-highlight-icon feat-highlight-icon--green">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-surface-200">Offline AI</p>
+                  <p class="text-xs text-surface-400 mt-0.5">Semantic search runs without internet</p>
+                </div>
+              </div>
+              <div class="feat-highlight-card">
+                <div class="feat-highlight-icon feat-highlight-icon--green">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-surface-200">No Tracking</p>
+                  <p class="text-xs text-surface-400 mt-0.5">No analytics by default; crash reports are opt-in</p>
+                </div>
+              </div>
+              <div class="feat-highlight-card">
+                <div class="feat-highlight-icon feat-highlight-icon--green">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-surface-200">Encrypted License</p>
+                  <p class="text-xs text-surface-400 mt-0.5">AES-256-GCM encryption, tied to your device</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="feat-h3">Network Requests</h3>
+            <div class="docs-prose">
+              <p>
+                The only network request Photo Organizer makes is an optional check for software
+                updates, which you can disable in Settings. There are no cloud accounts, no sign-ups,
+                and no cloud dependency of any kind.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">Diagnostics (Opt-In)</h3>
+            <div class="docs-prose">
+              <p>
+                If you choose to enable anonymous diagnostics in Settings, only minimal data is
+                collected: operating system, CPU architecture, and app version. No personal data,
+                photos, filenames, or library information is ever collected.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 5. Cross-Platform Support                    -->
+          <!-- ============================================ -->
+          <section id="cross-platform" class="feat-section">
+            <div class="feat-section-header">
+              <div class="feat-icon feat-icon--brand">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+              <h2 class="feat-h2">Cross-Platform Support</h2>
+            </div>
+
+            <div class="docs-prose">
+              <p>
+                Photo Organizer runs natively on macOS, Windows, and Linux. The same feature set is
+                available across all platforms with a lightweight installer of approximately 30MB.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">Supported Platforms</h3>
+            <div class="docs-prose">
+              <div class="feat-table-wrap">
+                <table class="feat-table">
+                  <thead>
+                    <tr>
+                      <th>Platform</th>
+                      <th>Minimum Version</th>
+                      <th>Installer Format</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong class="text-surface-200">macOS (Apple Silicon)</strong></td>
+                      <td>macOS 12+</td>
+                      <td><code>.dmg</code></td>
+                    </tr>
+                    <tr>
+                      <td><strong class="text-surface-200">macOS (Intel)</strong></td>
+                      <td>macOS 12+</td>
+                      <td><code>.dmg</code></td>
+                    </tr>
+                    <tr>
+                      <td><strong class="text-surface-200">Windows</strong></td>
+                      <td>Windows 10+</td>
+                      <td><code>.exe</code> installer</td>
+                    </tr>
+                    <tr>
+                      <td><strong class="text-surface-200">Linux</strong></td>
+                      <td>Ubuntu 22.04+ / Fedora 38+</td>
+                      <td><code>.AppImage</code> or <code>.deb</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="feat-h3">Multi-Device Licensing</h3>
+            <div class="docs-prose">
+              <p>
+                Your license allows installation on multiple devices you personally own. Since Photo
+                Organizer is local-first, each installation maintains its own library database. If
+                your photos are stored on a shared network drive or a synced folder (such as Dropbox
+                or iCloud Drive), each device will independently index the same files.
+              </p>
+              <p>
+                Tags and albums are stored locally per device, but an import/export feature is
+                available to transfer your organizational data between installations. You can view
+                your active device count and deactivate devices from
+                <strong class="text-surface-200">Settings</strong>.
+              </p>
+            </div>
+          </section>
+
+          <!-- ============================================ -->
+          <!-- 6. Performance                               -->
+          <!-- ============================================ -->
+          <section id="performance" class="feat-section">
+            <div class="feat-section-header">
+              <div class="feat-icon feat-icon--orange">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </div>
+              <h2 class="feat-h2">Performance</h2>
+            </div>
+
+            <div class="docs-prose">
+              <p>
+                Photo Organizer is designed to handle large libraries without slowing down. The
+                architecture is optimized for smooth scrolling, fast loading, and responsive
+                interactions even with tens of thousands of photos.
+              </p>
+            </div>
+
+            <!-- Performance stats -->
+            <div class="grid grid-cols-3 gap-3 my-6">
+              <div class="feat-stat-card">
+                <div class="feat-stat-value text-accent-orange">60</div>
+                <div class="feat-stat-label">FPS Scrolling</div>
+              </div>
+              <div class="feat-stat-card">
+                <div class="feat-stat-value text-accent-orange">50k+</div>
+                <div class="feat-stat-label">Photos Supported</div>
+              </div>
+              <div class="feat-stat-card">
+                <div class="feat-stat-value text-accent-orange">20+</div>
+                <div class="feat-stat-label">File Formats</div>
+              </div>
+            </div>
+
+            <h3 class="feat-h3">Virtual Scrolling</h3>
+            <div class="docs-prose">
+              <p>
+                The photo grid uses virtual scrolling, which means only the thumbnails currently
+                visible on screen are rendered in the DOM. This allows Photo Organizer to display
+                50,000+ items at 60 frames per second without any lag. The grid adjusts columns
+                dynamically based on your window width.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">Thumbnail Caching</h3>
+            <div class="docs-prose">
+              <p>
+                Photo Organizer automatically generates and caches thumbnails for all your photos
+                and videos. Thumbnails are stored locally and regenerated automatically if the
+                original file changes. Video thumbnails are extracted from a frame at 10% of the
+                video duration.
+              </p>
+              <p>
+                Thumbnail generation runs in the background after you add a watch folder. Progress
+                is shown in the status bar. You can continue using the app normally while it
+                processes your library.
+              </p>
+            </div>
+
+            <h3 class="feat-h3">File Format Support</h3>
+            <div class="docs-prose">
+              <p>
+                Photo Organizer supports over 20 image and video formats, including RAW files from
+                all major camera manufacturers.
+              </p>
+              <div class="feat-table-wrap">
+                <table class="feat-table">
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Formats</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong class="text-surface-200">Standard Images</strong></td>
+                      <td>JPEG, PNG, GIF, WebP, BMP, AVIF</td>
+                    </tr>
+                    <tr>
+                      <td><strong class="text-surface-200">Apple</strong></td>
+                      <td>HEIC, HEIF</td>
+                    </tr>
+                    <tr>
+                      <td><strong class="text-surface-200">RAW</strong></td>
+                      <td>CR2, CR3 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), ORF (Olympus), RAF (Fujifilm), RW2 (Panasonic), PEF (Pentax)</td>
+                    </tr>
+                    <tr>
+                      <td><strong class="text-surface-200">Other Images</strong></td>
+                      <td>TIFF, TIF, SVG</td>
+                    </tr>
+                    <tr>
+                      <td><strong class="text-surface-200">Video</strong></td>
+                      <td>MP4, MOV, AVI, MKV, WebM, M4V, WMV, MTS, M2TS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="feat-h3">System Requirements</h3>
+            <div class="docs-prose">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+                <div class="card p-5">
+                  <p class="text-sm font-semibold text-surface-200 mb-3">Minimum</p>
+                  <ul class="feat-ul feat-ul--compact">
+                    <li>macOS 12+, Windows 10+, or Ubuntu 22.04+</li>
+                    <li>4 GB RAM</li>
+                    <li>500 MB disk space</li>
+                    <li>Any modern CPU (2018+)</li>
+                  </ul>
+                </div>
+                <div class="card p-5">
+                  <p class="text-sm font-semibold text-surface-200 mb-3">Recommended</p>
+                  <ul class="feat-ul feat-ul--compact">
+                    <li>Apple Silicon Mac (M1+)</li>
+                    <li>8 GB RAM</li>
+                    <li>SSD storage</li>
+                    <li>1 GB free disk space</li>
+                  </ul>
+                </div>
+              </div>
+              <p>
+                The AI search model requires approximately 400MB of additional disk space on first
+                download. A dedicated GPU is not required but will speed up the initial indexing.
+              </p>
+            </div>
+          </section>
+
+          <!-- Next steps -->
+          <div class="mt-16 pt-10 border-t border-surface-800/50">
+            <h3 class="text-lg font-semibold text-white mb-4">Related docs</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <a href="/docs/getting-started" class="card-hover p-5 group">
+                <p class="text-sm font-medium text-white group-hover:text-brand-300 transition-colors duration-200">
+                  Getting Started
+                </p>
+                <p class="mt-1 text-sm text-surface-500">
+                  Set up Photo Organizer in two minutes.
+                </p>
+              </a>
+              <a href="/docs/faq" class="card-hover p-5 group">
+                <p class="text-sm font-medium text-white group-hover:text-brand-300 transition-colors duration-200">
+                  FAQ
+                </p>
+                <p class="mt-1 text-sm text-surface-500">
+                  Answers to frequently asked questions.
+                </p>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Section spacing */
+  .feat-section {
+    @apply mb-16;
+  }
+
+  .feat-section:last-of-type {
+    @apply mb-0;
+  }
+
+  /* Section header with icon */
+  .feat-section-header {
+    @apply flex items-center gap-4 mb-6;
+  }
+
+  /* Section icon badge */
+  .feat-icon {
+    @apply shrink-0 w-10 h-10 rounded-xl
+           flex items-center justify-center;
+  }
+
+  .feat-icon--brand {
+    @apply bg-brand-500/10 border border-brand-500/20 text-brand-400;
+  }
+
+  .feat-icon--purple {
+    @apply bg-accent-purple/10 border border-accent-purple/20 text-accent-purple;
+  }
+
+  .feat-icon--cyan {
+    @apply bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan;
+  }
+
+  .feat-icon--green {
+    @apply bg-accent-green/10 border border-accent-green/20 text-accent-green;
+  }
+
+  .feat-icon--orange {
+    @apply bg-accent-orange/10 border border-accent-orange/20 text-accent-orange;
+  }
+
+  /* Section headings */
+  .feat-h2 {
+    @apply text-2xl font-bold text-white m-0;
+  }
+
+  .feat-h3 {
+    @apply text-lg font-semibold text-white mt-8 mb-4;
+  }
+
+  .feat-h3:first-of-type {
+    @apply mt-0;
+  }
+
+  /* Prose styles */
+  .docs-prose p {
+    @apply text-[15px] leading-[1.75] text-surface-300 mb-4;
+  }
+
+  .docs-prose p:last-child {
+    @apply mb-0;
+  }
+
+  .docs-prose strong {
+    @apply font-semibold;
+  }
+
+  .docs-prose code {
+    @apply px-1.5 py-0.5 rounded-md text-[13px] font-mono
+           bg-surface-800/80 border border-surface-700/50 text-brand-300;
+  }
+
+  .docs-prose kbd {
+    @apply px-2 py-0.5 rounded-md text-xs font-mono font-medium
+           bg-surface-800 border border-surface-700/80 text-surface-200
+           shadow-sm;
+  }
+
+  .docs-prose em {
+    @apply not-italic;
+  }
+
+  .docs-link {
+    @apply text-brand-400 underline underline-offset-2 decoration-brand-400/30
+           hover:text-brand-300 hover:decoration-brand-300/50
+           transition-colors duration-200;
+  }
+
+  /* Callout boxes */
+  .feat-callout {
+    @apply flex gap-3 p-4 rounded-xl my-6 text-[14px] leading-[1.7];
+  }
+
+  .feat-callout--brand {
+    @apply bg-brand-500/[0.06] border border-brand-500/15 text-surface-300;
+  }
+
+  .feat-callout-icon {
+    @apply shrink-0 mt-0.5 text-brand-400;
+  }
+
+  .feat-callout p {
+    @apply m-0;
+  }
+
+  /* Lists */
+  .feat-ul {
+    @apply list-none space-y-2 mb-4 text-[15px] leading-[1.75] text-surface-300;
+  }
+
+  .feat-ul li {
+    @apply relative pl-5;
+  }
+
+  .feat-ul li::before {
+    content: '';
+    @apply absolute left-0 top-[0.7em] w-1.5 h-1.5 rounded-full bg-surface-600;
+  }
+
+  .feat-ul--compact {
+    @apply space-y-1.5 mb-0 text-sm;
+  }
+
+  .feat-ol {
+    @apply list-none space-y-2 mb-4 text-[15px] leading-[1.75] text-surface-300;
+    counter-reset: step;
+  }
+
+  .feat-ol li {
+    @apply relative pl-7;
+    counter-increment: step;
+  }
+
+  .feat-ol li::before {
+    content: counter(step);
+    @apply absolute left-0 top-[0.15em] w-5 h-5 rounded-md
+           bg-surface-800/80 border border-surface-700/50
+           flex items-center justify-center
+           text-xs font-medium text-surface-400;
+  }
+
+  /* Tables */
+  .feat-table-wrap {
+    @apply mb-4 overflow-x-auto rounded-xl border border-surface-800;
+  }
+
+  .feat-table {
+    @apply w-full text-sm text-left;
+  }
+
+  .feat-table thead {
+    @apply bg-surface-900/50;
+  }
+
+  .feat-table th {
+    @apply px-4 py-3 text-surface-300 font-semibold text-xs uppercase tracking-wider
+           border-b border-surface-800;
+  }
+
+  .feat-table td {
+    @apply px-4 py-3 text-surface-300 border-b border-surface-800/60;
+  }
+
+  .feat-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .feat-table tbody tr:hover {
+    @apply bg-surface-800/30;
+  }
+
+  /* Highlight cards (privacy grid) */
+  .feat-highlight-card {
+    @apply flex items-start gap-3 p-4 rounded-xl
+           bg-surface-900 border border-surface-800;
+  }
+
+  .feat-highlight-icon {
+    @apply shrink-0 mt-0.5;
+  }
+
+  .feat-highlight-icon--green {
+    @apply text-accent-green;
+  }
+
+  /* Stat cards (performance section) */
+  .feat-stat-card {
+    @apply text-center py-4 rounded-xl bg-surface-900 border border-surface-800;
+  }
+
+  .feat-stat-value {
+    @apply text-xl font-bold;
+  }
+
+  .feat-stat-label {
+    @apply text-xs text-surface-500 uppercase tracking-wider mt-1;
+  }
+
+  /* TOC active state */
+  [data-toc-link].active {
+    @apply text-white;
+  }
+
+  [data-toc-link].active .toc-number {
+    @apply border-brand-500/40 text-brand-400 bg-brand-500/10;
+  }
+
+  /* ---- Light mode overrides ---- */
+  :global([data-theme="light"]) .feat-h2 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .feat-h3 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose p {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .docs-prose strong {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose code {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #1e6ff5;
+  }
+
+  :global([data-theme="light"]) .docs-prose kbd {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .docs-prose em {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .docs-link {
+    color: #1e6ff5;
+    text-decoration-color: rgba(30, 111, 245, 0.3);
+  }
+
+  :global([data-theme="light"]) .docs-link:hover {
+    color: #1557c0;
+    text-decoration-color: rgba(30, 111, 245, 0.5);
+  }
+
+  :global([data-theme="light"]) .feat-callout--brand {
+    background-color: rgba(30, 111, 245, 0.04);
+    border-color: rgba(30, 111, 245, 0.12);
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .feat-callout-icon {
+    color: #1e6ff5;
+  }
+
+  :global([data-theme="light"]) .feat-icon--brand {
+    background-color: rgba(30, 111, 245, 0.06);
+    border-color: rgba(30, 111, 245, 0.15);
+    color: #1e6ff5;
+  }
+
+  :global([data-theme="light"]) .feat-icon--purple {
+    background-color: rgba(168, 85, 247, 0.06);
+    border-color: rgba(168, 85, 247, 0.15);
+    color: #9333ea;
+  }
+
+  :global([data-theme="light"]) .feat-icon--cyan {
+    background-color: rgba(6, 182, 212, 0.06);
+    border-color: rgba(6, 182, 212, 0.15);
+    color: #0891b2;
+  }
+
+  :global([data-theme="light"]) .feat-icon--green {
+    background-color: rgba(16, 185, 129, 0.06);
+    border-color: rgba(16, 185, 129, 0.15);
+    color: #059669;
+  }
+
+  :global([data-theme="light"]) .feat-icon--orange {
+    background-color: rgba(249, 115, 22, 0.06);
+    border-color: rgba(249, 115, 22, 0.15);
+    color: #ea580c;
+  }
+
+  :global([data-theme="light"]) .feat-ul,
+  :global([data-theme="light"]) .feat-ol {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .feat-ul li::before {
+    background-color: #9a9cb5;
+  }
+
+  :global([data-theme="light"]) .feat-ol li::before {
+    background-color: #eef0f5;
+    border-color: #d5d8e2;
+    color: #535572;
+  }
+
+  :global([data-theme="light"]) .feat-table-wrap {
+    border-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .feat-table thead {
+    background-color: #f0f2f6;
+  }
+
+  :global([data-theme="light"]) .feat-table th {
+    color: #535572;
+    border-bottom-color: #d5d8e2;
+  }
+
+  :global([data-theme="light"]) .feat-table td {
+    color: #3b3c4f;
+    border-bottom-color: #e8eaf0;
+  }
+
+  :global([data-theme="light"]) .feat-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  :global([data-theme="light"]) .feat-highlight-card {
+    background-color: #ffffff;
+    border-color: #e2e4ea;
+  }
+
+  :global([data-theme="light"]) .feat-highlight-card .text-surface-200 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .feat-highlight-card .text-surface-400 {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) .feat-stat-card {
+    background-color: #ffffff;
+    border-color: #e2e4ea;
+  }
+
+  :global([data-theme="light"]) .feat-stat-label {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) [data-toc-link] {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) [data-toc-link]:hover {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) [data-toc-link].active {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) [data-toc-link].active .toc-number {
+    background-color: rgba(30, 111, 245, 0.08);
+    border-color: rgba(30, 111, 245, 0.2);
+    color: #1e6ff5;
+  }
+</style>
+
+<script>
+  // Intersection Observer for TOC highlighting
+  document.addEventListener('DOMContentLoaded', () => {
+    const tocLinks = document.querySelectorAll('[data-toc-link]');
+    const sections = document.querySelectorAll('.feat-section');
+
+    if (!sections.length || !tocLinks.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            tocLinks.forEach((link) => {
+              const href = link.getAttribute('href');
+              if (href === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: '-80px 0px -65% 0px',
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  });
+</script>

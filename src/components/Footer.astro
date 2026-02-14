@@ -37,36 +37,42 @@ const companyLinks = [
           Product updates, tips, and the occasional behind-the-scenes look.
         </p>
       </div>
-      <form
-        class="flex w-full sm:w-auto"
-        action="#"
-        method="POST"
-      >
-        <div class="relative flex items-center w-full sm:w-auto">
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="you@example.com"
-            aria-label="Email address"
-            class="w-full sm:w-72 h-11 pl-4 pr-[7.5rem] rounded-xl
-                   bg-surface-950/80 border border-surface-700/60
-                   text-sm text-white placeholder:text-surface-500
-                   focus:outline-none focus:border-brand-500/60 focus:ring-1 focus:ring-brand-500/30
-                   transition-colors duration-200"
-          />
-          <button
-            type="submit"
-            class="absolute right-1 h-9 px-4 rounded-lg
-                   bg-brand-600 text-sm font-medium text-white
-                   hover:bg-brand-500 active:bg-brand-700
-                   transition-colors duration-150
-                   shadow-sm shadow-brand-600/20"
-          >
-            Subscribe
-          </button>
-        </div>
-      </form>
+      <div class="w-full sm:w-auto">
+        <form
+          class="flex w-full sm:w-auto"
+          id="newsletter-form"
+          novalidate
+        >
+          <div class="relative flex items-center w-full sm:w-auto">
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="you@example.com"
+              aria-label="Email address"
+              id="newsletter-email"
+              class="w-full sm:w-72 h-11 pl-4 pr-[7.5rem] rounded-xl
+                     bg-surface-950/80 border border-surface-700/60
+                     text-sm text-white placeholder:text-surface-500
+                     focus:outline-none focus:border-brand-500/60 focus:ring-1 focus:ring-brand-500/30
+                     transition-colors duration-200"
+            />
+            <button
+              type="submit"
+              id="newsletter-btn"
+              class="absolute right-1 h-9 px-4 rounded-lg
+                     bg-brand-600 text-sm font-medium text-white
+                     hover:bg-brand-500 active:bg-brand-700
+                     transition-colors duration-150
+                     shadow-sm shadow-brand-600/20"
+            >
+              Subscribe
+            </button>
+          </div>
+        </form>
+        <!-- Validation / success message -->
+        <p id="newsletter-message" class="hidden text-xs mt-2"></p>
+      </div>
     </div>
   </div>
 
@@ -191,3 +197,92 @@ const companyLinks = [
     </div>
   </div>
 </footer>
+
+<script>
+  function setupNewsletterForm() {
+    const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
+    const emailInput = document.getElementById('newsletter-email') as HTMLInputElement | null;
+    const submitBtn = document.getElementById('newsletter-btn') as HTMLButtonElement | null;
+    const messageEl = document.getElementById('newsletter-message') as HTMLElement | null;
+
+    if (!form || !emailInput || !submitBtn) return;
+
+    // Check if user already subscribed (returning visitor)
+    const alreadySubscribed = localStorage.getItem('newsletter-subscribed');
+    if (alreadySubscribed) {
+      emailInput.disabled = true;
+      emailInput.placeholder = 'You\'re subscribed!';
+      emailInput.value = '';
+      submitBtn.textContent = 'Subscribed';
+      submitBtn.disabled = true;
+      submitBtn.classList.remove('hover:bg-brand-500', 'active:bg-brand-700');
+      submitBtn.classList.add('bg-accent-green', 'cursor-default');
+      return;
+    }
+
+    function isValidEmail(email: string): boolean {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function showMessage(text: string, isError: boolean) {
+      if (!messageEl) return;
+      messageEl.textContent = text;
+      messageEl.classList.remove('hidden', 'text-red-400', 'text-accent-green');
+      messageEl.classList.add(isError ? 'text-red-400' : 'text-accent-green');
+    }
+
+    function hideMessage() {
+      if (!messageEl) return;
+      messageEl.textContent = '';
+      messageEl.classList.add('hidden');
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      hideMessage();
+
+      const email = emailInput.value.trim();
+
+      if (!email) {
+        showMessage('Please enter your email address.', true);
+        emailInput.focus();
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        showMessage('Please enter a valid email address.', true);
+        emailInput.focus();
+        return;
+      }
+
+      // TODO: Replace with real API endpoint (Formspree, Mailchimp, etc.)
+      // Example:
+      // fetch('https://your-api.com/newsletter', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ email }),
+      // });
+
+      // Store subscription in localStorage so returning visitors see the subscribed state
+      localStorage.setItem('newsletter-subscribed', JSON.stringify({ email, date: new Date().toISOString() }));
+
+      // Show success feedback inline
+      emailInput.disabled = true;
+      emailInput.value = '';
+      emailInput.placeholder = 'You\'re subscribed!';
+      submitBtn.textContent = 'Subscribed';
+      submitBtn.disabled = true;
+      submitBtn.classList.remove('hover:bg-brand-500', 'active:bg-brand-700');
+      submitBtn.classList.add('bg-accent-green', 'cursor-default');
+    });
+  }
+
+  // Support Astro view transitions
+  document.addEventListener('astro:page-load', setupNewsletterForm);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupNewsletterForm);
+  } else {
+    setupNewsletterForm();
+  }
+</script>
