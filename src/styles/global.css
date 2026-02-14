@@ -143,12 +143,14 @@
 [data-theme="light"] .card,
 [data-theme="light"] .card-hover {
   background-color: #ffffff;
-  border-color: #e2e4ea;
+  border-color: #c8ccd6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 [data-theme="light"] .card-hover:hover {
-  background-color: #f0f2f7;
-  border-color: #c8ccd6;
+  background-color: #f8faff;
+  border-color: #b0b5c4;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* Buttons */
@@ -218,13 +220,14 @@
 /* Feature cards */
 [data-theme="light"] .feature-card {
   background-color: #ffffff;
-  border-color: #e2e4ea;
+  border-color: #c8ccd6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="light"] .feature-card:hover {
-  border-color: rgba(30, 111, 245, 0.25);
-  background-color: #fafbfd;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-color: rgba(30, 111, 245, 0.35);
+  background-color: #f8faff;
+  box-shadow: 0 8px 32px rgba(30, 111, 245, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 /* Footer */
@@ -327,17 +330,59 @@
 
 /* Inner dark elements in cards - keep them slightly tinted */
 [data-theme="light"] .bg-surface-950.border-surface-800 {
-  background-color: #f4f5f8;
-  border-color: #e2e4ea;
+  background-color: #eef0f5;
+  border-color: #d0d4de;
 }
 
 /* Comparison table */
+[data-theme="light"] table {
+  border-collapse: collapse;
+}
+
 [data-theme="light"] table tr {
-  border-color: #e2e4ea;
+  border-color: #d0d4de;
+}
+
+[data-theme="light"] table thead tr {
+  border-bottom-color: #b4b9c8;
+  background-color: #f4f5f8;
 }
 
 [data-theme="light"] table tr:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: #f4f5f8;
+}
+
+[data-theme="light"] table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Comparison table header text */
+[data-theme="light"] table th .text-surface-400 {
+  color: #44465d;
+}
+
+[data-theme="light"] table th .text-brand-400 {
+  color: #1a5ae1;
+}
+
+/* Comparison table cell text */
+[data-theme="light"] table td.text-surface-300 {
+  color: #3b3c4f;
+}
+
+[data-theme="light"] table td.text-surface-600 {
+  color: #9a9cb5;
+}
+
+/* Comparison table check marks stay vivid */
+[data-theme="light"] table td.text-accent-green {
+  color: #059669;
+}
+
+/* Comparison table card wrapper */
+[data-theme="light"] #comparison .card {
+  border-color: #b4b9c8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 /* Mobile menu */
@@ -358,101 +403,152 @@
 /* Hero mock app window — light mode */
 [data-theme="light"] .hero-window-frame {
   background-color: #ffffff;
-  border-color: #c8cdd8;
+  border-color: #b0b5c4;
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.14),
-    0 8px 24px rgba(0, 0, 0, 0.08),
-    0 0 0 1px rgba(0, 0, 0, 0.06);
+    0 25px 60px rgba(0, 0, 0, 0.18),
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.10);
 }
 
 [data-theme="light"] .hero-window-ring {
-  background: linear-gradient(to bottom, rgba(180, 185, 200, 0.5), rgba(200, 205, 218, 0.25));
+  background: linear-gradient(to bottom, rgba(140, 148, 170, 0.6), rgba(170, 178, 200, 0.3));
 }
 
 [data-theme="light"] .hero-titlebar {
-  background-color: #eaecf2;
-  border-bottom-color: #d0d4de;
+  background-color: #e2e5ee;
+  border-bottom-color: #c4c9d6;
 }
 
 [data-theme="light"] .hero-searchbar {
-  background-color: #dde0e8;
-  border-color: #c4c8d4;
+  background-color: #d2d6e0;
+  border-color: #b4b9c8;
+  color: #3b3c4f;
+}
+
+[data-theme="light"] .hero-searchbar .text-surface-400 {
+  color: #535572;
+}
+
+[data-theme="light"] .hero-searchbar .text-surface-600 {
+  color: #686c8b;
 }
 
 [data-theme="light"] .hero-sidebar {
-  background-color: #f0f2f6;
-  border-right-color: #d5d8e2;
+  background-color: #e8eaf0;
+  border-right-color: #c4c9d6;
 }
 
-/* Hero photo thumbnails — boost saturation for light mode */
+/* Hero sidebar text contrast */
+[data-theme="light"] .hero-sidebar .text-surface-500 {
+  color: #686c8b;
+}
+
+[data-theme="light"] .hero-sidebar .text-surface-400 {
+  color: #535572;
+}
+
+/* Hero results indicator text */
+[data-theme="light"] .hero-photo-grid ~ div .text-surface-500,
+[data-theme="light"] .hero-window-frame .text-surface-500 {
+  color: #686c8b;
+}
+
+/* Hero photo thumbnails — vivid saturated colors for light mode */
 [data-theme="light"] .hero-photo-grid > div {
-  border-color: #d0d4de;
+  border-color: #c0c5d2;
 }
 
 [data-theme="light"] .hero-photo-grid > div:nth-child(1) {
-  background: linear-gradient(to bottom right, rgba(59, 147, 255, 0.55), rgba(30, 80, 180, 0.35)) !important;
+  background: linear-gradient(to bottom right, rgba(59, 147, 255, 0.75), rgba(30, 80, 180, 0.55)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(2) {
-  background: linear-gradient(to bottom right, rgba(249, 115, 22, 0.5), rgba(180, 80, 20, 0.3)) !important;
+  background: linear-gradient(to bottom right, rgba(249, 115, 22, 0.70), rgba(180, 80, 20, 0.50)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(3) {
-  background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.45), rgba(30, 100, 200, 0.3)) !important;
+  background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.65), rgba(30, 100, 200, 0.50)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(4) {
-  background: linear-gradient(to bottom right, rgba(236, 72, 153, 0.4), rgba(168, 85, 247, 0.3)) !important;
+  background: linear-gradient(to bottom right, rgba(236, 72, 153, 0.60), rgba(168, 85, 247, 0.50)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(5) {
-  background: linear-gradient(to bottom right, rgba(245, 158, 11, 0.5), rgba(234, 88, 12, 0.35)) !important;
+  background: linear-gradient(to bottom right, rgba(245, 158, 11, 0.70), rgba(234, 88, 12, 0.55)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(6) {
-  background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.5), rgba(6, 182, 212, 0.3)) !important;
+  background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.70), rgba(6, 182, 212, 0.50)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(7) {
-  background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.45), rgba(59, 100, 220, 0.3)) !important;
+  background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.65), rgba(59, 100, 220, 0.50)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(8) {
-  background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.45), rgba(16, 185, 129, 0.3)) !important;
+  background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.65), rgba(16, 185, 129, 0.50)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(9) {
-  background: linear-gradient(to bottom right, rgba(244, 63, 94, 0.45), rgba(249, 115, 22, 0.3)) !important;
+  background: linear-gradient(to bottom right, rgba(244, 63, 94, 0.65), rgba(249, 115, 22, 0.50)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(10) {
-  background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.45), rgba(30, 64, 175, 0.3)) !important;
+  background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.65), rgba(30, 64, 175, 0.50)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(11) {
-  background: linear-gradient(to bottom right, rgba(245, 158, 11, 0.5), rgba(244, 63, 94, 0.3)) !important;
+  background: linear-gradient(to bottom right, rgba(245, 158, 11, 0.70), rgba(244, 63, 94, 0.50)) !important;
 }
 [data-theme="light"] .hero-photo-grid > div:nth-child(12) {
-  background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.4), rgba(6, 182, 212, 0.3)) !important;
+  background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.60), rgba(6, 182, 212, 0.50)) !important;
+}
+
+/* Hero floating AI label */
+[data-theme="light"] .hero-window .bg-brand-500\/10 {
+  background-color: rgba(30, 111, 245, 0.10);
+  border-color: rgba(30, 111, 245, 0.25);
+}
+
+[data-theme="light"] .hero-window .text-brand-300 {
+  color: #1a5ae1;
 }
 
 /* Generic fallbacks for other light mode utility overrides */
 [data-theme="light"] .bg-surface-900\/80 {
-  background-color: #eaecf2;
+  background-color: #e2e5ee;
 }
 
 [data-theme="light"] .bg-surface-900\/40 {
-  background-color: #f0f2f6;
+  background-color: #e8eaf0;
 }
 
 [data-theme="light"] .bg-surface-800\/80 {
-  background-color: #dde0e8;
+  background-color: #d5d8e2;
 }
 
 [data-theme="light"] .border-surface-800\/60 {
-  border-color: #d0d4de;
+  border-color: #c4c9d6;
 }
 
 [data-theme="light"] .border-surface-800\/40 {
-  border-color: #dde0e8;
+  border-color: #d0d4de;
 }
 
 [data-theme="light"] .border-surface-800\/30 {
-  border-color: #e8eaf0;
+  border-color: #d8dbe4;
 }
 
 [data-theme="light"] .border-surface-700\/50 {
-  border-color: #c4c8d4;
+  border-color: #b4b9c8;
+}
+
+/* Hero badge in light mode */
+[data-theme="light"] .border-brand-500\/20 {
+  border-color: rgba(30, 111, 245, 0.25);
+}
+
+[data-theme="light"] .bg-brand-500\/5 {
+  background-color: rgba(30, 111, 245, 0.08);
+}
+
+[data-theme="light"] .text-brand-300 {
+  color: #1a5ae1;
+}
+
+[data-theme="light"] .text-brand-400 {
+  color: #1e6ff5;
 }
 
 [data-theme="light"] .hover\:bg-surface-800\/60:hover {
@@ -471,17 +567,72 @@
 
 /* Feature card inner elements */
 [data-theme="light"] .feature-card .bg-surface-950 {
-  background-color: #f4f5f8;
+  background-color: #eef0f5;
+  border-color: #d5d8e2;
 }
 
 [data-theme="light"] .feature-card .bg-surface-900\/80 {
-  background-color: #e8eaf0;
+  background-color: #e2e5ee;
+  border-color: #c8cdd8;
+}
+
+/* Feature card inner search bar border */
+[data-theme="light"] .feature-card .border-surface-800\/40 {
+  border-color: #c8cdd8;
+}
+
+[data-theme="light"] .feature-card .border-surface-800\/50 {
+  border-color: #c0c5d2;
+}
+
+[data-theme="light"] .feature-card .border-surface-800\/30 {
+  border-color: #d0d4de;
+}
+
+/* Feature card mini result thumbnails — boost color saturation */
+[data-theme="light"] .feature-card .bg-gradient-to-br.from-orange-500\/20 {
+  background: linear-gradient(to bottom right, rgba(249, 115, 22, 0.35), rgba(180, 110, 40, 0.20));
+}
+
+[data-theme="light"] .feature-card .bg-gradient-to-br.from-orange-500\/15 {
+  background: linear-gradient(to bottom right, rgba(249, 115, 22, 0.30), rgba(244, 63, 94, 0.18));
+}
+
+[data-theme="light"] .feature-card .bg-gradient-to-br.from-amber-500\/15 {
+  background: linear-gradient(to bottom right, rgba(245, 158, 11, 0.30), rgba(234, 179, 8, 0.18));
+}
+
+[data-theme="light"] .feature-card .bg-gradient-to-br.from-orange-500\/10 {
+  background: linear-gradient(to bottom right, rgba(249, 115, 22, 0.22), rgba(245, 158, 11, 0.12));
+}
+
+/* Feature card text contrast */
+[data-theme="light"] .feature-card .text-surface-300 {
+  color: #3b3c4f;
+}
+
+[data-theme="light"] .feature-card .text-surface-400 {
+  color: #535572;
+}
+
+[data-theme="light"] .feature-card .text-surface-500 {
+  color: #686c8b;
+}
+
+[data-theme="light"] .feature-card .text-surface-600 {
+  color: #878aa5;
 }
 
 /* Cross-platform icon boxes */
 [data-theme="light"] .feature-card [title] {
-  background-color: #f4f5f8;
-  border-color: #e2e4ea;
+  background-color: #eef0f5;
+  border-color: #d0d4de;
+}
+
+/* Feature card perf stats inner boxes */
+[data-theme="light"] .feature-card .grid .bg-surface-950 {
+  background-color: #eef0f5;
+  border-color: #d0d4de;
 }
 
 /* Newsletter email input */
@@ -497,7 +648,22 @@
   color: #b1b3c5;
 }
 
-/* CTA section card */
+/* CTA section card — make it stand out in light mode */
+[data-theme="light"] .section-spacing > .container-narrow > .card {
+  background-color: #ffffff;
+  border-color: #b4b9c8;
+  box-shadow: 0 4px 24px rgba(30, 111, 245, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .section-spacing > .container-narrow > .card .text-surface-400 {
+  color: #535572;
+}
+
+[data-theme="light"] .section-spacing > .container-narrow > .card .text-surface-500 {
+  color: #686c8b;
+}
+
+/* CTA section card inner glow */
 [data-theme="light"] .card .bg-brand-500\/10 {
   background-color: rgba(30, 111, 245, 0.06);
 }
@@ -505,27 +671,85 @@
 /* Background glow effects - soften in light mode */
 [data-theme="light"] .bg-brand-500\/10,
 [data-theme="light"] .bg-brand-500\/15 {
-  background-color: rgba(30, 111, 245, 0.06);
+  background-color: rgba(30, 111, 245, 0.08);
 }
 
 [data-theme="light"] .bg-accent-green\/10,
 [data-theme="light"] .bg-accent-green\/15 {
-  background-color: rgba(16, 185, 129, 0.08);
+  background-color: rgba(16, 185, 129, 0.10);
 }
 
 [data-theme="light"] .bg-accent-orange\/10,
 [data-theme="light"] .bg-accent-orange\/15 {
-  background-color: rgba(249, 115, 22, 0.08);
+  background-color: rgba(249, 115, 22, 0.10);
 }
 
 [data-theme="light"] .bg-accent-purple\/10,
 [data-theme="light"] .bg-accent-purple\/15 {
-  background-color: rgba(168, 85, 247, 0.08);
+  background-color: rgba(168, 85, 247, 0.10);
 }
 
 [data-theme="light"] .bg-accent-cyan\/10,
 [data-theme="light"] .bg-accent-cyan\/15 {
-  background-color: rgba(6, 182, 212, 0.08);
+  background-color: rgba(6, 182, 212, 0.10);
+}
+
+[data-theme="light"] .bg-accent-pink\/10,
+[data-theme="light"] .bg-accent-pink\/15 {
+  background-color: rgba(236, 72, 153, 0.10);
+}
+
+/* Accent color border overrides for tag pills */
+[data-theme="light"] .border-accent-green\/20 {
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+[data-theme="light"] .border-accent-purple\/15,
+[data-theme="light"] .border-accent-purple\/20 {
+  border-color: rgba(168, 85, 247, 0.25);
+}
+
+[data-theme="light"] .border-accent-pink\/15,
+[data-theme="light"] .border-accent-pink\/20 {
+  border-color: rgba(236, 72, 153, 0.25);
+}
+
+[data-theme="light"] .border-accent-cyan\/15,
+[data-theme="light"] .border-accent-cyan\/20 {
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+[data-theme="light"] .border-accent-orange\/15,
+[data-theme="light"] .border-accent-orange\/20 {
+  border-color: rgba(249, 115, 22, 0.25);
+}
+
+[data-theme="light"] .border-accent-green\/15 {
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+/* Download page — coming soon card */
+[data-theme="light"] .download-coming-soon-card {
+  background: linear-gradient(to bottom, rgba(30, 111, 245, 0.12), rgba(210, 214, 224, 0.3));
+}
+
+[data-theme="light"] .download-coming-soon-inner {
+  background-color: #ffffff;
+}
+
+/* Download page — what to expect cards */
+[data-theme="light"] .download-expect-card {
+  background-color: #ffffff;
+  border-color: #e2e4ea;
+}
+
+/* Download page — platform card coming soon badges */
+[data-theme="light"] .platform-card .bg-surface-800\/60 {
+  background-color: #e8eaf0;
+}
+
+[data-theme="light"] .platform-card .bg-brand-500\/15 {
+  background-color: rgba(30, 111, 245, 0.08);
 }
 
 /* Blur glow blobs - make invisible in light mode */
@@ -540,9 +764,14 @@
   opacity: 0 !important;
 }
 
-/* WaitlistCTA gradient background */
+/* WaitlistCTA gradient background — subtle blue tint */
 [data-theme="light"] .from-transparent.via-brand-950\/20 {
-  --tw-gradient-via: rgba(30, 111, 245, 0.03);
+  --tw-gradient-via: rgba(30, 111, 245, 0.04);
+}
+
+/* bg-surface-900/20 used in comparison table rows */
+[data-theme="light"] .bg-surface-900\/20 {
+  background-color: #f4f5f8;
 }
 
 /* Theme toggle button in light mode */

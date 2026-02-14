@@ -344,9 +344,10 @@
 
   /* Light theme hover */
   :global([data-theme="light"]) .feature-card:hover {
-    background-color: #f0f4ff;
-    border-color: rgba(30, 111, 245, 0.2);
-    box-shadow: 0 8px 32px rgba(30, 111, 245, 0.08);
+    background-color: #f4f7ff;
+    border-color: rgba(30, 111, 245, 0.30);
+    box-shadow: 0 8px 32px rgba(30, 111, 245, 0.10), 0 2px 8px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
   }
 
   :global([data-theme="light"]) .feature-card:hover h3 {
@@ -363,5 +364,9 @@
 
   :global([data-theme="light"]) .feature-card:hover .text-surface-500 {
     color: #535572;
+  }
+
+  :global([data-theme="light"]) .feature-card:hover .text-surface-600 {
+    color: #686c8b;
   }
 </style>
