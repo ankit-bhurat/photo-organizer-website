@@ -581,14 +581,15 @@ const highlights = [
       errorEl.classList.add('hidden');
     }
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       hideError();
 
       const nameInput = form.querySelector('#name') as HTMLInputElement | null;
       const emailInput = form.querySelector('#email') as HTMLInputElement | null;
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 
-      if (!nameInput || !emailInput) return;
+      if (!nameInput || !emailInput || !submitBtn) return;
 
       const name = nameInput.value.trim();
       const email = emailInput.value.trim();
@@ -613,21 +614,42 @@ const highlights = [
         return;
       }
 
-      // TODO: Replace with real API endpoint (Formspree, Mailchimp, etc.)
-      // Example:
-      // fetch('https://your-api.com/waitlist', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ name, email }),
-      // });
+      // Show loading state
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+        Joining...
+      `;
 
-      // Store signup in localStorage so returning visitors see the "already signed up" state
-      localStorage.setItem('waitlist-signed-up', JSON.stringify({ name, email, date: new Date().toISOString() }));
+      try {
+        const apiUrl = (window as any).__CULLVUE_API__;
+        const res = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ formType: 'waitlist', email, name }),
+        });
 
-      // Show success state
-      form.style.display = 'none';
-      successEl.classList.remove('hidden');
-      successEl.classList.add('animate-scale-in');
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.error || 'Something went wrong');
+        }
+
+        // Store signup in localStorage so returning visitors see the "already signed up" state
+        localStorage.setItem('waitlist-signed-up', JSON.stringify({ name, email, date: new Date().toISOString() }));
+
+        // Show success state
+        form.style.display = 'none';
+        successEl.classList.remove('hidden');
+        successEl.classList.add('animate-scale-in');
+      } catch (err) {
+        showError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
     });
   }
 

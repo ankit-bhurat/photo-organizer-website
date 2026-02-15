@@ -1,0 +1,10 @@
+name = "cullvue-api"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+[vars]
+MAILCHIMP_SERVER_PREFIX = "us21"
+MAILCHIMP_AUDIENCE_ID = "YOUR_AUDIENCE_ID"
+ALLOWED_ORIGIN = "https://cullvue.com"
+
+# MAILCHIMP_API_KEY is set via `npx wrangler secret put MAILCHIMP_API_KEY`

@@ -374,7 +374,7 @@ import Footer from '../components/Footer.astro';
       errorEl.classList.add('hidden');
     }
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       hideError();
 
@@ -382,8 +382,9 @@ import Footer from '../components/Footer.astro';
       const emailInput = form.querySelector('#contact-email') as HTMLInputElement | null;
       const messageInput = form.querySelector('#contact-message') as HTMLTextAreaElement | null;
       const subjectInput = form.querySelector('#contact-subject') as HTMLSelectElement | null;
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 
-      if (!nameInput || !emailInput || !messageInput) return;
+      if (!nameInput || !emailInput || !messageInput || !submitBtn) return;
 
       const name = nameInput.value.trim();
       const email = emailInput.value.trim();
@@ -423,22 +424,43 @@ import Footer from '../components/Footer.astro';
         return;
       }
 
-      // TODO: Replace with real API endpoint (Formspree, custom backend, etc.)
-      // Example:
-      // fetch('https://your-api.com/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ name, email, subject, message }),
-      // });
+      // Show loading state
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+        Sending...
+      `;
 
-      // Store in localStorage for reference
-      const submissions = JSON.parse(localStorage.getItem('contact-submissions') || '[]');
-      submissions.push({ name, email, subject, message, date: new Date().toISOString() });
-      localStorage.setItem('contact-submissions', JSON.stringify(submissions));
+      try {
+        const apiUrl = (window as any).__CULLVUE_API__;
+        const res = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ formType: 'contact', email, name, subject, message }),
+        });
 
-      // Show success state
-      form.style.display = 'none';
-      successEl.classList.remove('hidden');
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.error || 'Something went wrong');
+        }
+
+        // Store in localStorage for reference
+        const submissions = JSON.parse(localStorage.getItem('contact-submissions') || '[]');
+        submissions.push({ name, email, subject, message, date: new Date().toISOString() });
+        localStorage.setItem('contact-submissions', JSON.stringify(submissions));
+
+        // Show success state
+        form.style.display = 'none';
+        successEl.classList.remove('hidden');
+      } catch (err) {
+        showError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
     });
 
     // Reset form to send another message
