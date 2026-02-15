@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cullvue.com/sitemap-index.xml

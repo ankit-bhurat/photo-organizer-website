@@ -131,8 +131,14 @@ const puppeteer = require('/tmp/node_modules/puppeteer');
 - **DO NOT modify** anything in `/Users/Kabir/_Dev/photo-organizer/` directory
 - **Newsletter/waitlist forms** POST to `#` as placeholder (backend TBD)
 - **GitHub Pages** deployment via GitHub Actions on push to `main`
-- **Domain** not yet configured — `site` in `astro.config.mjs` is placeholder `https://photoorganizer.app`
+- **Domain**: `cullvue.com` — `site` set in `astro.config.mjs`, `public/CNAME` file for GitHub Pages
 - **No accounts/auth** — static site only, no backend yet
+
+## TODO
+
+- [ ] **Set up custom domain**: Point `cullvue.com` DNS to GitHub Pages (A records + CNAME), add `public/CNAME` file with `cullvue.com`, enable in repo Settings → Pages
+- [ ] **Integrate newsletter/waitlist backend**: Connect waitlist, contact, and newsletter forms to a service like **Mailchimp** (recommended — free up to 500 subs). Replace the current placeholder `POST #` and commented-out fetch calls with real API endpoints. Forms affected: `waitlist.astro`, `contact.astro`, `Footer.astro`
+- [ ] **Set up newsletter distribution**: Use the same Mailchimp account (or alternative: Buttondown, ConvertKit/Kit, Resend) to compose and send newsletters to collected subscribers. Subscriber list will already be in the platform from form signups — no export/import needed.
 
 ## Git History
 

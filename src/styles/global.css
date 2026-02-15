@@ -43,6 +43,34 @@
 }
 
 @layer components {
+  /* Skip navigation link for accessibility */
+  .skip-nav {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .skip-nav:focus {
+    background: #1e6ff5;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 9999;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    outline: 2px solid white;
+    outline-offset: 2px;
+    width: auto;
+    height: auto;
+  }
+
   .container-narrow {
     @apply max-w-5xl mx-auto px-6;
   }

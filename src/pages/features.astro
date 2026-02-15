@@ -7,39 +7,814 @@ import Footer from '../components/Footer.astro';
 <Layout title="Features - CullVue">
   <Navbar />
 
-  <main class="section-spacing">
-    <div class="container-narrow">
-
-      <!-- Header -->
-      <header class="mb-14 max-w-2xl">
-        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
-          Features
-        </h1>
-        <p class="mt-3 text-lg text-surface-400 leading-relaxed">
-          Everything CullVue can do for your photo library.
-        </p>
-      </header>
-
-      <!-- Placeholder card -->
-      <div class="card p-10 text-center">
-        <div class="w-12 h-12 mx-auto mb-5 rounded-xl bg-brand-500/10 border border-brand-500/20
-                    flex items-center justify-center text-brand-400">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-          </svg>
-        </div>
-        <h2 class="text-xl font-semibold text-white mb-2">Full feature showcase coming soon.</h2>
-        <p class="text-sm text-surface-400 max-w-md mx-auto leading-relaxed mb-6">
-          We are putting together a detailed breakdown of every feature.
-          In the meantime, check out the highlights on the homepage.
-        </p>
-        <a href="/" class="btn-primary text-sm px-6 py-2.5 inline-flex">
-          View Feature Highlights
-        </a>
+  <main>
+    <!-- Hero Section -->
+    <section class="section-spacing relative overflow-hidden">
+      <!-- Background gradient accent -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-500/[0.04] rounded-full blur-[140px]"></div>
       </div>
 
-    </div>
+      <div class="container-narrow relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <p class="text-brand-400 font-medium text-sm tracking-wide uppercase mb-4">Complete Feature Set</p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+            Everything you need to
+            <span class="gradient-text">organize your library</span>
+          </h1>
+          <p class="mt-6 text-surface-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            CullVue combines powerful AI with blazing fast performance and total privacy.
+            Built for photographers who refuse to compromise.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Semantic Search - Hero Feature -->
+    <section class="py-16 md:py-24 relative overflow-hidden">
+      <!-- Background glow -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-brand-500/[0.03] rounded-full blur-[120px]"></div>
+      </div>
+
+      <div class="container-narrow relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Content -->
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m21 21-4.35-4.35" />
+                <path d="M8 11h6" />
+                <path d="M11 8v6" />
+              </svg>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              AI Semantic Search
+            </h2>
+            <p class="text-surface-400 text-lg leading-relaxed mb-6">
+              Find photos by describing them in plain language. No keywords, no tags, no manual work.
+              Just type what you're looking for and get instant results.
+            </p>
+
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Powered by MobileCLIP-S2</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">State-of-the-art vision-language model optimized for on-device inference</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">100% Offline Processing</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">All AI runs on your device using Apple Neural Engine or CPU. No cloud required.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Lightning Fast Results</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Search 50,000+ photos in milliseconds with relevance-ranked results</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Example queries -->
+            <div>
+              <p class="text-sm text-surface-500 uppercase tracking-wider font-medium mb-3">Try searching for</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 rounded-lg text-sm bg-surface-900 border border-surface-800 text-surface-300">sunset at the beach</span>
+                <span class="px-3 py-1.5 rounded-lg text-sm bg-surface-900 border border-surface-800 text-surface-300">birthday party with cake</span>
+                <span class="px-3 py-1.5 rounded-lg text-sm bg-surface-900 border border-surface-800 text-surface-300">cat on a couch</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual mockup -->
+          <div class="order-first lg:order-last">
+            <div class="card p-6 md:p-8">
+              <!-- Search bar mockup -->
+              <div class="flex items-center gap-3 bg-surface-950 rounded-xl border border-surface-800/50 px-4 py-3.5 mb-5">
+                <svg class="w-5 h-5 text-surface-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.35-4.35" />
+                </svg>
+                <span class="text-surface-300 font-mono text-sm">"sunset at the beach"</span>
+              </div>
+
+              <!-- Results preview grid -->
+              <div class="grid grid-cols-3 gap-3 mb-4">
+                <div class="aspect-square rounded-lg bg-gradient-to-br from-orange-500/25 to-amber-600/15 border border-surface-800/40 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-orange-400/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="3" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="m21 15-5-5L5 21" />
+                  </svg>
+                </div>
+                <div class="aspect-square rounded-lg bg-gradient-to-br from-orange-500/20 to-rose-500/15 border border-surface-800/40 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-rose-400/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="3" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="m21 15-5-5L5 21" />
+                  </svg>
+                </div>
+                <div class="aspect-square rounded-lg bg-gradient-to-br from-amber-500/20 to-yellow-500/15 border border-surface-800/40 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-amber-400/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="3" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="m21 15-5-5L5 21" />
+                  </svg>
+                </div>
+                <div class="aspect-square rounded-lg bg-gradient-to-br from-orange-500/15 to-amber-500/10 border border-surface-800/40 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-amber-400/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="3" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="m21 15-5-5L5 21" />
+                  </svg>
+                </div>
+                <div class="aspect-square rounded-lg bg-gradient-to-br from-rose-500/15 to-pink-500/10 border border-surface-800/40 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-rose-400/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="3" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="m21 15-5-5L5 21" />
+                  </svg>
+                </div>
+                <div class="aspect-square rounded-lg bg-gradient-to-br from-amber-500/15 to-orange-500/10 border border-surface-800/40 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-orange-400/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="3" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="m21 15-5-5L5 21" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Status bar -->
+              <div class="flex items-center justify-between text-xs text-surface-500 px-1">
+                <span class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-accent-green animate-pulse"></span>
+                  247 matches found
+                </span>
+                <span class="font-mono">42ms</span>
+              </div>
+
+              <!-- Hardware badge -->
+              <div class="mt-5 pt-5 border-t border-surface-800/50">
+                <div class="flex items-center justify-center gap-2 text-xs text-surface-500">
+                  <svg class="w-4 h-4 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                  </svg>
+                  <span>Running on Apple Neural Engine</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Smart Organization -->
+    <section class="py-16 md:py-24 bg-surface-950/50">
+      <div class="container-narrow">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Visual -->
+          <div>
+            <div class="card p-6 md:p-8">
+              <p class="text-xs text-surface-500 uppercase tracking-wider font-medium mb-4">Tags & Albums</p>
+
+              <!-- Tag pills -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium bg-accent-purple/10 text-accent-purple border border-accent-purple/20">
+                  <span class="text-base">🌍</span> Travel
+                </span>
+                <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium bg-accent-pink/10 text-accent-pink border border-accent-pink/20">
+                  <span class="text-base">📷</span> Portrait
+                </span>
+                <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20">
+                  <span class="text-base">🏔️</span> Landscape
+                </span>
+                <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium bg-accent-green/10 text-accent-green border border-accent-green/20">
+                  <span class="text-base">⭐</span> Favorites
+                </span>
+                <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium bg-accent-orange/10 text-accent-orange border border-accent-orange/20">
+                  <span class="text-base">📅</span> Events
+                </span>
+              </div>
+
+              <!-- Mini album list -->
+              <div class="space-y-2">
+                <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-900 border border-surface-800/50">
+                  <svg class="w-4 h-4 text-surface-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                    <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                    <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                    <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                    <rect x="7" y="7" width="10" height="10" rx="1" />
+                  </svg>
+                  <span class="text-sm text-surface-300">Summer Vacation 2024</span>
+                  <span class="ml-auto text-xs text-surface-500 font-mono">247</span>
+                </div>
+                <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-900 border border-surface-800/50">
+                  <svg class="w-4 h-4 text-surface-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                    <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                    <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                    <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                    <rect x="7" y="7" width="10" height="10" rx="1" />
+                  </svg>
+                  <span class="text-sm text-surface-300">Client Work</span>
+                  <span class="ml-auto text-xs text-surface-500 font-mono">1,342</span>
+                </div>
+                <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-900 border border-surface-800/50">
+                  <svg class="w-4 h-4 text-surface-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                    <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                    <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                    <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                    <rect x="7" y="7" width="10" height="10" rx="1" />
+                  </svg>
+                  <span class="text-sm text-surface-300">Best of 2024</span>
+                  <span class="ml-auto text-xs text-surface-500 font-mono">89</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-accent-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                <rect x="7" y="7" width="10" height="10" rx="1" />
+              </svg>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Smart Organization
+            </h2>
+            <p class="text-surface-400 text-lg leading-relaxed mb-6">
+              Keep your library organized with tags, albums, and smart collections.
+              All without ever moving a single file.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Watch Folders</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Automatically index folders and monitor for changes in real-time</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Custom Tags with Icons</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Create unlimited tags with emoji icons for visual identification</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Virtual Albums</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Organize photos into collections without moving files on disk</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Batch Operations</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Apply tags, create albums, and manage thousands of photos at once</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXIF Metadata Viewer -->
+    <section class="py-16 md:py-24">
+      <div class="container-narrow">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Content -->
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-accent-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="16" x2="12" y2="12" />
+                <line x1="12" y1="8" x2="12.01" y2="8" />
+              </svg>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              EXIF & Metadata Viewer
+            </h2>
+            <p class="text-surface-400 text-lg leading-relaxed mb-6">
+              View detailed camera and image information for every photo. All your metadata at a glance.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Camera & Lens Info</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Make, model, lens, and capture settings at your fingertips</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Exposure Data</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Aperture, shutter speed, ISO, and focal length displayed clearly</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">GPS Coordinates</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">See where each photo was taken with embedded location data</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">File Information</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Size, dimensions, format, and modification dates</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual -->
+          <div class="order-first lg:order-last">
+            <div class="card p-6 md:p-8">
+              <p class="text-xs text-surface-500 uppercase tracking-wider font-medium mb-4">Metadata Panel</p>
+
+              <!-- EXIF readout -->
+              <div class="space-y-2 font-mono text-xs">
+                <div class="flex justify-between items-center px-3 py-2.5 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <span class="text-surface-500">Camera</span>
+                  <span class="text-surface-300">Sony A7 IV</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2.5 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <span class="text-surface-500">Lens</span>
+                  <span class="text-surface-300">24-70mm f/2.8 GM II</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2.5 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <span class="text-surface-500">Aperture</span>
+                  <span class="text-surface-300">f/4.0</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2.5 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <span class="text-surface-500">Shutter</span>
+                  <span class="text-surface-300">1/250s</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2.5 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <span class="text-surface-500">ISO</span>
+                  <span class="text-surface-300">400</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2.5 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <span class="text-surface-500">Focal Length</span>
+                  <span class="text-surface-300">35mm</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2.5 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <span class="text-surface-500">Dimensions</span>
+                  <span class="text-surface-300">6000 × 4000 px</span>
+                </div>
+                <div class="flex justify-between items-center px-3 py-2.5 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <span class="text-surface-500">File Size</span>
+                  <span class="text-surface-300">8.4 MB</span>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-4 border-t border-surface-800/50">
+                <p class="text-xs text-surface-500 text-center">Supports 20+ formats including RAW</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blazing Fast Performance -->
+    <section class="py-16 md:py-24 bg-surface-950/50">
+      <div class="container-narrow">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Visual -->
+          <div>
+            <div class="card p-6 md:p-8">
+              <!-- Performance stats -->
+              <div class="grid grid-cols-3 gap-3 mb-6">
+                <div class="text-center py-5 rounded-xl bg-surface-950 border border-surface-800/40">
+                  <div class="text-3xl font-bold text-accent-orange mb-1">60</div>
+                  <div class="text-[11px] text-surface-500 uppercase tracking-wider">FPS</div>
+                </div>
+                <div class="text-center py-5 rounded-xl bg-surface-950 border border-surface-800/40">
+                  <div class="text-3xl font-bold text-accent-orange mb-1">50k+</div>
+                  <div class="text-[11px] text-surface-500 uppercase tracking-wider">Photos</div>
+                </div>
+                <div class="text-center py-5 rounded-xl bg-surface-950 border border-surface-800/40">
+                  <div class="text-3xl font-bold text-accent-orange mb-1">20+</div>
+                  <div class="text-[11px] text-surface-500 uppercase tracking-wider">Formats</div>
+                </div>
+              </div>
+
+              <!-- Format list -->
+              <div class="space-y-2">
+                <div class="px-3 py-2 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <p class="text-xs text-surface-500 uppercase tracking-wider mb-1">Standard</p>
+                  <p class="text-sm text-surface-300">JPEG, PNG, WebP, AVIF, TIFF, BMP</p>
+                </div>
+                <div class="px-3 py-2 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <p class="text-xs text-surface-500 uppercase tracking-wider mb-1">RAW</p>
+                  <p class="text-sm text-surface-300">CR2, CR3, NEF, ARW, DNG, ORF, RAF</p>
+                </div>
+                <div class="px-3 py-2 rounded-lg bg-surface-950 border border-surface-800/40">
+                  <p class="text-xs text-surface-500 uppercase tracking-wider mb-1">Video</p>
+                  <p class="text-sm text-surface-300">MP4, MOV, AVI, MKV, WebM, M4V</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-accent-orange/10 border border-accent-orange/20 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-accent-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Blazing Fast Performance
+            </h2>
+            <p class="text-surface-400 text-lg leading-relaxed mb-6">
+              Handle massive photo libraries without slowing down. Optimized for smooth scrolling and instant loading.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-orange/10 border border-accent-orange/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Virtual Scrolling</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Browse 50,000+ photos at 60 FPS with zero lag</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-orange/10 border border-accent-orange/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">SQLite-Backed Database</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Lightning-fast queries and instant search results</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-orange/10 border border-accent-orange/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Smart Thumbnail Caching</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Automatic thumbnail generation and intelligent caching</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-orange/10 border border-accent-orange/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Native Desktop Performance</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">Built with modern desktop frameworks for maximum speed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy First -->
+    <section class="py-16 md:py-24">
+      <div class="container-narrow">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Content -->
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-accent-green/10 border border-accent-green/20 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-accent-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Privacy First
+            </h2>
+            <p class="text-surface-400 text-lg leading-relaxed mb-6">
+              Your photos never leave your device. No cloud accounts, no uploads, no tracking. Everything stays local.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-green/10 border border-accent-green/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">100% Local Processing</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">All indexing, AI, and search happens on your device</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-green/10 border border-accent-green/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">No Cloud Dependency</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">No accounts, no sign-ups, no cloud storage required</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-green/10 border border-accent-green/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Zero Tracking</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">No analytics, no telemetry. Optional crash reports are opt-in only</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-green/10 border border-accent-green/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3 text-accent-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium mb-1">Encrypted License Storage</p>
+                  <p class="text-surface-400 text-sm leading-relaxed">AES-256-GCM encryption tied to your device</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual -->
+          <div class="order-first lg:order-last">
+            <div class="card p-6 md:p-8">
+              <p class="text-xs text-surface-500 uppercase tracking-wider font-medium mb-6 text-center">Local-First Architecture</p>
+
+              <!-- Privacy checklist -->
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-accent-green/5 border border-accent-green/10">
+                  <svg class="w-5 h-5 text-accent-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span class="text-sm text-surface-300">No cloud accounts</span>
+                </div>
+                <div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-accent-green/5 border border-accent-green/10">
+                  <svg class="w-5 h-5 text-accent-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span class="text-sm text-surface-300">No photo uploads</span>
+                </div>
+                <div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-accent-green/5 border border-accent-green/10">
+                  <svg class="w-5 h-5 text-accent-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span class="text-sm text-surface-300">No telemetry or tracking</span>
+                </div>
+                <div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-accent-green/5 border border-accent-green/10">
+                  <svg class="w-5 h-5 text-accent-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span class="text-sm text-surface-300">Works completely offline</span>
+                </div>
+                <div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-accent-green/5 border border-accent-green/10">
+                  <svg class="w-5 h-5 text-accent-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span class="text-sm text-surface-300">Encrypted local storage</span>
+                </div>
+              </div>
+
+              <div class="pt-5 border-t border-surface-800/50 text-center">
+                <p class="text-sm text-surface-400">Your photos. Your device. Your privacy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-Platform -->
+    <section class="py-16 md:py-24 bg-surface-950/50">
+      <div class="container-narrow">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex w-14 h-14 rounded-xl bg-brand-500/10 border border-brand-500/20 items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+          </div>
+
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Cross-Platform
+          </h2>
+          <p class="text-surface-400 text-lg leading-relaxed">
+            One app, same experience everywhere. Native performance on macOS, Windows, and Linux.
+          </p>
+        </div>
+
+        <!-- Platform cards -->
+        <div class="grid md:grid-cols-3 gap-4 mb-8">
+          <!-- macOS -->
+          <div class="card p-6 text-center">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-surface-950 border border-surface-800/60 flex items-center justify-center">
+              <svg class="w-6 h-6 text-surface-300" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">macOS</h3>
+            <p class="text-sm text-surface-400 mb-3">Apple Silicon & Intel</p>
+            <p class="text-xs text-surface-500">macOS 12+</p>
+          </div>
+
+          <!-- Windows -->
+          <div class="card p-6 text-center">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-surface-950 border border-surface-800/60 flex items-center justify-center">
+              <svg class="w-6 h-6 text-surface-300" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 12V6.75l6-1.32v6.48L3 12zm6.2.09v6.63l-6.2-1.36V12.1l6.2-.01zm.8 6.72V12.1l11-1.1v7.7L10 19.81zm11-8.71l-11-.97V3.2l11-1.2v9.1z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Windows</h3>
+            <p class="text-sm text-surface-400 mb-3">x64 & ARM</p>
+            <p class="text-xs text-surface-500">Windows 10+</p>
+          </div>
+
+          <!-- Linux -->
+          <div class="card p-6 text-center">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-surface-950 border border-surface-800/60 flex items-center justify-center">
+              <svg class="w-6 h-6 text-surface-300" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.338 1.884 1.772.347.2.722.341 1.04.531.593.386.91.678.91 1.262 0 .208-.104.408-.2.667-.19.6-.395 1.395.2 2.006.404.404 1.017.571 1.648.345.315-.114.61-.297.845-.53.93-.93 1.455-2.536.53-3.867-.263-.342-.655-.531-.862-.858-.065-.104-.125-.273-.122-.36.003-.094.069-.197.14-.334.065-.134.135-.274.166-.474a.919.919 0 00-.08-.589c-.131-.244-.35-.395-.6-.504-.96-.55-1.926-.813-2.928-1.153a2.225 2.225 0 01-.4-.187c-.158-.103-.3-.2-.426-.379a.8.8 0 01-.108-.493c.024-.405.28-.626.485-.861.413-.458.865-.974.987-1.843.063-.452.027-.784-.056-1.186-.046-.2-.126-.39-.19-.59-.064-.21-.105-.396-.105-.65 0-.345.075-.735.174-1.104.178-.67.409-1.26.579-1.717l.004-.013c.055-.143.104-.27.155-.381.166-.382.303-.675.254-1.057-.085-.667-.487-1.358-1.154-1.814-.715-.49-1.742-.794-2.998-.794zm.072 1.26c1.068 0 1.892.243 2.429.603.497.333.786.794.845 1.252.025.192-.059.36-.192.676-.065.154-.137.324-.199.484l-.008.02c-.174.464-.418 1.072-.604 1.775-.107.396-.197.835-.197 1.298 0 .376.066.674.143.924.076.244.16.428.196.596.053.262.081.508.035.824-.079.55-.36.878-.745 1.31-.193.218-.415.461-.557.741a1.578 1.578 0 00-.16.843c.032.397.182.729.42.979.237.249.54.4.816.519.156.068.32.127.493.181.95.31 1.845.567 2.652 1.01.134.079.213.157.265.237a.272.272 0 01.022.167c-.012.063-.058.136-.117.257-.12.243-.254.564-.254.98 0 .438.218.748.39.985.168.236.332.39.524.628.405.502.715 1.372.115 1.973a1.082 1.082 0 01-.498.31c-.293.104-.59.028-.792-.193-.34-.374-.252-.815-.066-1.4.093-.294.236-.597.236-.93 0-.894-.566-1.316-1.063-1.64-.348-.226-.72-.374-1.069-.564-.658-.38-1.294-.88-1.592-1.471-.035-.068-.062-.14-.096-.257-.025-.088.044-.328.065-.39.75-.24 1.558-.732 2.258-1.41.698-.677 1.295-1.548 1.565-2.595.072-.283.11-.57.11-.86 0-.653-.236-1.269-.528-1.823-.291-.552-.64-1.044-.962-1.45-.336-.426-.645-.77-.879-1.06l-.008-.01c-.131-.163-.24-.298-.296-.393a.42.42 0 01-.062-.155c-.003-.085.013-.194.05-.326.073-.27.195-.554.27-.975l.004-.02c.016-.142.023-.277.023-.406 0-1.3-.378-2.384-.96-3.147-.292-.383-.633-.686-.996-.881-.357-.195-.743-.295-1.115-.295a.785.785 0 00-.14.008c-.18.02-.37.047-.528.14-.139.082-.24.207-.326.386-.087.18-.15.403-.227.647-.153.496-.254 1.137-.254 1.84 0 .665.1 1.271.247 1.698.055.16.122.302.218.41l.006.007c.3.348.637.72.97 1.157.334.437.681.936.978 1.502.298.564.534 1.2.534 1.904 0 .352-.052.698-.148 1.032-.267 1.065-.872 1.867-1.517 2.46-.646.593-1.34 1.01-1.83 1.172a.6.6 0 00-.343.257c-.076.145-.08.3-.053.425.08.37.238.616.42.838.184.222.372.39.561.513.19.123.371.228.465.278.028.017.043.028.043.028.85.41 1.784.77 2.616 1.177a.7.7 0 01.18.119c.116.131.131.247.131.413 0 .12-.027.24-.063.359-.036.12-.077.241-.085.37-.012.158.024.348.128.519.115.189.3.327.504.42.205.093.433.137.667.137.48 0 .906-.197 1.287-.377.762-.38 1.477-.89 2.05-1.564.573-.674 1.012-1.506 1.164-2.504l.015-.102c.044-.324.078-.538.078-.732a2.36 2.36 0 00-.04-.452c-.026-.152-.074-.298-.137-.434l-.003-.005z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Linux</h3>
+            <p class="text-sm text-surface-400 mb-3">AppImage & .deb</p>
+            <p class="text-xs text-surface-500">Ubuntu 22.04+</p>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="text-center">
+          <p class="text-surface-400 text-sm">
+            Lightweight ~30MB installer • Multi-device licensing • Same features across all platforms
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="py-16 md:py-24 relative overflow-hidden">
+      <!-- Background glow -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-500/[0.04] rounded-full blur-[120px]"></div>
+      </div>
+
+      <div class="container-narrow relative z-10 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          Ready to try CullVue?
+        </h2>
+        <p class="text-surface-400 text-lg max-w-2xl mx-auto mb-8">
+          Join the waitlist to be notified when CullVue launches, or explore the documentation
+          to learn more about how it works.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/waitlist" class="btn-primary px-8 py-3 text-base inline-flex items-center justify-center gap-2">
+            Join the Waitlist
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+          <a href="/docs" class="btn-secondary px-8 py-3 text-base inline-flex items-center justify-center gap-2">
+            View Documentation
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer />
 </Layout>
+
+<style>
+  /* Light mode overrides */
+  :global([data-theme="light"]) h1,
+  :global([data-theme="light"]) h2,
+  :global([data-theme="light"]) h3 {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) p.text-surface-400,
+  :global([data-theme="light"]) .text-surface-400 {
+    color: #535572;
+  }
+
+  :global([data-theme="light"]) .text-surface-300 {
+    color: #3b3c4f;
+  }
+
+  :global([data-theme="light"]) .text-surface-500 {
+    color: #686c8b;
+  }
+
+  :global([data-theme="light"]) .text-white {
+    color: #1a1b2e;
+  }
+
+  :global([data-theme="light"]) .bg-surface-950\/50 {
+    background-color: #f8f9fc;
+  }
+
+  /* Hide background gradient glows in light mode */
+  :global([data-theme="light"]) .absolute.inset-0.pointer-events-none > div {
+    opacity: 0 !important;
+  }
+</style>
