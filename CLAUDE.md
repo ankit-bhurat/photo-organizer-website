@@ -136,7 +136,7 @@ const puppeteer = require('/tmp/node_modules/puppeteer');
 
 ## TODO
 
-- [ ] **Set up custom domain**: Point `cullvue.com` DNS to GitHub Pages (A records + CNAME), add `public/CNAME` file with `cullvue.com`, enable in repo Settings → Pages
+- [x] **Set up custom domain**: Point `cullvue.com` DNS to GitHub Pages (A records + CNAME), add `public/CNAME` file with `cullvue.com`, enable in repo Settings → Pages
 - [ ] **Integrate newsletter/waitlist backend**: Connect waitlist, contact, and newsletter forms to a service like **Mailchimp** (recommended — free up to 500 subs). Replace the current placeholder `POST #` and commented-out fetch calls with real API endpoints. Forms affected: `waitlist.astro`, `contact.astro`, `Footer.astro`
 - [ ] **Set up newsletter distribution**: Use the same Mailchimp account (or alternative: Buttondown, ConvertKit/Kit, Resend) to compose and send newsletters to collected subscribers. Subscriber list will already be in the platform from form signups — no export/import needed.
 
