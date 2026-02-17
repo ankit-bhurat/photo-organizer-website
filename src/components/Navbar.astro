@@ -17,32 +17,7 @@ const navLinks = [
 
         {/* ---- Logo ---- */}
         <a href="/" class="flex items-center gap-2.5 group" aria-label="CullVue home">
-          <div class="relative flex items-center justify-center w-8 h-8">
-            {/* Aperture-inspired icon */}
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 28 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="transition-transform duration-300 group-hover:rotate-[30deg]"
-              aria-hidden="true"
-            >
-              <circle cx="14" cy="14" r="12.5" stroke="url(#logo-grad)" stroke-width="1.5" />
-              <circle cx="14" cy="14" r="7" stroke="url(#logo-grad)" stroke-width="1.5" />
-              <line x1="14" y1="1.5" x2="14" y2="7" stroke="url(#logo-grad)" stroke-width="1.2" />
-              <line x1="14" y1="21" x2="14" y2="26.5" stroke="url(#logo-grad)" stroke-width="1.2" />
-              <line x1="1.5" y1="14" x2="7" y2="14" stroke="url(#logo-grad)" stroke-width="1.2" />
-              <line x1="21" y1="14" x2="26.5" y2="14" stroke="url(#logo-grad)" stroke-width="1.2" />
-              <circle cx="14" cy="14" r="3" fill="url(#logo-grad)" opacity="0.35" />
-              <defs>
-                <linearGradient id="logo-grad" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#3b93ff" />
-                  <stop offset="1" stop-color="#06b6d4" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
+          <img src="/logo.png" alt="CullVue" class="w-8 h-8" />
           <span class="text-[15px] font-semibold text-white tracking-[-0.01em]">
             CullVue
           </span>
