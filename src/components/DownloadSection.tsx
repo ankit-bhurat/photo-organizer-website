@@ -150,7 +150,7 @@ function PlatformDetail({ platform }: { platform: PlatformInfo }) {
             <h3 className="text-xl font-semibold text-white mb-2">
               {platform.label} version is coming soon
             </h3>
-            <p className="text-surface-400 text-[15px] mb-6">
+            <p className="text-surface-300 text-[15px] mb-6">
               We'll notify you as soon as the {platform.label} version is ready to download. Be among the first to try it.
             </p>
 
@@ -164,7 +164,7 @@ function PlatformDetail({ platform }: { platform: PlatformInfo }) {
               </svg>
             </a>
 
-            <p className="text-xs text-surface-500 mt-5 flex items-center justify-center gap-1.5">
+            <p className="text-xs text-surface-400 mt-5 flex items-center justify-center gap-1.5">
               <svg className="w-3.5 h-3.5 text-surface-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
@@ -319,14 +319,14 @@ export default function DownloadSection() {
 
       {/* Hint text when nothing is selected */}
       {!selected && (
-        <p className="text-center text-surface-500 text-sm mt-8 animate-pulse">
+        <p className="text-center text-surface-400 text-sm mt-8 animate-pulse">
           Select your platform to get notified when it's available
         </p>
       )}
 
       {/* What to expect section */}
       <div className="mt-20 max-w-4xl mx-auto">
-        <h2 className="text-sm font-semibold uppercase tracking-widest text-surface-500 text-center mb-8">What to expect</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-widest text-surface-400 text-center mb-8">What to expect</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {expectations.map((item, i) => (
             <div
@@ -338,7 +338,7 @@ export default function DownloadSection() {
               </div>
               <div>
                 <h3 className="font-medium text-white text-[15px] mb-1">{item.title}</h3>
-                <p className="text-sm text-surface-400 leading-relaxed">{item.description}</p>
+                <p className="text-sm text-surface-300 leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}
