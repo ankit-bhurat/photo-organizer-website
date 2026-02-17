@@ -3,8 +3,8 @@ main = "src/index.ts"
 compatibility_date = "2024-12-01"
 
 [vars]
-MAILCHIMP_SERVER_PREFIX = "us21"
-MAILCHIMP_AUDIENCE_ID = "YOUR_AUDIENCE_ID"
+MAILCHIMP_SERVER_PREFIX = "us3"
+MAILCHIMP_AUDIENCE_ID = "e4c6fd9fa4"
 ALLOWED_ORIGIN = "https://cullvue.com"
 
 # MAILCHIMP_API_KEY is set via `npx wrangler secret put MAILCHIMP_API_KEY`
