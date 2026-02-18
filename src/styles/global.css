@@ -88,11 +88,11 @@
   }
 
   .card {
-    @apply bg-surface-900 border border-surface-800 rounded-2xl;
+    @apply bg-surface-900 border border-surface-700 rounded-2xl shadow-lg shadow-black/20;
   }
 
   .card-hover {
-    @apply card transition-all duration-300 hover:border-surface-700 hover:bg-surface-800;
+    @apply card transition-all duration-300 hover:border-surface-600 hover:bg-surface-800;
   }
 
   .btn-primary {
@@ -666,8 +666,12 @@
 }
 
 /* Feature card text contrast */
+[data-theme="light"] .feature-card .text-surface-200 {
+  color: #535572;
+}
+
 [data-theme="light"] .feature-card .text-surface-300 {
-  color: #3b3c4f;
+  color: #686c8b;
 }
 
 [data-theme="light"] .feature-card .text-surface-400 {
