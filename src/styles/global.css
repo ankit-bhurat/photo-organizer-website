@@ -800,19 +800,42 @@
   background-color: #ffffff;
 }
 
-/* Download page — what to expect cards */
-[data-theme="light"] .download-expect-card {
+/* Download page — platform cards */
+[data-theme="light"] .platform-card {
   background-color: #ffffff;
-  border-color: #e2e4ea;
+  border-color: #c8ccd6;
+}
+
+[data-theme="light"] .platform-card:hover {
+  background-color: #f7f8fa;
+  border-color: #a0a4b4;
+}
+
+[data-theme="light"] .platform-card .text-surface-300 {
+  color: #535572;
+}
+
+[data-theme="light"] .platform-card .text-surface-200 {
+  color: #3b3c4f;
+}
+
+[data-theme="light"] .platform-card .text-surface-400 {
+  color: #535572;
 }
 
 /* Download page — platform card coming soon badges */
-[data-theme="light"] .platform-card .bg-surface-800\/60 {
+[data-theme="light"] .platform-card .bg-surface-800 {
   background-color: #e8eaf0;
 }
 
 [data-theme="light"] .platform-card .bg-brand-500\/15 {
   background-color: rgba(30, 111, 245, 0.08);
+}
+
+/* Download page — what to expect cards */
+[data-theme="light"] .download-expect-card {
+  background-color: #ffffff;
+  border-color: #c8ccd6;
 }
 
 /* Blur glow blobs - make invisible in light mode */

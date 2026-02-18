@@ -258,10 +258,10 @@ export default function DownloadSection() {
               key={p.id}
               data-platform={p.id}
               onClick={() => (isSelected ? handleDeselect() : handleSelect(p.id))}
-              className={`platform-card relative flex flex-col items-center gap-3 p-6 sm:p-8 rounded-2xl border backdrop-blur-sm cursor-pointer transition-all duration-300 group ${
+              className={`platform-card relative flex flex-col items-center gap-3 p-6 sm:p-8 rounded-2xl border cursor-pointer transition-all duration-300 group ${
                 isSelected
-                  ? 'bg-surface-900/70 border-brand-500 shadow-lg shadow-brand-500/10'
-                  : 'bg-surface-900/50 border-surface-800/60 hover:border-surface-700/80 hover:bg-surface-900/70'
+                  ? 'bg-surface-900 border-brand-500 shadow-lg shadow-brand-500/10'
+                  : 'bg-surface-900 border-surface-700 hover:border-surface-600 hover:bg-surface-800'
               }`}
             >
               {/* Glow effect on selection */}
@@ -284,7 +284,7 @@ export default function DownloadSection() {
                   {p.name}
                 </div>
                 <div className={`text-xs mt-1 font-mono transition-colors duration-300 ${
-                  isSelected ? 'text-brand-400' : 'text-surface-500'
+                  isSelected ? 'text-brand-400' : 'text-surface-300'
                 }`}>
                   {p.chip}
                 </div>
@@ -294,7 +294,7 @@ export default function DownloadSection() {
               <div className={`text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full transition-colors duration-300 ${
                 isSelected
                   ? 'bg-brand-500/15 text-brand-300'
-                  : 'bg-surface-800/60 text-surface-500'
+                  : 'bg-surface-800 text-surface-300'
               }`}>
                 Coming soon
               </div>
@@ -331,7 +331,7 @@ export default function DownloadSection() {
           {expectations.map((item, i) => (
             <div
               key={i}
-              className="download-expect-card flex items-start gap-4 p-5 rounded-xl bg-surface-900/40 border border-surface-800/40"
+              className="download-expect-card flex items-start gap-4 p-5 rounded-xl bg-surface-900 border border-surface-700"
             >
               <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
                 {item.icon}
@@ -347,8 +347,8 @@ export default function DownloadSection() {
 
       {/* System requirements note */}
       <div className="mt-16 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-900/50 border border-surface-800/40">
-          <svg className="w-4 h-4 text-surface-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-900 border border-surface-700">
+          <svg className="w-4 h-4 text-surface-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="10" />
             <line x1="12" y1="16" x2="12" y2="12" />
             <line x1="12" y1="8" x2="12.01" y2="8" />
