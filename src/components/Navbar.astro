@@ -199,8 +199,10 @@ const navLinks = [
 </style>
 
 <script>
-  // astro:page-load fires on both initial load and SPA navigations
+  // astro:page-load fires on SPA navigations (requires Client Router)
   document.addEventListener('astro:page-load', setup);
+  // Module scripts are deferred, so DOM is already parsed — run setup directly
+  setup();
 
   function setup() {
     const navbar = document.getElementById('navbar');
@@ -298,11 +300,7 @@ const navLinks = [
         const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
         const newTheme = isDark ? 'light' : 'dark';
 
-        if (newTheme === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        } else {
-          document.documentElement.removeAttribute('data-theme');
-        }
+        document.documentElement.setAttribute('data-theme', newTheme);
 
         localStorage.setItem('theme', newTheme);
         updateIcons(newTheme);

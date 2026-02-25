@@ -284,6 +284,8 @@ const companyLinks = [
     });
   }
 
-  // astro:page-load fires on both initial load and SPA navigations
+  // astro:page-load fires on SPA navigations (requires Client Router)
   document.addEventListener('astro:page-load', setupNewsletterForm);
+  // Module scripts are deferred, so DOM is already parsed — run directly
+  setupNewsletterForm();
 </script>
