@@ -199,13 +199,8 @@ const navLinks = [
 </style>
 
 <script>
+  // astro:page-load fires on both initial load and SPA navigations
   document.addEventListener('astro:page-load', setup);
-  // Also run on initial load for non-SPA navigations
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setup);
-  } else {
-    setup();
-  }
 
   function setup() {
     const navbar = document.getElementById('navbar');

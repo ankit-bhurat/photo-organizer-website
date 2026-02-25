@@ -284,12 +284,6 @@ const companyLinks = [
     });
   }
 
-  // Support Astro view transitions
+  // astro:page-load fires on both initial load and SPA navigations
   document.addEventListener('astro:page-load', setupNewsletterForm);
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupNewsletterForm);
-  } else {
-    setupNewsletterForm();
-  }
 </script>

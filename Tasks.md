@@ -21,10 +21,10 @@
 ## Low Priority (Nice to Have)
 
 - [ ] **Add `fetchpriority="high"` to hero images** — LCP optimization.
-- [ ] **Breadcrumbs on docs pages** — Improve navigation UX (some pages have them, ensure consistency).
+- [x] **Breadcrumbs on docs pages** — Verified: all 6 doc subpages already have consistent breadcrumbs; hub page correctly has none.
 - [ ] **Social media accounts** — Verify GitHub (`github.com/cullvue`) and X (`x.com/cullvue`) accounts exist and match footer links.
 - [ ] **Custom email domain** — Set up `support@cullvue.com` for the contact page.
-- [ ] **Clean up Navbar/Footer event binding** — Both components use a redundant pattern binding `setup()` to `astro:page-load`, `DOMContentLoaded`, and immediate invocation. Works but is fragile — simplify to a single strategy.
+- [x] **Clean up Navbar/Footer event binding** — Simplified to `astro:page-load` only (handles both initial load and SPA navigations).
 
 ## Done
 
